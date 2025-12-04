@@ -1,38 +1,206 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tentang Kami - Verda Nusadaya</title>
-    <meta
-      name="description"
-      content="PT. Verda Nusadaya adalah perusahaan agroindustri terpercaya dengan visi dan misi untuk menyediakan produk berkualitas tinggi dari hasil pertanian Indonesia."
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <meta
-      name="keywords"
-      content="tentang verda nusadaya, profil perusahaan, visi misi, tim, sertifikat"
-    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap");
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Tentang Kami - Verda Nusadaya" />
-    <meta
-      property="og:description"
-      content="PT. Verda Nusadaya adalah perusahaan agroindustri terpercaya dengan visi dan misi untuk menyediakan produk berkualitas tinggi."
-    />
-    <meta
-      property="og:url"
-      content="https://imammakbul166.github.io/VerdaNusadaya/about.html"
-    />
-    <meta property="og:type" content="website" />
+      * {
+        font-family: "Plus Jakarta Sans", sans-serif;
+      }
 
-    <!-- Favicon -->
-    <link rel="icon" href="./images/logo.png" />
-    <link rel="apple-touch-icon" href="./images/logo.png" />
+      .gradient-text {
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="./css/style.css" />
+      .hero-gradient {
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      }
+
+      .card-hover {
+        transition: all 0.3s ease;
+      }
+
+      .card-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .fade-in {
+        animation: fadeIn 0.5s ease-in;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Custom Navigation Styles */
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        z-index: 1000;
+      }
+
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: #1f2937;
+        font-weight: 700;
+        font-size: 1.25rem;
+      }
+
+      .nav-logo-icon {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 800;
+        margin-right: 0.75rem;
+      }
+
+      .nav-menu {
+        display: flex;
+        align-items: center;
+        gap: 2.5rem;
+      }
+
+      .nav-menu a {
+        text-decoration: none;
+        color: #6b7280;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+
+      .nav-menu a:hover {
+        color: #059669;
+      }
+
+      .nav-menu a.active {
+        color: #059669;
+        font-weight: 600;
+      }
+
+      .nav-contact {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      .nav-contact-info {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #6b7280;
+        font-size: 0.875rem;
+      }
+
+      .btn {
+        padding: 0.625rem 1.5rem;
+        border-radius: 2rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-block;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(5, 150, 105, 0.3);
+      }
+
+      .nav-mobile-btn {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #374151;
+      }
+
+      .nav-mobile-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        border-top: 1px solid #e5e7eb;
+        padding: 1rem 2rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      }
+
+      .nav-mobile-menu a {
+        display: block;
+        padding: 0.75rem 0;
+        text-decoration: none;
+        color: #6b7280;
+        font-weight: 500;
+        border-bottom: 1px solid #f3f4f6;
+      }
+
+      .nav-mobile-menu a:last-child {
+        border-bottom: none;
+      }
+
+      .nav-mobile-menu a:hover,
+      .nav-mobile-menu a.active {
+        color: #059669;
+      }
+
+      @media (max-width: 768px) {
+        .nav-menu,
+        .nav-contact {
+          display: none;
+        }
+        .nav-mobile-btn {
+          display: block;
+        }
+        .nav-mobile-menu.active {
+          display: block;
+        }
+      }
+    </style>
   </head>
-  <body class="min-h-screen bg-white">
+  <body class="bg-gray-50">
     <!-- Navigation -->
     <nav class="nav">
       <div class="nav-container">
@@ -43,7 +211,7 @@
 
         <div class="nav-menu">
           <a href="index.html">Beranda</a>
-          <a href="about.html">Tentang Kami</a>
+          <a href="about.html" class="active">Tentang Kami</a>
           <a href="products.html">Produk</a>
           <a href="contact.html">Kontak</a>
         </div>
@@ -84,946 +252,453 @@
           </svg>
         </button>
       </div>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="nav-mobile-menu">
+        <a href="index.html">Beranda</a>
+        <a href="about.html" class="active">Tentang Kami</a>
+        <a href="products.html">Produk</a>
+        <a href="contact.html">Kontak</a>
+      </div>
     </nav>
 
-    <!-- Mobile Menu -->
-    <div id="mobileMenu" class="mobile-menu">
-      <div class="mobile-menu-header">
-        <div class="nav-logo">
-          <div class="nav-logo-icon">VN</div>
-          <span>Verda Nusadaya</span>
-        </div>
-        <button class="mobile-menu-close" onclick="toggleMobileMenu()">
-          ×
-        </button>
-      </div>
-      <div class="mobile-menu-content">
-        <ul class="mobile-menu-links">
-          <li><a href="index.html" onclick="toggleMobileMenu()">Beranda</a></li>
-          <li>
-            <a href="about.html" onclick="toggleMobileMenu()">Tentang Kami</a>
-          </li>
-          <li>
-            <a href="products.html" onclick="toggleMobileMenu()">Produk</a>
-          </li>
-          <li>
-            <a href="contact.html" onclick="toggleMobileMenu()">Kontak</a>
-          </li>
-        </ul>
-        <div class="mobile-menu-contact">
-          <div class="mobile-menu-contact-item">
-            <svg
-              class="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-              ></path>
-            </svg>
-            <span>+62 812-3456-7890</span>
-          </div>
-          <div class="mobile-menu-contact-item">
-            <svg
-              class="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-              ></path>
-            </svg>
-            <span>info@verdanusadaya.com</span>
-          </div>
-          <a href="contact.html" class="btn btn-primary w-full">Hubungi Kami</a>
-        </div>
-      </div>
-    </div>
-
-    <div id="overlay" class="overlay" onclick="toggleMobileMenu()"></div>
-
     <!-- Hero Section -->
-    <section class="py-20 bg-gray-50">
-      <div class="container text-center">
-        <h1 class="text-4xl font-bold mb-4">Tentang Verda Nusadaya</h1>
-        <p class="text-lg text-gray-600">
-          Perusahaan agroindustri terpercaya dengan komitmen pada kualitas dan
-          keberlanjutan
-        </p>
+    <section class="pt-24 pb-12 bg-gradient-to-br from-emerald-50 to-teal-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center fade-in">
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
+            Tentang <span class="gradient-text">Verda Nusadaya</span>
+          </h1>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+            Mengenal lebih dekat perusahaan yang berdedikasi untuk transformasi
+            digital bisnis Anda
+          </p>
+        </div>
       </div>
     </section>
 
-    <!-- Company Profile -->
-    <section class="section">
-      <div class="container">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 class="text-3xl font-bold text-gray-800 mb-6">
-              Profil Perusahaan
-            </h2>
-            <div class="space-y-4 text-gray-600">
-              <p>
-                PT. Verda Nusadaya adalah perusahaan agroindustri yang telah
-                berdiri sejak tahun 2010. Kami bergerak dalam bidang
-                perdagangan, pengolahan, dan distribusi berbagai produk
-                pertanian berkualitas tinggi.
-              </p>
-              <p>
-                Dengan pengalaman lebih dari satu dekade, kami telah membangun
-                reputasi sebagai supplier terpercaya untuk kebutuhan
-                agroindustri di pasar domestik maupun internasional.
-              </p>
-              <p>
-                Produk kami meliputi kopi premium, karet berkualitas tinggi, dan
-                berbagai produk kelapa sawit yang dihasilkan dari perkebunan
-                terbaik di Indonesia.
-              </p>
-            </div>
-
-            <div class="grid grid-cols-2 gap-6 mt-8">
-              <div class="text-center">
-                <div class="text-3xl font-bold text-green-600 mb-2">14+</div>
-                <div class="text-gray-600">Tahun Pengalaman</div>
-              </div>
-              <div class="text-center">
-                <div class="text-3xl font-bold text-green-600 mb-2">1000+</div>
-                <div class="text-gray-600">Pelanggan Puas</div>
-              </div>
-              <div class="text-center">
-                <div class="text-3xl font-bold text-green-600 mb-2">50+</div>
-                <div class="text-gray-600">Partner Bisnis</div>
-              </div>
-              <div class="text-center">
-                <div class="text-3xl font-bold text-green-600 mb-2">15+</div>
-                <div class="text-gray-600">Sertifikat</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="relative">
+    <!-- About Section -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="fade-in">
             <img
-              src="https://images.unsplash.com/photo-1592982537442-025781f5f7eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
-              alt="Company Profile"
-              class="rounded-lg shadow-xl w-full"
+              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+              alt="Tim Verda Nusadaya"
+              class="rounded-2xl shadow-xl w-full"
             />
           </div>
+          <div class="fade-in">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">
+              Kami Adalah <span class="gradient-text">Solusi Digital</span> Anda
+            </h2>
+            <p class="text-gray-600 mb-4 leading-relaxed">
+              Verda Nusadaya adalah perusahaan teknologi yang berfokus pada
+              penyediaan solusi digital komprehensif untuk berbagai industri.
+              Didirikan pada tahun 2020, kami telah membantu lebih dari 100+
+              klien dalam melakukan transformasi digital bisnis mereka.
+            </p>
+            <p class="text-gray-600 mb-6 leading-relaxed">
+              Dengan tim yang terdiri dari para ahli berpengalaman di bidang
+              teknologi, kami berkomitmen untuk memberikan solusi inovatif yang
+              tidak hanya memenuhi kebutuhan saat ini, tetapi juga mempersiapkan
+              bisnis Anda untuk tantangan masa depan.
+            </p>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="flex items-center space-x-3">
+                <div
+                  class="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center"
+                >
+                  <i class="fas fa-users text-emerald-600"></i>
+                </div>
+                <div>
+                  <p class="text-2xl font-bold text-gray-800">100+</p>
+                  <p class="text-sm text-gray-600">Klien Puas</p>
+                </div>
+              </div>
+              <div class="flex items-center space-x-3">
+                <div
+                  class="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center"
+                >
+                  <i class="fas fa-project-diagram text-emerald-600"></i>
+                </div>
+                <div>
+                  <p class="text-2xl font-bold text-gray-800">250+</p>
+                  <p class="text-sm text-gray-600">Proyek Selesai</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Vision & Mission -->
-    <section class="section section-gray">
-      <div class="container">
-        <div class="section-title">
-          <h2>Visi & Misi</h2>
-          <p class="max-w-2xl mx-auto">
-            Komitmen kami untuk masa depan agroindustri Indonesia
+    <!-- Vision & Mission Section -->
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+            Visi & <span class="gradient-text">Misi</span>
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Pandangan dan komitmen kami dalam memajukan transformasi digital
+            Indonesia
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <div class="card p-8 text-center">
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="bg-white rounded-2xl shadow-lg p-8 card-hover">
             <div
-              class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6"
+              class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mb-6"
             >
-              <svg
-                class="w-8 h-8 text-green-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M13 10V3L4 14h7v7l9-11h-7z"
-                ></path>
-              </svg>
+              <i class="fas fa-eye text-emerald-600 text-2xl"></i>
             </div>
-            <h3 class="text-2xl font-bold mb-4">Visi</h3>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">Visi Kami</h3>
             <p class="text-gray-600 leading-relaxed">
-              Menjadi perusahaan agroindustri terkemuka di Indonesia yang
-              memberikan nilai tambah bagi pemangku kepentingan dan
-              berkontribusi pada pembangunan pertanian nasional.
+              Menjadi mitra terpercaya dalam transformasi digital untuk bisnis
+              di Indonesia, dengan memberikan solusi teknologi yang inovatif,
+              efisien, dan berkelanjutan untuk mendukung pertumbuhan ekonomi
+              digital nasional.
             </p>
           </div>
 
-          <div class="card p-8 text-center">
+          <div class="bg-white rounded-2xl shadow-lg p-8 card-hover">
             <div
-              class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6"
+              class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mb-6"
             >
-              <svg
-                class="w-8 h-8 text-green-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-                ></path>
-              </svg>
+              <i class="fas fa-bullseye text-emerald-600 text-2xl"></i>
             </div>
-            <h3 class="text-2xl font-bold mb-4">Misi</h3>
-            <div class="text-gray-600 space-y-3 text-left">
-              <div class="flex items-start">
-                <svg
-                  class="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">Misi Kami</h3>
+            <ul class="text-gray-600 space-y-3">
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-emerald-600 mt-1 mr-3"></i>
+                <span
+                  >Memberikan solusi digital berkualitas tinggi yang disesuaikan
+                  dengan kebutuhan klien</span
                 >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                <span>Menyediakan produk agroindustri berkualitas tinggi</span>
-              </div>
-              <div class="flex items-start">
-                <svg
-                  class="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-emerald-600 mt-1 mr-3"></i>
+                <span
+                  >Mengembangkan inovasi teknologi yang berdampak positif bagi
+                  masyarakat</span
                 >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                <span>Mengembangkan praktik pertanian berkelanjutan</span>
-              </div>
-              <div class="flex items-start">
-                <svg
-                  class="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-emerald-600 mt-1 mr-3"></i>
+                <span
+                  >Membangun tim profesional yang berkompeten dan
+                  berintegritas</span
                 >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                <span>Meningkatkan kesejahteraan petani mitra</span>
-              </div>
-              <div class="flex items-start">
-                <svg
-                  class="w-5 h-5 text-green-600 mr-2 mt-0.5 flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
+              </li>
+              <li class="flex items-start">
+                <i class="fas fa-check-circle text-emerald-600 mt-1 mr-3"></i>
+                <span
+                  >Menjadi pelopor dalam adopsi teknologi terkini untuk kemajuan
+                  bisnis</span
                 >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                <span>Memperluas pasar ekspor produk Indonesia</span>
-              </div>
-            </div>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Company Values -->
-    <section class="section">
-      <div class="container">
-        <div class="section-title">
-          <h2>Nilai-Nilai Perusahaan</h2>
-          <p class="max-w-2xl mx-auto">
-            Prinsip yang memandu setiap langkah kami
+    <!-- Values Section -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+            Nilai-Nilai <span class="gradient-text">Perusahaan</span>
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Prinsip yang menjadi fondasi dalam setiap langkah kami
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="card p-6 text-center hover:shadow-lg transition-shadow">
+        <div class="grid md:grid-cols-4 gap-6">
+          <div class="text-center card-hover">
             <div
-              class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 text-green-600"
+              class="w-20 h-20 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4"
             >
-              <svg
-                class="w-8 h-8"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M13 10V3L4 14h7v7l9-11h-7z"
-                ></path>
-              </svg>
+              <i class="fas fa-lightbulb text-white text-3xl"></i>
             </div>
-            <h3 class="text-xl font-semibold mb-3">Fokus pada Kualitas</h3>
-            <p class="text-gray-600">
-              Kami berkomitmen untuk memberikan produk berkualitas tertinggi
-              kepada pelanggan.
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">Inovasi</h3>
+            <p class="text-gray-600 text-sm">
+              Terus berinovasi dan mencari solusi kreatif untuk setiap tantangan
             </p>
           </div>
 
-          <div class="card p-6 text-center hover:shadow-lg transition-shadow">
+          <div class="text-center card-hover">
             <div
-              class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 text-green-600"
+              class="w-20 h-20 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4"
             >
-              <svg
-                class="w-8 h-8"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
-                ></path>
-              </svg>
+              <i class="fas fa-handshake text-white text-3xl"></i>
             </div>
-            <h3 class="text-xl font-semibold mb-3">Kepuasan Pelanggan</h3>
-            <p class="text-gray-600">
-              Kepuasan pelanggan adalah prioritas utama dalam setiap aspek
-              bisnis kami.
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">Integritas</h3>
+            <p class="text-gray-600 text-sm">
+              Berlaku jujur dan transparan dalam setiap interaksi bisnis
             </p>
           </div>
 
-          <div class="card p-6 text-center hover:shadow-lg transition-shadow">
+          <div class="text-center card-hover">
             <div
-              class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 text-green-600"
+              class="w-20 h-20 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4"
             >
-              <svg
-                class="w-8 h-8"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-                ></path>
-              </svg>
+              <i class="fas fa-award text-white text-3xl"></i>
             </div>
-            <h3 class="text-xl font-semibold mb-3">Inovasi Berkelanjutan</h3>
-            <p class="text-gray-600">
-              Terus berinovasi dan mengadopsi teknologi terbaru untuk kemajuan
-              bersama.
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">Kualitas</h3>
+            <p class="text-gray-600 text-sm">
+              Memberikan hasil terbaik dengan standar kualitas tertinggi
             </p>
           </div>
 
-          <div class="card p-6 text-center hover:shadow-lg transition-shadow">
+          <div class="text-center card-hover">
             <div
-              class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 text-green-600"
+              class="w-20 h-20 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-2xl flex items-center justify-center mx-auto mb-4"
             >
-              <svg
-                class="w-8 h-8"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                ></path>
-              </svg>
+              <i class="fas fa-users text-white text-3xl"></i>
             </div>
-            <h3 class="text-xl font-semibold mb-3">Integritas</h3>
-            <p class="text-gray-600">
-              Beroperasi dengan integritas tinggi dan transparansi dalam setiap
-              transaksi.
-            </p>
-          </div>
-
-          <div class="card p-6 text-center hover:shadow-lg transition-shadow">
-            <div
-              class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 text-green-600"
-            >
-              <svg
-                class="w-8 h-8"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-                ></path>
-              </svg>
-            </div>
-            <h3 class="text-xl font-semibold mb-3">Pertumbuhan Bersama</h3>
-            <p class="text-gray-600">
-              Menciptakan nilai bersama untuk pemangku kepentingan dan
-              masyarakat.
-            </p>
-          </div>
-
-          <div class="card p-6 text-center hover:shadow-lg transition-shadow">
-            <div
-              class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 text-green-600"
-            >
-              <svg
-                class="w-8 h-8"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                ></path>
-              </svg>
-            </div>
-            <h3 class="text-xl font-semibold mb-3">Keunggulan</h3>
-            <p class="text-gray-600">
-              Selalu berusaha untuk menjadi yang terbaik dalam industri
-              agroindustri.
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">Kolaborasi</h3>
+            <p class="text-gray-600 text-sm">
+              Bekerja sama sebagai tim untuk mencapai tujuan bersama
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Company History -->
-    <section class="section section-gray">
-      <div class="container">
-        <div class="section-title">
-          <h2>Sejarah Perusahaan</h2>
-          <p class="max-w-2xl mx-auto">
-            Perjalanan kami dalam membangun industri agroindustri Indonesia
+    <!-- Team Section -->
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+            Tim <span class="gradient-text">Profesional</span> Kami
+          </h2>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Berpengalaman dan berdedikasi untuk kesuksesan proyek Anda
           </p>
         </div>
 
-        <div class="max-w-4xl mx-auto">
-          <div class="flex items-center mb-8">
-            <div class="flex-shrink-0 w-24 text-right pr-6">
-              <span class="badge badge-secondary text-lg px-3 py-1">2010</span>
-            </div>
-            <div class="flex-shrink-0 w-4 h-4 bg-green-600 rounded-full"></div>
-            <div class="flex-grow pl-6">
-              <h3 class="text-xl font-semibold mb-2">Didirikan</h3>
-              <p class="text-gray-600">
-                PT. Verda Nusadaya didirikan dengan fokus pada perdagangan
-                komoditas pertanian.
-              </p>
-            </div>
-          </div>
-
-          <div class="flex items-center mb-8">
-            <div class="flex-shrink-0 w-24 text-right pr-6">
-              <span class="badge badge-secondary text-lg px-3 py-1">2015</span>
-            </div>
-            <div class="flex-shrink-0 w-4 h-4 bg-green-600 rounded-full"></div>
-            <div class="flex-grow pl-6">
-              <h3 class="text-xl font-semibold mb-2">Ekspansi Bisnis</h3>
-              <p class="text-gray-600">
-                Memperluas jangkauan pasar ke regional dan internasional.
-              </p>
-            </div>
-          </div>
-
-          <div class="flex items-center mb-8">
-            <div class="flex-shrink-0 w-24 text-right pr-6">
-              <span class="badge badge-secondary text-lg px-3 py-1">2020</span>
-            </div>
-            <div class="flex-shrink-0 w-4 h-4 bg-green-600 rounded-full"></div>
-            <div class="flex-grow pl-6">
-              <h3 class="text-xl font-semibold mb-2">Digitalisasi</h3>
-              <p class="text-gray-600">
-                Mengadopsi teknologi modern untuk meningkatkan efisiensi
-                operasional.
-              </p>
-            </div>
-          </div>
-
-          <div class="flex items-center">
-            <div class="flex-shrink-0 w-24 text-right pr-6">
-              <span class="badge badge-secondary text-lg px-3 py-1">2024</span>
-            </div>
-            <div class="flex-shrink-0 w-4 h-4 bg-green-600 rounded-full"></div>
-            <div class="flex-grow pl-6">
-              <h3 class="text-xl font-semibold mb-2">Inovasi Berkelanjutan</h3>
-              <p class="text-gray-600">
-                Berkomitmen pada praktik pertanian berkelanjutan dan sertifikasi
-                internasional.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Team -->
-    <section class="section">
-      <div class="container">
-        <div class="section-title">
-          <h2>Tim Kami</h2>
-          <p class="max-w-2xl mx-auto">
-            Profesional berpengalaman yang siap melayani kebutuhan Anda
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid md:grid-cols-3 gap-8">
           <div
-            class="card text-center overflow-hidden group hover:shadow-xl transition-all"
+            class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover"
           >
-            <div class="relative h-64 overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
-                alt="Ir. Ahmad Wijaya"
-                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-              />
-            </div>
-            <div class="card-content">
-              <h3 class="text-xl font-semibold mb-2">Ir. Ahmad Wijaya</h3>
-              <p class="text-green-600 font-medium mb-2">Direktur Utama</p>
+            <img
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
+              alt="CEO Verda Nusadaya"
+              class="w-full h-64 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-gray-800 mb-1">
+                Ahmad Pratama
+              </h3>
+              <p class="text-emerald-600 mb-3">Chief Executive Officer</p>
               <p class="text-gray-600 text-sm">
-                20+ tahun di industri agroindustri
+                Memiliki pengalaman 15+ tahun dalam industri teknologi dan
+                transformasi digital.
               </p>
             </div>
           </div>
 
           <div
-            class="card text-center overflow-hidden group hover:shadow-xl transition-all"
+            class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover"
           >
-            <div class="relative h-64 overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1494790108755-2616b332c1ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
-                alt="Drs. Siti Nurhaliza"
-                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-              />
-            </div>
-            <div class="card-content">
-              <h3 class="text-xl font-semibold mb-2">Drs. Siti Nurhaliza</h3>
-              <p class="text-green-600 font-medium mb-2">
-                Direktur Operasional
-              </p>
+            <img
+              src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
+              alt="CTO Verda Nusadaya"
+              class="w-full h-64 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-gray-800 mb-1">
+                Sarah Wijaya
+              </h3>
+              <p class="text-emerald-600 mb-3">Chief Technology Officer</p>
               <p class="text-gray-600 text-sm">
-                15+ tahun manajemen operasional
+                Ahli dalam arsitektur sistem dan pengembangan solusi
+                cloud-native.
               </p>
             </div>
           </div>
 
           <div
-            class="card text-center overflow-hidden group hover:shadow-xl transition-all"
+            class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover"
           >
-            <div class="relative h-64 overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
-                alt="Budi Santoso, S.E."
-                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-              />
-            </div>
-            <div class="card-content">
-              <h3 class="text-xl font-semibold mb-2">Budi Santoso, S.E.</h3>
-              <p class="text-green-600 font-medium mb-2">Direktur Keuangan</p>
-              <p class="text-gray-600 text-sm">18+ tahun di bidang keuangan</p>
-            </div>
-          </div>
-
-          <div
-            class="card text-center overflow-hidden group hover:shadow-xl transition-all"
-          >
-            <div class="relative h-64 overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
-                alt="Dr. Hendra Kusuma"
-                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-              />
-            </div>
-            <div class="card-content">
-              <h3 class="text-xl font-semibold mb-2">Dr. Hendra Kusuma</h3>
-              <p class="text-green-600 font-medium mb-2">
-                Head of Quality Control
+            <img
+              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
+              alt="COO Verda Nusadaya"
+              class="w-full h-64 object-cover"
+            />
+            <div class="p-6">
+              <h3 class="text-xl font-semibold text-gray-800 mb-1">
+                Budi Santoso
+              </h3>
+              <p class="text-emerald-600 mb-3">Chief Operating Officer</p>
+              <p class="text-gray-600 text-sm">
+                Spesialis dalam manajemen operasional dan pengembangan bisnis.
               </p>
-              <p class="text-gray-600 text-sm">12+ tahun quality management</p>
-            </div>
-          </div>
-
-          <div
-            class="card text-center overflow-hidden group hover:shadow-xl transition-all"
-          >
-            <div class="relative h-64 overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
-                alt="Maya Putri, S.P."
-                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-              />
-            </div>
-            <div class="card-content">
-              <h3 class="text-xl font-semibold mb-2">Maya Putri, S.P.</h3>
-              <p class="text-green-600 font-medium mb-2">Head of Production</p>
-              <p class="text-gray-600 text-sm">10+ tahun di bidang pertanian</p>
-            </div>
-          </div>
-
-          <div
-            class="card text-center overflow-hidden group hover:shadow-xl transition-all"
-          >
-            <div class="relative h-64 overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1560250099-1b8df0c9a2ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80"
-                alt="Rudi Hermawan"
-                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-              />
-            </div>
-            <div class="card-content">
-              <h3 class="text-xl font-semibold mb-2">Rudi Hermawan</h3>
-              <p class="text-green-600 font-medium mb-2">Head of Logistics</p>
-              <p class="text-gray-600 text-sm">8+ tahun manajemen logistik</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Certificates -->
-    <section class="section section-gray">
-      <div class="container">
-        <div class="section-title">
-          <h2>Sertifikat & Penghargaan</h2>
-          <p class="max-w-2xl mx-auto">
-            Pengakuan atas komitmen kami terhadap kualitas dan standar
-            internasional
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="card p-6 h-full">
-            <div class="relative h-32 mb-4">
-              <div
-                class="w-full h-full bg-gray-200 rounded flex items-center justify-center text-gray-500"
-              >
-                <svg
-                  class="w-12 h-12"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  ></path>
-                </svg>
-              </div>
-            </div>
-            <h3 class="font-semibold mb-2">ISO 9001:2015</h3>
-            <p class="text-sm text-gray-600 mb-2">Sistem Manajemen Mutu</p>
-            <div class="text-xs text-gray-500">
-              <p>Penerbit: BSI</p>
-              <p>Berlaku hingga: 2025</p>
-            </div>
-          </div>
-
-          <div class="card p-6 h-full">
-            <div class="relative h-32 mb-4">
-              <div
-                class="w-full h-full bg-gray-200 rounded flex items-center justify-center text-gray-500"
-              >
-                <svg
-                  class="w-12 h-12"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  ></path>
-                </svg>
-              </div>
-            </div>
-            <h3 class="font-semibold mb-2">Halal Certificate</h3>
-            <p class="text-sm text-gray-600 mb-2">Sertifikasi Halal MUI</p>
-            <div class="text-xs text-gray-500">
-              <p>Penerbit: MUI</p>
-              <p>Berlaku hingga: 2024</p>
-            </div>
-          </div>
-
-          <div class="card p-6 h-full">
-            <div class="relative h-32 mb-4">
-              <div
-                class="w-full h-full bg-gray-200 rounded flex items-center justify-center text-gray-500"
-              >
-                <svg
-                  class="w-12 h-12"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  ></path>
-                </svg>
-              </div>
-            </div>
-            <h3 class="font-semibold mb-2">Organic Certification</h3>
-            <p class="text-sm text-gray-600 mb-2">Sertifikasi Produk Organik</p>
-            <div class="text-xs text-gray-500">
-              <p>Penerbit: Organic Indonesia</p>
-              <p>Berlaku hingga: 2026</p>
-            </div>
-          </div>
-
-          <div class="card p-6 h-full">
-            <div class="relative h-32 mb-4">
-              <div
-                class="w-full h-full bg-gray-200 rounded flex items-center justify-center text-gray-500"
-              >
-                <svg
-                  class="w-12 h-12"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  ></path>
-                </svg>
-              </div>
-            </div>
-            <h3 class="font-semibold mb-2">HACCP</h3>
-            <p class="text-sm text-gray-600 mb-2">
-              Hazard Analysis Critical Control Point
-            </p>
-            <div class="text-xs text-gray-500">
-              <p>Penerbit: SNI</p>
-              <p>Berlaku hingga: 2025</p>
-            </div>
-          </div>
-
-          <div class="card p-6 h-full">
-            <div class="relative h-32 mb-4">
-              <div
-                class="w-full h-full bg-gray-200 rounded flex items-center justify-center text-gray-500"
-              >
-                <svg
-                  class="w-12 h-12"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  ></path>
-                </svg>
-              </div>
-            </div>
-            <h3 class="font-semibold mb-2">GAP Certificate</h3>
-            <p class="text-sm text-gray-600 mb-2">
-              Good Agricultural Practices
-            </p>
-            <div class="text-xs text-gray-500">
-              <p>Penerbit: Kementan RI</p>
-              <p>Berlaku hingga: 2024</p>
-            </div>
-          </div>
-
-          <div class="card p-6 h-full">
-            <div class="relative h-32 mb-4">
-              <div
-                class="w-full h-full bg-gray-200 rounded flex items-center justify-center text-gray-500"
-              >
-                <svg
-                  class="w-12 h-12"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  ></path>
-                </svg>
-              </div>
-            </div>
-            <h3 class="font-semibold mb-2">Export License</h3>
-            <p class="text-sm text-gray-600 mb-2">Izin Usaha Ekspor</p>
-            <div class="text-xs text-gray-500">
-              <p>Penerbit: Kemendag</p>
-              <p>Berlaku hingga: 2025</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta-section">
-      <div class="container">
-        <h2>Bergabunglah dengan Kami</h2>
-        <p class="max-w-2xl mx-auto">
-          Mari bersama memajukan industri agroindustri Indonesia
+    <!-- CTA Section -->
+    <section class="py-16 hero-gradient">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+          Siap Memulai Transformasi Digital Anda?
+        </h2>
+        <p class="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
+          Konsultasikan kebutuhan bisnis Anda dengan tim ahli kami dan dapatkan
+          solusi terbaik untuk pertumbuhan perusahaan Anda.
         </p>
-        <div class="cta-buttons">
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="contact.html"
-            class="btn bg-white text-green-600 hover:bg-gray-100 px-8"
-            >Hubungi Kami</a
+            class="bg-white text-emerald-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300"
           >
+            Hubungi Kami
+          </a>
           <a
             href="products.html"
-            class="btn btn-outline border-white text-white hover:bg-white hover:text-green-600 px-8"
-            >Lihat Produk</a
+            class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-emerald-600 transition duration-300"
           >
+            Lihat Produk
+          </a>
         </div>
       </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-section">
-            <div class="footer-logo">
-              <div class="footer-logo-icon">VN</div>
-              <span>Verda Nusadaya</span>
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid md:grid-cols-4 gap-8">
+          <div>
+            <div class="flex items-center space-x-2 mb-4">
+              <div
+                class="w-10 h-10 bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-lg flex items-center justify-center"
+              >
+                <i class="fas fa-leaf text-white text-xl"></i>
+              </div>
+              <span class="text-xl font-bold">Verda Nusadaya</span>
             </div>
-            <p class="text-gray-300 mb-4 max-w-md">
-              PT. Verda Nusadaya adalah perusahaan agroindustri terpercaya yang
-              menyediakan produk berkualitas tinggi dari hasil pertanian
-              Indonesia.
+            <p class="text-gray-400 text-sm">
+              Mitra terpercaya untuk transformasi digital bisnis Anda.
             </p>
-            <div class="footer-social">
-              <a href="#" class="footer-social">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
-                  />
-                </svg>
-              </a>
-              <a href="#" class="footer-social">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"
-                  />
-                </svg>
-              </a>
-              <a href="#" class="footer-social">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
-                  />
-                </svg>
-              </a>
-            </div>
           </div>
 
-          <div class="footer-section">
-            <h3>Link Cepat</h3>
-            <ul class="footer-links">
-              <li><a href="index.html">Beranda</a></li>
-              <li><a href="about.html">Tentang Kami</a></li>
-              <li><a href="products.html">Produk</a></li>
-              <li><a href="contact.html">Kontak</a></li>
+          <div>
+            <h4 class="font-semibold mb-4">Layanan</h4>
+            <ul class="space-y-2 text-gray-400 text-sm">
+              <li>
+                <a href="#" class="hover:text-white transition"
+                  >Pengembangan Web</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition"
+                  >Aplikasi Mobile</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition"
+                  >Cloud Solutions</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition"
+                  >Digital Marketing</a
+                >
+              </li>
             </ul>
           </div>
 
-          <div class="footer-section">
-            <h3>Kontak</h3>
-            <div class="space-y-3">
-              <div class="flex items-center space-x-2">
-                <svg
-                  class="w-4 h-4 text-green-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+          <div>
+            <h4 class="font-semibold mb-4">Perusahaan</h4>
+            <ul class="space-y-2 text-gray-400 text-sm">
+              <li>
+                <a href="about.html" class="hover:text-white transition"
+                  >Tentang Kami</a
                 >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                  ></path>
-                </svg>
-                <span class="text-gray-300">+62 812-3456-7890</span>
-              </div>
-              <div class="flex items-center space-x-2">
-                <svg
-                  class="w-4 h-4 text-green-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
+              </li>
+              <li><a href="#" class="hover:text-white transition">Karir</a></li>
+              <li><a href="#" class="hover:text-white transition">Blog</a></li>
+              <li>
+                <a href="contact.html" class="hover:text-white transition"
+                  >Kontak</a
                 >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  ></path>
-                </svg>
-                <span class="text-gray-300">info@verdanusadaya.com</span>
-              </div>
-              <div class="flex items-start space-x-2">
-                <svg
-                  class="w-4 h-4 text-green-400 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                  ></path>
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                  ></path>
-                </svg>
-                <span class="text-gray-300">
-                  Jl. Agroindustri No. 123<br />
-                  Jakarta, Indonesia 12345
-                </span>
-              </div>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="font-semibold mb-4">Ikuti Kami</h4>
+            <div class="flex space-x-4 mb-4">
+              <a
+                href="#"
+                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-emerald-600 transition"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-emerald-600 transition"
+              >
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-emerald-600 transition"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-emerald-600 transition"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
             </div>
+            <p class="text-gray-400 text-sm">info@verdanusadaya.id</p>
           </div>
         </div>
 
-        <div class="footer-bottom">
-          <p>© 2024 PT. Verda Nusadaya. All rights reserved.</p>
+        <div
+          class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm"
+        >
+          <p>&copy; 2024 Verda Nusadaya. All rights reserved.</p>
         </div>
       </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="./js/main.js"></script>
+    <script>
+      // Mobile Menu Toggle
+      function toggleMobileMenu() {
+        const mobileMenu = document.getElementById("mobile-menu");
+        mobileMenu.classList.toggle("active");
+      }
+
+      // Add animation on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      document.querySelectorAll(".fade-in").forEach((el) => {
+        el.style.opacity = "0";
+        el.style.transform = "translateY(20px)";
+        el.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+        observer.observe(el);
+      });
+    </script>
   </body>
 </html>
