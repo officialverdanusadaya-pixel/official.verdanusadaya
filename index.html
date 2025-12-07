@@ -28,7 +28,7 @@
       content="https://imammakbul166.github.io/VerdaNusadaya/"
     />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="./img/favicon-32x32>
+    <meta property="og:image" content="./img/favicon-32x32.png" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -40,7 +40,7 @@
       name="twitter:description"
       content="PT. Verda Nusadaya menyediakan berbagai produk agroindustri berkualitas tinggi dengan harga terbaik."
     />
-    <meta name="twitter:image" content="./img/favicon-32x32" />
+    <meta name="twitter:image" content="./img/favicon-32x32.png" />
 
     <!-- Favicon -->
     <link rel="icon" href="./img/favicon-32x32.png" />
@@ -77,24 +77,19 @@
   </head>
   <body class="min-h-screen bg-white">
     <!-- Navigation -->
-    <nav class="nav fixed w-full bg-white shadow-md z-50">
-      <div
-        class="nav-container max-w-6xl mx-auto px-4 flex justify-between items-center py-4"
-      >
-        <!-- Logo -->
-        <a href="index.html" class="nav-logo flex items-center">
-          <div class="nav-logo-icon">
-            <img
-              src="img/favicon-32x32.png"
-              alt="Verda Nusadaya Logo"
-              class="w-8 h-8 object-cover rounded-md"
-            />
-          </div>
-          <span class="ml-2 font-bold text-gray-800">Verda Nusadaya</span>
+    <nav class="nav">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo flex items-center space-x-2">
+          <img
+            src="img/favicon-32x32.png"
+            alt="Verda Nusadaya"
+            class="h-10 w-10"
+          />
+          <span class="font-semibold text-lg">Verda Nusadaya</span>
         </a>
 
         <div class="nav-menu">
-          <a href="index.html">Beranda</a>
+          <a href="index.html" class="active">Beranda</a>
           <a href="about.html">Tentang Kami</a>
           <a href="products.html">Produk</a>
           <a href="contact.html">Kontak</a>
@@ -156,7 +151,11 @@
       </div>
       <div class="mobile-menu-content">
         <ul class="mobile-menu-links">
-          <li><a href="index.html" onclick="toggleMobileMenu()">Beranda</a></li>
+          <li>
+            <a href="index.html" onclick="toggleMobileMenu()" class="active"
+              >Beranda</a
+            >
+          </li>
           <li>
             <a href="about.html" onclick="toggleMobileMenu()">Tentang Kami</a>
           </li>
@@ -221,13 +220,11 @@
         <div class="hero-text">
           <h1 class="hero-title">Trusted Agro-Industry Solutions</h1>
           <p class="hero-subtitle">
-            Delivering the highest quality for Indonesia’s agricultural produce
+            Delivering the highest quality for Indonesia's agricultural produce
           </p>
 
           <a href="products.html" class="btn btn-primary btn-lg"
             >Explore Products</a
-          >
-
           >
         </div>
       </div>
@@ -257,7 +254,7 @@
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   stroke-width="2"
-                  d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
+                  d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
                 ></path>
               </svg>
             </div>
@@ -330,194 +327,10 @@
       </div>
 
       <div
+        id="featuredProductsContainer"
         class="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8"
       >
-        <!-- Coffee -->
-        <div
-          class="product-card relative border p-4 rounded-lg shadow hover:shadow-lg transition"
-        >
-          <img
-            src="img/coffee.png"
-            alt="Raw Coffee Beans"
-            class="w-full h-48 object-cover rounded-lg mb-4"
-          />
-          <h3 class="text-xl font-semibold mb-2">Kopi Arabika Premium</h3>
-          <p class="text-gray-600 line-clamp-2 mb-4">
-            Selected Arabica coffee beans with a distinctive flavor and an
-            enticing aroma...
-          </p>
-          <button
-            onclick="openModal('coffeeModal')"
-            class="text-white bg-green-600 px-4 py-2 rounded hover:bg-green-700 transition"
-          >
-            More Info
-          </button>
-        </div>
-
-        <!-- Cloves -->
-        <div
-          class="product-card relative border p-4 rounded-lg shadow hover:shadow-lg transition"
-        >
-          <img
-            src="img/cloves.png"
-            alt="Cloves"
-            class="w-full h-48 object-cover rounded-lg mb-4"
-          />
-          <h3 class="text-xl font-semibold mb-2">Cloves</h3>
-          <p class="text-gray-600 line-clamp-2 mb-4">
-            Premium dried cloves with a strong aroma and export-grade quality...
-          </p>
-          <button
-            onclick="openModal('clovesModal')"
-            class="text-white bg-green-600 px-4 py-2 rounded hover:bg-green-700 transition"
-          >
-            More Info
-          </button>
-        </div>
-
-        <!-- Cashew -->
-        <div
-          class="product-card relative border p-4 rounded-lg shadow hover:shadow-lg transition"
-        >
-          <img
-            src="img/cashew.png"
-            alt="Cashew"
-            class="w-full h-48 object-cover rounded-lg mb-4"
-          />
-          <h3 class="text-xl font-semibold mb-2">Cashew</h3>
-          <p class="text-gray-600 line-clamp-2 mb-4">
-            Selected cashew nuts that are crisp, fresh, and perfect for
-            industrial use...
-          </p>
-          <button
-            onclick="openModal('cashewModal')"
-            class="text-white bg-green-600 px-4 py-2 rounded hover:bg-green-700 transition"
-          >
-            More Info
-          </button>
-        </div>
-
-        <!-- Virgin Coconut Oil -->
-        <div
-          class="product-card relative border p-4 rounded-lg shadow hover:shadow-lg transition"
-        >
-          <img
-            src="img/coconut2.png"
-            alt="Virgin Coconut Oil"
-            class="w-full h-48 object-cover rounded-lg mb-4"
-          />
-          <h3 class="text-xl font-semibold mb-2">Virgin Coconut Oil</h3>
-          <p class="text-gray-600 line-clamp-2 mb-4">
-            Fresh coconuts and high-quality derivative products for versatile
-            uses...
-          </p>
-          <button
-            onclick="openModal('vcoModal')"
-            class="text-white bg-green-600 px-4 py-2 rounded hover:bg-green-700 transition"
-          >
-            More Info
-          </button>
-        </div>
-      </div>
-
-      <!-- Modals -->
-      <!-- Coffee Modal -->
-      <div
-        id="coffeeModal"
-        class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50"
-      >
-        <div class="bg-white p-6 rounded-lg max-w-lg w-full relative">
-          <button
-            onclick="closeModal('coffeeModal')"
-            class="absolute top-2 right-2 text-gray-500 hover:text-gray-800 text-2xl"
-          >
-            &times;
-          </button>
-          <h3 class="text-2xl font-bold mb-4">Raw Coffee Beans</h3>
-          <p class="text-gray-700 mb-2">
-            Our premium Arabica coffee beans are carefully selected from the
-            finest plantations in Indonesia. They are hand-picked and processed
-            to maintain a distinctive flavor profile and rich aroma.
-          </p>
-          <ul class="list-disc list-inside text-gray-700 mb-2">
-            <li>Origin: Java, Indonesia</li>
-            <li>Flavor: Rich, aromatic, smooth</li>
-            <li>Grade: Specialty Arabica</li>
-            <li>Packaging: 250g, 500g, 1kg</li>
-          </ul>
-          <p class="text-gray-700">
-            Ideal for both industrial use and specialty coffee markets.
-          </p>
-        </div>
-      </div>
-
-      <!-- Cloves Modal -->
-      <div
-        id="clovesModal"
-        class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50"
-      >
-        <div class="bg-white p-6 rounded-lg max-w-lg w-full relative">
-          <button
-            onclick="closeModal('clovesModal')"
-            class="absolute top-2 right-2 text-gray-500 hover:text-gray-800 text-2xl"
-          >
-            &times;
-          </button>
-          <h3 class="text-2xl font-bold mb-4">Cloves</h3>
-          <p class="text-gray-700 mb-2">
-            Our premium dried cloves are carefully selected and processed to
-            preserve their rich aroma and quality.
-          </p>
-          <p class="text-gray-700">
-            Perfect for culinary, industrial, and export purposes.
-          </p>
-        </div>
-      </div>
-
-      <!-- Cashew Modal -->
-      <div
-        id="cashewModal"
-        class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50"
-      >
-        <div class="bg-white p-6 rounded-lg max-w-lg w-full relative">
-          <button
-            onclick="closeModal('cashewModal')"
-            class="absolute top-2 right-2 text-gray-500 hover:text-gray-800 text-2xl"
-          >
-            &times;
-          </button>
-          <h3 class="text-2xl font-bold mb-4">Cashew</h3>
-          <p class="text-gray-700 mb-2">
-            Our premium cashew nuts are carefully harvested to ensure optimal
-            freshness and crunchiness.
-          </p>
-          <p class="text-gray-700">
-            Suitable for snacks, culinary uses, and industrial purposes.
-          </p>
-        </div>
-      </div>
-
-      <!-- Virgin Coconut Oil Modal -->
-      <div
-        id="vcoModal"
-        class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50"
-      >
-        <div class="bg-white p-6 rounded-lg max-w-lg w-full relative">
-          <button
-            onclick="closeModal('vcoModal')"
-            class="absolute top-2 right-2 text-gray-500 hover:text-gray-800 text-2xl"
-          >
-            &times;
-          </button>
-          <h3 class="text-2xl font-bold mb-4">Virgin Coconut Oil</h3>
-          <p class="text-gray-700 mb-2">
-            Our virgin coconut oil is extracted from fresh coconuts using
-            natural processes to retain nutrients and aroma.
-          </p>
-          <p class="text-gray-700">
-            Perfect for culinary, cosmetic, and health-related applications.
-          </p>
-        </div>
+        <!-- Produk akan dimuat oleh JavaScript dari data produk di main.js -->
       </div>
     </section>
 
@@ -809,7 +622,7 @@
 
             <p class="text-gray-300 mb-4 max-w-md">
               PT. Verda Nusadaya is a trusted agro-industry company providing
-              high-quality products sourced from Indonesia’s finest agricultural
+              high-quality products sourced from Indonesia's finest agricultural
               produce.
             </p>
             <div class="footer-social">
@@ -910,26 +723,38 @@
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="footer-bottom">
-          <p>© 2024 PT. Verda Nusadaya. All rights reserved.</p>
-        </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 PT. Verda Nusadaya. All rights reserved.</p>
       </div>
     </footer>
 
     <!-- JavaScript -->
     <script src="./js/main.js"></script>
 
-    <!-- Modal Functions -->
     <script>
-      function openModal(modalId) {
-        document.getElementById(modalId).classList.remove("hidden");
-        document.getElementById(modalId).classList.add("flex");
-      }
+      // Initialize featured products on page load
+      document.addEventListener("DOMContentLoaded", function () {
+        renderFeaturedProducts();
+      });
 
-      function closeModal(modalId) {
-        document.getElementById(modalId).classList.add("hidden");
-        document.getElementById(modalId).classList.remove("flex");
+      // Render featured products function
+      function renderFeaturedProducts() {
+        const container = document.getElementById("featuredProductsContainer");
+        if (!container) return;
+
+        // Get only featured products
+        const featuredProducts = products.filter((p) => p.isFeatured);
+
+        // Clear container
+        container.innerHTML = "";
+
+        // Add featured products
+        featuredProducts.forEach((product) => {
+          const productCard = createProductCard(product);
+          container.appendChild(productCard);
+        });
       }
     </script>
   </body>
