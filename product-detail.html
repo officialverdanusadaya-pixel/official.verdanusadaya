@@ -21,7 +21,7 @@
     />
     <meta
       property="og:url"
-      content="https://imammakbul166.github.io/VerdaNusadaya/product-detail.html"
+      content="https://officialverdanusadaya-pixel.github.io/official.verdanusadaya/product-detail.html"
     />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="./img/favicon-32x32.png" />
@@ -35,6 +35,12 @@
     />
     <meta name="twitter:image" content="./img/favicon-32x32.png" />
 
+    <!-- Additional SEO Meta Tags -->
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="language" content="Indonesian" />
+    <meta name="revisit-after" content="7 days" />
+
     <!-- Favicon -->
     <link rel="icon" href="./img/favicon-32x32.png" />
     <link rel="apple-touch-icon" href="./img/favicon-32x32.png" />
@@ -42,223 +48,43 @@
     <!-- CSS -->
     <link rel="stylesheet" href="./css/style.css" />
 
-    <!-- Additional CSS for product detail page -->
-    <style>
-      /* Product Detail Specific Styles */
-      .product-detail-container {
-        padding-top: 100px;
-      }
-
-      .product-image-container {
-        position: relative;
-        overflow: hidden;
-        border-radius: 0.5rem;
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-      }
-
-      .product-image {
-        width: 100%;
-        height: auto;
-        display: block;
-        transition: transform 0.3s ease;
-      }
-
-      .product-image-container:hover .product-image {
-        transform: scale(1.05);
-      }
-
-      .product-badge {
-        position: absolute;
-        top: 1rem;
-        right: 1rem;
-        padding: 0.25rem 0.75rem;
-        border-radius: 9999px;
-        font-size: 0.75rem;
-        font-weight: 600;
-        color: white;
-      }
-
-      .badge-featured {
-        background-color: #eab308;
-      }
-
-      .product-specs {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-        margin-bottom: 1rem;
-      }
-
-      .spec-badge {
-        padding: 0.25rem 0.75rem;
-        border-radius: 9999px;
-        font-size: 0.75rem;
-        background-color: #f3f4f6;
-        color: #374151;
-      }
-
-      .product-actions {
-        display: flex;
-        gap: 1rem;
-        margin-top: 1.5rem;
-      }
-
-      .related-product {
-        transition: all 0.3s ease;
-      }
-
-      .related-product:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-      }
-
-      .breadcrumb {
-        display: flex;
-        padding: 0.75rem 0;
-        list-style: none;
-        margin-bottom: 1rem;
-      }
-
-      .breadcrumb li {
-        display: flex;
-        align-items: center;
-      }
-
-      .breadcrumb li:not(:last-child)::after {
-        content: "/";
-        margin: 0 0.5rem;
-        color: #6b7280;
-      }
-
-      .breadcrumb a {
-        color: #6b7280;
-        text-decoration: none;
-      }
-
-      .breadcrumb a:hover {
-        color: #16a34a;
-      }
-
-      .breadcrumb li:last-child {
-        color: #374151;
-        font-weight: 500;
-      }
-
-      .rating-container {
-        display: flex;
-        align-items: center;
-        margin-bottom: 1rem;
-      }
-
-      .rating-stars {
-        display: flex;
-        margin-right: 0.5rem;
-      }
-
-      .rating-value {
-        color: #6b7280;
-        font-size: 0.875rem;
-      }
-
-      .product-tabs {
-        border-bottom: 1px solid #e5e7eb;
-        margin-bottom: 1.5rem;
-      }
-
-      .tab-buttons {
-        display: flex;
-        gap: 1rem;
-      }
-
-      .tab-button {
-        padding: 0.75rem 0;
-        border: none;
-        background: none;
-        color: #6b7280;
-        font-weight: 500;
-        cursor: pointer;
-        position: relative;
-      }
-
-      .tab-button.active {
-        color: #16a34a;
-      }
-
-      .tab-button.active::after {
-        content: "";
-        position: absolute;
-        bottom: -1px;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background-color: #16a34a;
-      }
-
-      .tab-content {
-        display: none;
-      }
-
-      .tab-content.active {
-        display: block;
-      }
-
-      .spec-list {
-        list-style: none;
-      }
-
-      .spec-list li {
-        display: flex;
-        justify-content: space-between;
-        padding: 0.75rem 0;
-        border-bottom: 1px solid #f3f4f6;
-      }
-
-      .spec-list li:last-child {
-        border-bottom: none;
-      }
-
-      .spec-label {
-        font-weight: 500;
-        color: #374151;
-      }
-
-      .spec-value {
-        color: #6b7280;
-      }
-
-      .loading-spinner {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 200px;
-      }
-
-      .error-message {
-        padding: 1rem;
-        background-color: #fef2f2;
-        border: 1px solid #fecaca;
-        border-radius: 0.375rem;
-        color: #b91c1c;
-        margin-bottom: 1rem;
-      }
-
-      @media (max-width: 768px) {
-        .product-detail-container {
-          padding-top: 80px;
-        }
-
-        .product-actions {
-          flex-direction: column;
-        }
-
-        .tab-buttons {
-          overflow-x: auto;
+    <!-- Structured Data for Product Detail -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Premium Agro Products",
+        "description": "High-quality agro-industry products from PT. Verda Nusadaya",
+        "brand": {
+          "@type": "Brand",
+          "name": "PT. Verda Nusadaya"
+        },
+        "manufacturer": {
+          "@type": "Organization",
+          "name": "PT. Verda Nusadaya",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Jl. Raya Gondang No.16, Gondang Village",
+            "addressLocality": "Gangga Subdistrict",
+            "addressRegion": "North Lombok Regency",
+            "postalCode": "83353",
+            "addressCountry": "ID"
+          }
+        },
+        "offers": {
+          "@type": "Offer",
+          "availability": "https://schema.org/InStock",
+          "priceCurrency": "IDR",
+          "seller": {
+            "@type": "Organization",
+            "name": "PT. Verda Nusadaya"
+          }
         }
       }
-    </style>
+    </script>
   </head>
   <body class="min-h-screen bg-white">
-    <!-- Navigation (Sama seperti halaman lain untuk konsistensi) -->
+    <!-- Navigation -->
     <nav class="nav">
       <div class="nav-container">
         <a href="index.html" class="nav-logo flex items-center space-x-2">
@@ -412,7 +238,13 @@
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
             <!-- Product Image -->
             <div class="product-image-container">
-              <img id="productImage" src="" alt="" class="product-image" />
+              <img
+                id="productImage"
+                src=""
+                alt=""
+                class="product-image"
+                loading="lazy"
+              />
               <span id="productBadge" class="product-badge hidden"></span>
             </div>
 
@@ -478,6 +310,9 @@
               <button class="tab-button" onclick="showTab('specifications')">
                 Spesifikasi
               </button>
+              <button class="tab-button" onclick="showTab('ordering')">
+                Cara Pemesanan
+              </button>
             </div>
           </div>
 
@@ -488,6 +323,62 @@
 
           <div class="tab-content" id="specificationsTab">
             <ul class="spec-list" id="specList"></ul>
+          </div>
+
+          <div class="tab-content" id="orderingTab">
+            <div class="bg-gray-50 p-6 rounded-lg">
+              <h3 class="text-xl font-semibold mb-4">Cara Pemesanan</h3>
+              <div class="space-y-4">
+                <div class="flex items-start space-x-3">
+                  <div
+                    class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0"
+                  >
+                    <span class="text-green-600 font-semibold">1</span>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold">Hubungi Sales</h4>
+                    <p class="text-gray-600">
+                      Konsultasikan kebutuhan Anda dengan tim sales kami
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <div
+                    class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0"
+                  >
+                    <span class="text-green-600 font-semibold">2</span>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold">Request Quote</h4>
+                    <p class="text-gray-600">
+                      Dapatkan penawaran harga khusus untuk volume besar
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start space-x-3">
+                  <div
+                    class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0"
+                  >
+                    <span class="text-green-600 font-semibold">3</span>
+                  </div>
+                  <div>
+                    <h4 class="font-semibold">Konfirmasi Order</h4>
+                    <p class="text-gray-600">
+                      Konfirmasi ketersediaan stok dan jadwal pengiriman
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="mt-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg"
+              >
+                <p class="text-sm text-yellow-800">
+                  <strong>Informasi Penting:</strong> Harga dan ketersediaan
+                  stok dapat berubah sewaktu-waktu. Harap konfirmasi dengan tim
+                  sales kami untuk informasi terkini.
+                </p>
+              </div>
+            </div>
           </div>
 
           <!-- Related Products -->
@@ -504,7 +395,7 @@
       </div>
     </main>
 
-    <!-- Footer (Sama seperti halaman lain) -->
+    <!-- Footer -->
     <footer class="footer">
       <div class="container">
         <div class="footer-content">
@@ -523,21 +414,33 @@
               Indonesia.
             </p>
             <div class="footer-social">
-              <a href="#" class="footer-social">
+              <a
+                href="https://www.facebook.com/verdanusadaya"
+                class="footer-social"
+                target="_blank"
+              >
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path
                     d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
                   />
                 </svg>
               </a>
-              <a href="#" class="footer-social">
+              <a
+                href="https://www.instagram.com/verdanusadaya"
+                class="footer-social"
+                target="_blank"
+              >
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path
                     d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"
                   />
                 </svg>
               </a>
-              <a href="#" class="footer-social">
+              <a
+                href="https://www.twitter.com/verdanusadaya"
+                class="footer-social"
+                target="_blank"
+              >
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path
                     d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
@@ -613,17 +516,18 @@
                   ></path>
                 </svg>
                 <span class="text-gray-300">
-                  Jl. Agroindustri No. 123<br />
-                  Jakarta, Indonesia 12345
+                  Jl. Raya Gondang No.16, Gondang Village<br />
+                  Gangga Subdistrict, North Lombok Regency<br />
+                  West Nusa Tenggara 83353
                 </span>
               </div>
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="footer-bottom">
-          <p>&copy; 2024 PT. Verda Nusadaya. All rights reserved.</p>
-        </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 PT. Verda Nusadaya. All rights reserved.</p>
       </div>
     </footer>
 
@@ -665,14 +569,23 @@
 
       // Load product detail
       function loadProductDetail(id) {
-        // Find product in the products array from main.js
+        // Find product in products array from main.js
         const product = products.find((p) => p.id == id);
 
         if (product) {
           displayProductDetail(product);
           loadRelatedProducts(product.category, product.id);
+          updateCanonicalUrl(product);
         } else {
           showError();
+        }
+      }
+
+      // Update canonical URL for SEO
+      function updateCanonicalUrl(product) {
+        const canonicalLink = document.querySelector('link[rel="canonical"]');
+        if (canonicalLink) {
+          canonicalLink.href = `https://officialverdanusadaya-pixel.github.io/official.verdanusadaya/product-detail.html?id=${product.id}`;
         }
       }
 
@@ -684,9 +597,14 @@
         // Update breadcrumb
         productName.textContent = product.name;
 
-        // Update product image
+        // Update product image with error handling
         productImage.src = product.image;
         productImage.alt = product.name;
+        productImage.onerror = function () {
+          this.src =
+            "https://via.placeholder.com/600x400?text=" +
+            encodeURIComponent(product.name);
+        };
 
         // Update product badge if featured
         if (product.isFeatured) {
@@ -715,27 +633,54 @@
 
         // Update description
         productDescription.textContent = product.description;
-        fullDescription.textContent = `${product.description} Produk ini memiliki kualitas terbaik dan telah melalui proses quality control yang ketat untuk memastikan kepuasan pelanggan. Dengan harga yang kompetitif, produk ini menjadi pilihan utama untuk kebutuhan agroindustri Anda.`;
+        fullDescription.textContent = `${product.description} 
+
+Produk ini memiliki kualitas terbaik dan telah melalui proses quality control yang ketat untuk memastikan kepuasan pelanggan. Dengan harga yang kompetitif, produk ini menjadi pilihan utama untuk kebutuhan agroindustri Anda.
+
+Keunggulan Produk:
+• Kualitas premium terjamin
+• Sertifikasi internasional
+• Harga kompetitif
+• Pengiriman tepat waktu
+• Layanan pelanggan terbaik
+
+Aplikasi Produk:
+${product.specs.map((spec) => `• ${spec}`).join("\n")}
+
+Untuk informasi lebih lanjut tentang harga, ketersediaan stok, dan proses pemesanan, silakan hubungi tim sales kami.`;
 
         // Update specifications
         specList.innerHTML = "";
         const categoryLabel = getCategoryLabel(product.category);
 
-        // Add category as first spec
-        const categoryItem = document.createElement("li");
-        categoryItem.innerHTML = `
-          <span class="spec-label">Kategori</span>
-          <span class="spec-value">${categoryLabel}</span>
-        `;
-        specList.appendChild(categoryItem);
+        // Add basic specs
+        const basicSpecs = [
+          { label: "Kategori", value: categoryLabel },
+          { label: "Harga", value: product.price },
+          {
+            label: "Minimum Order",
+            value: `${product.minOrder} ${
+              product.category === "kelapa-sawit" &&
+              product.name.includes("Liter")
+                ? "liter"
+                : "kg"
+            }`,
+          },
+          {
+            label: "Ketersediaan",
+            value: product.inStock ? "Tersedia" : "Stok Habis",
+          },
+          { label: "Rating", value: `${product.rating}/5.0` },
+        ];
 
-        // Add price as second spec
-        const priceItem = document.createElement("li");
-        priceItem.innerHTML = `
-          <span class="spec-label">Harga</span>
-          <span class="spec-value">${product.price}</span>
-        `;
-        specList.appendChild(priceItem);
+        basicSpecs.forEach((spec) => {
+          const specItem = document.createElement("li");
+          specItem.innerHTML = `
+            <span class="spec-label">${spec.label}</span>
+            <span class="spec-value">${spec.value}</span>
+          `;
+          specList.appendChild(specItem);
+        });
 
         // Add all specs from product data
         product.specs.forEach((spec) => {
@@ -755,11 +700,20 @@
       function loadRelatedProducts(category, currentProductId) {
         // Filter products by category (excluding current product)
         const related = products
-          .filter((p) => p.category === category && p.id != currentProductId)
+          .filter(
+            (p) =>
+              p.category === category && p.id != currentProductId && p.inStock
+          )
           .slice(0, 4);
 
         // Clear related products container
         relatedProducts.innerHTML = "";
+
+        if (related.length === 0) {
+          relatedProducts.innerHTML =
+            '<p class="text-gray-500 text-center col-span-full">Tidak ada produk terkait yang tersedia</p>';
+          return;
+        }
 
         // Add related products
         related.forEach((product) => {
@@ -780,17 +734,19 @@
           <div class="card-image-container">
             <img src="${product.image}" alt="${
           product.name
-        }" class="card-image">
+        }" class="card-image" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300?text=${encodeURIComponent(
+          product.name
+        )}'">
             <span class="badge badge-primary absolute top-4 left-4">${categoryLabel}</span>
             ${
               product.isFeatured
                 ? `
-            <span class="badge badge-yellow absolute top-4 right-4">
-              <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-              </svg>
-              Unggulan
-            </span>
+              <span class="badge badge-yellow absolute top-4 right-4">
+                <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                </svg>
+                Unggulan
+              </span>
             `
                 : ""
             }
@@ -809,9 +765,18 @@
             </div>
 
             <div class="flex justify-between items-center">
-              <span class="text-lg font-bold text-green-600">${
-                product.price
-              }</span>
+              <div>
+                <span class="text-lg font-bold text-green-600">${
+                  product.price
+                }</span>
+                <span class="text-xs text-gray-500 block">Min. ${
+                  product.minOrder
+                } ${
+          product.category === "kelapa-sawit" && product.name.includes("Liter")
+            ? "liter"
+            : "kg"
+        }</span>
+              </div>
               <a href="product-detail.html?id=${
                 product.id
               }" class="btn btn-primary btn-sm">Detail</a>
@@ -828,7 +793,7 @@
         errorState.classList.remove("hidden");
       }
 
-      // Tab switching
+      // Enhanced tab switching with smooth transitions
       function showTab(tabName) {
         // Update tab buttons
         const tabButtons = document.querySelectorAll(".tab-button");
@@ -839,14 +804,57 @@
           }
         });
 
-        // Update tab content
+        // Update tab content with fade effect
         const tabContents = document.querySelectorAll(".tab-content");
         tabContents.forEach((content) => {
-          content.classList.remove("active");
+          content.style.opacity = "0";
+          setTimeout(() => {
+            content.classList.remove("active");
+          }, 150);
         });
 
-        document.getElementById(`${tabName}Tab`).classList.add("active");
+        setTimeout(() => {
+          const activeTab = document.getElementById(`${tabName}Tab`);
+          if (activeTab) {
+            activeTab.style.opacity = "0";
+            activeTab.classList.add("active");
+            setTimeout(() => {
+              activeTab.style.opacity = "1";
+            }, 50);
+          }
+        }, 200);
       }
+
+      // Add to cart functionality (placeholder)
+      function addToCart(product) {
+        // Placeholder for cart functionality
+        alert("Fitur keranjang akan segera tersedia!");
+      }
+
+      // Share functionality
+      function shareProduct(product) {
+        if (navigator.share) {
+          navigator.share({
+            title: product.name,
+            text: product.description,
+            url: window.location.href,
+          });
+        } else {
+          // Fallback for browsers that don't support Web Share API
+          const dummy = document.createElement("input");
+          document.body.appendChild(dummy);
+          dummy.value = window.location.href;
+          dummy.select();
+          document.execCommand("copy");
+          document.body.removeChild(dummy);
+          alert("Link produk telah disalin!");
+        }
+      }
+
+      // Make functions globally available
+      window.showTab = showTab;
+      window.addToCart = addToCart;
+      window.shareProduct = shareProduct;
     </script>
   </body>
 </html>

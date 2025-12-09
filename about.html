@@ -21,7 +21,7 @@
     />
     <meta
       property="og:url"
-      content="https://imammakbul166.github.io/VerdaNusadaya/about.html"
+      content="https://officialverdanusadaya-pixel.github.io/official.verdanusadaya/about.html"
     />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="./img/favicon-32x32.png" />
@@ -35,17 +35,103 @@
     />
     <meta name="twitter:image" content="./img/favicon-32x32.png" />
 
+    <!-- Additional SEO Meta Tags -->
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="language" content="Indonesian" />
+    <meta name="revisit-after" content="7 days" />
+    <link
+      rel="canonical"
+      href="https://officialverdanusadaya-pixel.github.io/official.verdanusadaya/about.html"
+    />
+
     <!-- Favicon -->
     <link rel="icon" href="./img/favicon-32x32.png" />
     <link rel="apple-touch-icon" href="./img/favicon-32x32.png" />
 
-    <!-- PERBAIKAN KRITIS: Menghapus Tailwind CSS dan menggunakan CSS master yang sama -->
-    <!-- <script src="https://cdn.tailwindcss.com"></script> DIHAPUS -->
-    <!-- <style> ... </style> DIHAPUS -->
+    <!-- CSS -->
     <link rel="stylesheet" href="./css/style.css" />
+
+    <!-- Structured Data for About Page -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "PT. Verda Nusadaya",
+        "url": "https://officialverdanusadaya-pixel.github.io/official.verdanusadaya/",
+        "logo": "https://officialverdanusadaya-pixel.github.io/official.verdanusadaya/img/favicon-32x32.png",
+        "description": "Perusahaan agroindustri terpercaya yang menyediakan produk berkualitas tinggi dari hasil pertanian Indonesia",
+        "foundingDate": "2020-01-01",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Jl. Raya Gondang No.16, Gondang Village",
+          "addressLocality": "Gangga Subdistrict",
+          "addressRegion": "North Lombok Regency",
+          "postalCode": "83353",
+          "addressCountry": "ID"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+62-812-3456-7890",
+          "contactType": "customer service",
+          "availableLanguage": ["Indonesian", "English"],
+          "hoursAvailable": "Mo-Fr 08:00-17:00, Sa 08:00-12:00"
+        },
+        "sameAs": [
+          "https://www.facebook.com/verdanusadaya",
+          "https://www.instagram.com/verdanusadaya",
+          "https://www.twitter.com/verdanusadaya"
+        ],
+        "knowsAbout": [
+          "Agroindustri",
+          "Kopi",
+          "Karet",
+          "Kelapa Sawit",
+          "Pertanian",
+          "Perkebunan"
+        ],
+        "areaServed": "Indonesia",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Product Catalog",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Product",
+                "name": "Premium Arabica Coffee",
+                "category": "Kopi"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Product",
+                "name": "SIR-20 Standard Rubber",
+                "category": "Karet"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Product",
+                "name": "Crude Palm Oil",
+                "category": "Kelapa Sawit"
+              }
+            }
+          ]
+        }
+      }
+    </script>
+
+    <!-- Font Awesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
   </head>
   <body class="min-h-screen bg-white">
-    <!-- Navigation (Sama seperti halaman lain untuk konsistensi) -->
+    <!-- Navigation -->
     <nav class="nav">
       <div class="nav-container">
         <a href="index.html" class="nav-logo flex items-center space-x-2">
@@ -59,7 +145,6 @@
 
         <div class="nav-menu">
           <a href="index.html">Beranda</a>
-          <!-- PERBAIKAN: Menambahkan class 'active' untuk menandai halaman ini -->
           <a href="about.html" class="active">Tentang Kami</a>
           <a href="products.html">Produk</a>
           <a href="contact.html">Kontak</a>
@@ -103,7 +188,7 @@
       </div>
     </nav>
 
-    <!-- Mobile Menu (Sama seperti halaman lain) -->
+    <!-- Mobile Menu -->
     <div id="mobileMenu" class="mobile-menu">
       <div class="mobile-menu-header">
         <div class="nav-logo flex items-center space-x-2">
@@ -123,7 +208,6 @@
         <ul class="mobile-menu-links">
           <li><a href="index.html" onclick="toggleMobileMenu()">Beranda</a></li>
           <li>
-            <!-- PERBAIKAN: Menambahkan class 'active' -->
             <a href="about.html" onclick="toggleMobileMenu()" class="active"
               >Tentang Kami</a
             >
@@ -178,10 +262,10 @@
     <!-- Hero Section -->
     <section class="py-20 bg-gray-50">
       <div class="container text-center">
-        <h2 class="text-4xl font-bold mb-4">Tentang Verda Nusadaya</h2>
-        <p class="text-lg text-gray-600">
+        <h1 class="text-4xl font-bold mb-4">Tentang Verda Nusadaya</h1>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
           Perusahaan agroindustri terpercaya yang berkomitmen menghadirkan
-          produk premium ke pasar global.
+          produk premium ke pasar global dengan standar kualitas tertinggi.
         </p>
       </div>
     </section>
@@ -192,18 +276,19 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div class="animate-fade-in-up">
             <img
-              src="img/Gambar Logo Verda.jpg"
+              src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="Tim Verda Nusadaya"
               class="rounded-2xl shadow-xl w-full"
+              loading="lazy"
             />
           </div>
           <div class="animate-fade-in-up">
             <h2 class="text-3xl font-bold text-gray-800 mb-6">
-              PT Verda Nusadaya Agro:
+              PT Verda Nusadaya:
               <span class="text-green-600">Premium Agro Commodities</span>
             </h2>
             <p class="text-gray-600 mb-4 leading-relaxed">
-              PT Verda Nusadaya Agro adalah perusahaan yang bergerak di bidang
+              PT Verda Nusadaya adalah perusahaan yang bergerak di bidang
               perdagangan dan ekspor produk pertanian berkualitas tinggi dari
               Indonesia. Berbasis di Lombok Utara, Nusa Tenggara Barat, kami
               berkomitmen untuk menghadirkan komoditas terbaik yang bersumber
@@ -234,7 +319,7 @@
         <div class="section-title">
           <h2>Visi & <span class="text-green-600">Misi</span></h2>
           <p class="max-w-2xl mx-auto">
-            Visi dan komitmen kami dalam memajukan transformasi digital di
+            Visi dan komitmen kami dalam memajukan industri agroindustri di
             Indonesia.
           </p>
         </div>
@@ -376,6 +461,7 @@
               src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
               alt="CEO Verda Nusadaya"
               class="w-full h-64 object-cover"
+              loading="lazy"
             />
             <div class="p-6">
               <h3 class="text-xl font-semibold text-gray-800 mb-1">
@@ -396,6 +482,7 @@
               src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
               alt="CTO Verda Nusadaya"
               class="w-full h-64 object-cover"
+              loading="lazy"
             />
             <div class="p-6">
               <h3 class="text-xl font-semibold text-gray-800 mb-1">
@@ -416,6 +503,7 @@
               src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
               alt="COO Verda Nusadaya"
               class="w-full h-64 object-cover"
+              loading="lazy"
             />
             <div class="p-6">
               <h3 class="text-xl font-semibold text-gray-800 mb-1">
@@ -427,6 +515,38 @@
                 pasar global.
               </p>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Pencapaian <span class="text-green-600">Kami</span></h2>
+          <p class="max-w-2xl mx-auto">
+            Angka-angka yang menunjukkan dedikasi dan keberhasilan kami dalam
+            industri agroindustri.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="text-center">
+            <div class="text-4xl font-bold text-green-600 mb-2">500+</div>
+            <p class="text-gray-600">Klien Puas</p>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl font-bold text-green-600 mb-2">10+</div>
+            <p class="text-gray-600">Tahun Pengalaman</p>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl font-bold text-green-600 mb-2">50+</div>
+            <p class="text-gray-600">Partner Distributor</p>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl font-bold text-green-600 mb-2">1000+</div>
+            <p class="text-gray-600">Ton Produk Terkirim</p>
           </div>
         </div>
       </div>
@@ -485,7 +605,7 @@
       </div>
     </section>
 
-    <!-- Footer (Sama seperti halaman lain) -->
+    <!-- Footer -->
     <footer class="footer">
       <div class="container">
         <div class="footer-content">
@@ -504,21 +624,33 @@
               Indonesia.
             </p>
             <div class="footer-social">
-              <a href="#" class="footer-social">
+              <a
+                href="https://www.facebook.com/verdanusadaya"
+                class="footer-social"
+                target="_blank"
+              >
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path
                     d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
                   />
                 </svg>
               </a>
-              <a href="#" class="footer-social">
+              <a
+                href="https://www.instagram.com/verdanusadaya"
+                class="footer-social"
+                target="_blank"
+              >
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path
-                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"
                   />
                 </svg>
               </a>
-              <a href="#" class="footer-social">
+              <a
+                href="https://www.twitter.com/verdanusadaya"
+                class="footer-social"
+                target="_blank"
+              >
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                   <path
                     d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
@@ -594,29 +726,22 @@
                   ></path>
                 </svg>
                 <span class="text-gray-300">
-                  Jl. Agroindustri No. 123<br />
-                  Jakarta, Indonesia 12345
+                  Jl. Raya Gondang No.16, Gondang Village<br />
+                  Gangga Subdistrict, North Lombok Regency<br />
+                  West Nusa Tenggara 83353
                 </span>
               </div>
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="footer-bottom">
-          <p>&copy; 2024 PT. Verda Nusadaya. All rights reserved.</p>
-        </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 PT. Verda Nusadaya. All rights reserved.</p>
       </div>
     </footer>
 
-    <!-- PERBAIKAN: Menghapus JavaScript inline dan menggunakan fungsi dari main.js -->
-    <!-- <script> ... </script> DIHAPUS -->
     <!-- JavaScript -->
     <script src="./js/main.js"></script>
-
-    <!-- PERBAIKAN: Menambahkan Font Awesome untuk ikon -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
   </body>
 </html>
