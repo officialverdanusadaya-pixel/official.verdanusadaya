@@ -53,6 +53,21 @@
     <link rel="icon" href="./img/favicon-32x32.png" />
     <link rel="apple-touch-icon" href="./img/favicon-32x32.png" />
 
+    <!-- Premium Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
     <!-- CSS -->
     <link rel="stylesheet" href="./css/style.css" />
 
@@ -104,18 +119,380 @@
         }
       }
     </script>
+
+    <!-- Custom Premium Styles -->
+    <style>
+      /* Premium Typography */
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+      }
+
+      body {
+        font-family: "Montserrat", sans-serif;
+      }
+
+      .hero-title {
+        font-family: "Playfair Display", serif;
+        font-weight: 900;
+        font-size: 3.5rem;
+        line-height: 1.1;
+      }
+
+      .section-subtitle {
+        font-family: "Crimson Text", serif;
+        font-style: italic;
+        font-size: 1.2rem;
+      }
+
+      /* Premium Hero Section */
+      .products-hero {
+        background: linear-gradient(
+            135deg,
+            rgba(44, 95, 45, 0.9),
+            rgba(0, 0, 0, 0.8)
+          ),
+          url("https://picsum.photos/seed/agro-products-hero/1920/800.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        padding: 120px 0 80px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .products-hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("https://picsum.photos/seed/agro-pattern/1920/800.jpg");
+        background-size: cover;
+        opacity: 0.1;
+        z-index: 0;
+      }
+
+      .products-hero .container {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Premium Filter Section */
+      .filter-section {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        padding: 2rem;
+        margin-bottom: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .filter-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--accent-color)
+        );
+      }
+
+      .search-container {
+        position: relative;
+      }
+
+      .search-icon {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-gray);
+        z-index: 1;
+      }
+
+      .search-input {
+        padding-left: 45px;
+        border-radius: 50px;
+        border: 2px solid #e5e7eb;
+        transition: all 0.3s ease;
+      }
+
+      .search-input:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(44, 95, 45, 0.1);
+      }
+
+      .filter-select {
+        border-radius: 10px;
+        border: 2px solid #e5e7eb;
+        transition: all 0.3s ease;
+      }
+
+      .filter-select:focus {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(44, 95, 45, 0.1);
+      }
+
+      /* Premium Product Cards */
+      .product-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .product-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--accent-color)
+        );
+      }
+
+      .product-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .product-image {
+        position: relative;
+        height: 220px;
+        overflow: hidden;
+      }
+
+      .product-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .product-card:hover .product-image img {
+        transform: scale(1.1);
+      }
+
+      .product-badge {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: var(--accent-color);
+        color: var(--dark-color);
+        padding: 5px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        z-index: 1;
+      }
+
+      .product-content {
+        padding: 1.5rem;
+      }
+
+      .product-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: var(--primary-color);
+      }
+
+      .product-category {
+        color: var(--text-gray);
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .product-price {
+        font-size: 1.2rem;
+        font-weight: 700;
+        color: var(--secondary-color);
+        margin-bottom: 1rem;
+      }
+
+      .product-rating {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+
+      .rating-stars {
+        color: var(--gold);
+        margin-right: 0.5rem;
+      }
+
+      .rating-value {
+        color: var(--text-gray);
+        font-size: 0.9rem;
+      }
+
+      .product-actions {
+        display: flex;
+        gap: 0.5rem;
+      }
+
+      .product-btn {
+        flex: 1;
+        padding: 0.5rem;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        font-weight: 500;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+
+      .product-btn-primary {
+        background: var(--primary-color);
+        color: white;
+      }
+
+      .product-btn-primary:hover {
+        background: var(--secondary-color);
+      }
+
+      .product-btn-outline {
+        background: transparent;
+        color: var(--primary-color);
+        border: 1px solid var(--primary-color);
+      }
+
+      .product-btn-outline:hover {
+        background: var(--primary-color);
+        color: white;
+      }
+
+      /* Premium Category Cards */
+      .category-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        position: relative;
+      }
+
+      .category-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--accent-color)
+        );
+      }
+
+      .category-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .category-icon {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: linear-gradient(
+          135deg,
+          var(--secondary-color),
+          var(--primary-color)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        color: white;
+        font-size: 2rem;
+      }
+
+      /* Premium List View */
+      .product-list-view .product-card {
+        display: flex;
+        align-items: center;
+        padding: 1.5rem;
+      }
+
+      .product-list-view .product-image {
+        width: 200px;
+        height: 150px;
+        flex-shrink: 0;
+        margin-right: 1.5rem;
+      }
+
+      .product-list-view .product-content {
+        flex: 1;
+        padding: 0;
+      }
+
+      /* Loading State */
+      .skeleton {
+        background: linear-gradient(
+          90deg,
+          #f0f0f0 25%,
+          #e0e0e0 50%,
+          #f0f0f0 75%
+        );
+        background-size: 200% 100%;
+        animation: loading 1.5s infinite;
+      }
+
+      @keyframes loading {
+        0% {
+          background-position: 200% 0;
+        }
+        100% {
+          background-position: -200% 0;
+        }
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 768px) {
+        .product-list-view .product-card {
+          flex-direction: column;
+        }
+
+        .product-list-view .product-image {
+          width: 100%;
+          height: 200px;
+          margin-right: 0;
+          margin-bottom: 1rem;
+        }
+      }
+    </style>
   </head>
   <body class="min-h-screen bg-white">
+    <!-- Premium Loading Screen -->
+    <div class="loader" id="loader">
+      <div class="leaf-loader"></div>
+    </div>
+
     <!-- Navigation -->
-    <nav class="nav">
+    <nav class="nav" id="navbar">
       <div class="nav-container">
-        <a href="index.html" class="nav-logo flex items-center space-x-2">
-          <img
-            src="img/favicon-32x32.png"
-            alt="Verda Nusadaya"
-            class="h-10 w-10"
-          />
-          <span class="font-semibold text-lg">Verda Nusadaya</span>
+        <a href="index.html" class="nav-logo">
+          <img src="img/favicon-32x32.png" alt="Verda Nusadaya" />
+          <span>Verda Nusadaya</span>
         </a>
 
         <div class="nav-menu">
@@ -127,38 +504,14 @@
 
         <div class="nav-contact">
           <div class="nav-contact-info">
-            <svg
-              class="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-              ></path>
-            </svg>
+            <i class="fas fa-phone"></i>
             <span>+62 812-3456-7890</span>
           </div>
           <a href="contact.html" class="btn btn-primary">Hubungi Kami</a>
         </div>
 
         <button class="nav-mobile-btn" onclick="toggleMobileMenu()">
-          <svg
-            class="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            ></path>
-          </svg>
+          <i class="fas fa-bars"></i>
         </button>
       </div>
     </nav>
@@ -166,15 +519,13 @@
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="mobile-menu">
       <div class="mobile-menu-header">
-        <div class="nav-logo flex items-center space-x-2">
-          <img
-            src="img/favicon-32x32.png"
-            alt="Verda Nusadaya"
-            class="h-10 w-10"
-          />
-          <span class="font-semibold text-lg">Verda Nusadaya</span>
+        <div class="nav-logo">
+          <img src="img/favicon-32x32.png" alt="Verda Nusadaya" />
+          <span>Verda Nusadaya</span>
         </div>
-        <button id="mobileMenuClose" class="mobile-menu-close">&times;</button>
+        <button class="mobile-menu-close" onclick="toggleMobileMenu()">
+          <i class="fas fa-times"></i>
+        </button>
       </div>
       <div class="mobile-menu-content">
         <ul class="mobile-menu-links">
@@ -193,35 +544,11 @@
         </ul>
         <div class="mobile-menu-contact">
           <div class="mobile-menu-contact-item">
-            <svg
-              class="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-              ></path>
-            </svg>
+            <i class="fas fa-phone"></i>
             <span>+62 812-3456-7890</span>
           </div>
           <div class="mobile-menu-contact-item">
-            <svg
-              class="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-              ></path>
-            </svg>
+            <i class="fas fa-envelope"></i>
             <span>info@verdanusadaya.com</span>
           </div>
           <a href="contact.html" class="btn btn-primary w-full">Hubungi Kami</a>
@@ -230,13 +557,17 @@
     </div>
     <div id="overlay" class="overlay" onclick="toggleMobileMenu()"></div>
 
-    <!-- Hero Section -->
-    <section class="py-20 bg-gray-50">
-      <div class="container text-center">
-        <h1 class="text-4xl font-bold mb-4">Product Catalog</h1>
-        <p class="text-lg text-gray-600">
-          A selection of high-quality agro-industrial products to support the
-          success of your business.
+    <!-- Premium Hero Section -->
+    <section class="products-hero">
+      <div class="container text-center text-white">
+        <h1 class="hero-title" data-aos="fade-up">Katalog Produk</h1>
+        <p
+          class="section-subtitle max-w-3xl mx-auto mt-4"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          Pilihan produk agroindustri berkualitas tinggi untuk mendukung
+          kesuksesan bisnis Anda.
         </p>
       </div>
     </section>
@@ -244,40 +575,34 @@
     <!-- Enhanced Filter Section -->
     <section class="section">
       <div class="container">
-        <div class="bg-white p-6 rounded-lg shadow-sm mb-8">
+        <div class="filter-section" data-aos="fade-up">
           <div
             class="flex flex-col lg:flex-row gap-4 items-center justify-between"
           >
             <div class="flex flex-col sm:flex-row gap-4 flex-1">
-              <div class="relative flex-1 max-w-md">
-                <svg
-                  class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0m0 0v0v0m0 0v0"
-                  ></path>
-                </svg>
+              <div class="search-container flex-1 max-w-md">
+                <i class="fas fa-search search-icon"></i>
                 <input
                   type="text"
                   placeholder="Cari produk..."
-                  class="form-input pl-10"
+                  class="search-input w-full"
                   id="searchInput"
                   autocomplete="off"
                 />
               </div>
-              <select class="form-select w-full sm:w-48" id="categoryFilter">
+              <select
+                class="filter-select form-select w-full sm:w-48"
+                id="categoryFilter"
+              >
                 <option value="all">Semua Kategori</option>
                 <option value="kopi">Kopi</option>
                 <option value="karet">Karet</option>
                 <option value="kelapa-sawit">Kelapa Sawit</option>
               </select>
-              <select class="form-select w-full sm:w-48" id="sortBy">
+              <select
+                class="filter-select form-select w-full sm:w-48"
+                id="sortBy"
+              >
                 <option value="featured">Unggulan</option>
                 <option value="name">Nama (A-Z)</option>
                 <option value="price-low">Harga (Rendah ke Tinggi)</option>
@@ -293,19 +618,7 @@
                 class="btn btn-primary btn-sm"
                 onclick="downloadCatalog()"
               >
-                <svg
-                  class="w-4 h-4 mr-2"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M12 10v6m0 0l-3 3m3 3l-3 3m2 8H7a2 2 0 01-2 2h5.586a1 1 0 01.707.293l-2.414 2.414a1 1 0 01-.293.707V19a2 2 0 01-2 2h-1z"
-                  ></path>
-                </svg>
+                <i class="fas fa-download mr-2"></i>
                 Download Katalog
               </button>
             </div>
@@ -324,38 +637,14 @@
                 onclick="toggleView('grid')"
                 id="gridViewBtn"
               >
-                <svg
-                  class="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
-                  ></path>
-                </svg>
+                <i class="fas fa-th"></i>
               </button>
               <button
                 class="text-sm text-gray-500 hover:text-gray-700"
                 onclick="toggleView('list')"
                 id="listViewBtn"
               >
-                <svg
-                  class="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  ></path>
-                </svg>
+                <i class="fas fa-list"></i>
               </button>
             </div>
           </div>
@@ -364,7 +653,7 @@
         <!-- Products Grid -->
         <div
           id="productsContainer"
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-8"
         >
           <!-- Products will be loaded by JavaScript -->
         </div>
@@ -372,19 +661,7 @@
         <!-- No Results Message -->
         <div id="noResults" class="hidden text-center py-12">
           <div class="mb-4">
-            <svg
-              class="w-16 h-16 mx-auto text-gray-300"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              ></path>
-            </svg>
+            <i class="fas fa-search text-6xl text-gray-300"></i>
           </div>
           <h3 class="text-xl font-semibold text-gray-700 mb-2">
             Produk tidak ditemukan
@@ -408,101 +685,65 @@
     <!-- Product Categories Section -->
     <section class="section section-gray">
       <div class="container">
-        <div class="section-title">
-          <h2>Product<span class="text-green-600">Categories</span></h2>
+        <div class="section-title" data-aos="fade-up">
+          <h2>Kategori <span class="text-green-600">Produk</span></h2>
           <p class="max-w-2xl mx-auto">
-            Explore the various high-quality agro-industrial product categories
-            we offer.
+            Jelajahi berbagai kategori produk agroindustri berkualitas tinggi
+            yang kami tawarkan.
           </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div
-            class="card text-center p-6 hover:shadow-lg transition-all cursor-pointer"
+            class="category-card text-center p-6"
+            data-aos="fade-up"
+            data-aos-delay="100"
             onclick="filterByCategory('kopi')"
           >
-            <div
-              class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"
-            >
-              <svg
-                class="w-8 h-8 text-green-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332-.477 4.5-1.747V6.253z"
-                ></path>
-              </svg>
+            <div class="category-icon">
+              <i class="fas fa-coffee"></i>
             </div>
             <h3 class="text-xl font-semibold text-gray-800 mb-2">
               Premium Coffee
             </h3>
             <p class="text-gray-600">
-              Premium-grade Arabica and Robusta coffee sourced from Indonesia’s
-              finest plantations.
+              Kopi Arabica dan Robusta kelas premium bersumber dari perkebunan
+              terbaik Indonesia.
             </p>
           </div>
 
           <div
-            class="card text-center p-6 hover:shadow-lg transition-all cursor-pointer"
+            class="category-card text-center p-6"
+            data-aos="fade-up"
+            data-aos-delay="200"
             onclick="filterByCategory('karet')"
           >
-            <div
-              class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"
-            >
-              <svg
-                class="w-8 h-8 text-green-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9 9m9-9H3m9 9a9 9 0 01-9 9m9-9c-5 0-9 4-9 9"
-                ></path>
-              </svg>
+            <div class="category-icon">
+              <i class="fas fa-circle-notch"></i>
             </div>
             <h3 class="text-xl font-semibold text-gray-800 mb-2">
-              cloves crush
+              Cengkeh Crush
             </h3>
             <p class="text-gray-600">
-              High-quality, internationally-standard crushed cloves for
-              industrial needs.
+              Cengkeh berkualitas tinggi standar internasional untuk kebutuhan
+              industri.
             </p>
           </div>
 
           <div
-            class="card text-center p-6 hover:shadow-lg transition-all cursor-pointer"
+            class="category-card text-center p-6"
+            data-aos="fade-up"
+            data-aos-delay="300"
             onclick="filterByCategory('kelapa-sawit')"
           >
-            <div
-              class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"
-            >
-              <svg
-                class="w-8 h-8 text-green-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
-                ></path>
-              </svg>
+            <div class="category-icon">
+              <i class="fas fa-seedling"></i>
             </div>
             <h3 class="text-xl font-semibold text-gray-800 mb-2">
               Golden Coconut
             </h3>
             <p class="text-gray-600">
-              Premium-quality coconut-based oils and derivative products.
+              Produk berbasis kelapa berkualitas premium dan produk turunannya.
             </p>
           </div>
         </div>
@@ -512,30 +753,18 @@
     <!-- CTA Section -->
     <section class="cta-section">
       <div class="container">
-        <h2>Need Help Choosing the Right Product?</h2>
-        <p class="max-w-2xl mx-auto">
-          Our team of experts is ready to assist you in finding the perfect
-          product for your business needs.
+        <h2 data-aos="fade-up">Butuh Bantuan Memilih Produk yang Tepat?</h2>
+        <p class="max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+          Tim ahli kami siap membantu Anda menemukan produk yang sempurna untuk
+          kebutuhan bisnis Anda.
         </p>
 
-        <div class="cta-buttons">
+        <div class="cta-buttons" data-aos="fade-up" data-aos-delay="200">
           <a
             href="contact.html"
             class="btn bg-white text-green-600 hover:bg-gray-100 px-8"
           >
-            <svg
-              class="w-5 h-5 mr-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-              ></path>
-            </svg>
+            <i class="fas fa-phone mr-2"></i>
             Konsultasi Gratis
           </a>
           <a
@@ -543,19 +772,7 @@
             class="btn btn-outline border-white text-white hover:bg-white hover:text-green-600 px-8"
             onclick="downloadCatalog()"
           >
-            <svg
-              class="w-5 h-5 mr-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M12 10v6m0 0l-3 3m3 3l-3 3m2 8H7a2 2 0 01-2 2h5.586a1 1 0 01.707.293l-2.414 2.414a1 1 0 01-.293.707V19a2 2 0 01-2 2h-1z"
-              ></path>
-            </svg>
+            <i class="fas fa-download mr-2"></i>
             Download Katalog Lengkap
           </a>
         </div>
@@ -580,39 +797,28 @@
               menyediakan produk berkualitas tinggi dari hasil pertanian
               Indonesia.
             </p>
+
             <div class="footer-social">
               <a
                 href="https://www.facebook.com/verdanusadaya"
                 class="footer-social"
                 target="_blank"
               >
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
-                  />
-                </svg>
+                <i class="fab fa-facebook-f"></i>
               </a>
               <a
                 href="https://www.instagram.com/verdanusadaya"
                 class="footer-social"
                 target="_blank"
               >
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"
-                  />
-                </svg>
+                <i class="fab fa-instagram"></i>
               </a>
               <a
                 href="https://www.twitter.com/verdanusadaya"
                 class="footer-social"
                 target="_blank"
               >
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
-                  />
-                </svg>
+                <i class="fab fa-twitter"></i>
               </a>
             </div>
           </div>
@@ -631,57 +837,15 @@
             <h3>Kontak</h3>
             <div class="space-y-3">
               <div class="flex items-center space-x-2">
-                <svg
-                  class="w-4 h-4 text-green-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                  ></path>
-                </svg>
+                <i class="fas fa-phone text-green-400"></i>
                 <span class="text-gray-300">+62 812-3456-7890</span>
               </div>
               <div class="flex items-center space-x-2">
-                <svg
-                  class="w-4 h-4 text-green-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  ></path>
-                </svg>
+                <i class="fas fa-envelope text-green-400"></i>
                 <span class="text-gray-300">info@verdanusadaya.com</span>
               </div>
               <div class="flex items-start space-x-2">
-                <svg
-                  class="w-4 h-4 text-green-400 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                  ></path>
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                  ></path>
-                </svg>
+                <i class="fas fa-map-marker-alt text-green-400 mt-1"></i>
                 <span class="text-gray-300">
                   Jl. Raya Gondang No.16, Gondang Village<br />
                   Gangga Subdistrict, North Lombok Regency<br />
@@ -699,10 +863,34 @@
     </footer>
 
     <!-- JavaScript -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="./js/main.js"></script>
 
     <!-- Additional JavaScript for Enhanced Product Filtering -->
     <script>
+      // Initialize AOS
+      AOS.init({
+        duration: 1000,
+        once: true,
+      });
+
+      // Hide loader when page is fully loaded
+      window.addEventListener("load", function () {
+        setTimeout(function () {
+          document.getElementById("loader").classList.add("hidden");
+        }, 1000);
+      });
+
+      // Navbar scroll effect
+      window.addEventListener("scroll", function () {
+        const navbar = document.getElementById("navbar");
+        if (window.scrollY > 100) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
       // Enhanced filtering and sorting functions
       function filterByCategory(category) {
         const categoryFilter = document.getElementById("categoryFilter");
@@ -718,12 +906,11 @@
         const listBtn = document.getElementById("listViewBtn");
 
         if (viewType === "list") {
-          container.className = "space-y-4";
+          container.classList.add("product-list-view");
           listBtn.classList.add("text-green-600");
           gridBtn.classList.remove("text-green-600");
         } else {
-          container.className =
-            "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6";
+          container.classList.remove("product-list-view");
           gridBtn.classList.add("text-green-600");
           listBtn.classList.remove("text-green-600");
         }

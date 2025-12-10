@@ -45,6 +45,21 @@
     <link rel="icon" href="./img/favicon-32x32.png" />
     <link rel="apple-touch-icon" href="./img/favicon-32x32.png" />
 
+    <!-- Premium Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
     <!-- CSS -->
     <link rel="stylesheet" href="./css/style.css" />
 
@@ -82,18 +97,384 @@
         }
       }
     </script>
+
+    <!-- Custom Premium Styles -->
+    <style>
+      /* Premium Typography */
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+      }
+
+      body {
+        font-family: "Montserrat", sans-serif;
+      }
+
+      .product-title {
+        font-family: "Playfair Display", serif;
+        font-weight: 900;
+        font-size: 2.5rem;
+        line-height: 1.1;
+      }
+
+      /* Premium Product Gallery */
+      .product-gallery {
+        position: relative;
+        overflow: hidden;
+        border-radius: 15px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .main-image {
+        position: relative;
+        height: 500px;
+        overflow: hidden;
+      }
+
+      .main-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .main-image:hover img {
+        transform: scale(1.05);
+      }
+
+      .product-badge {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: var(--accent-color);
+        color: var(--dark-color);
+        padding: 8px 16px;
+        border-radius: 30px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        z-index: 1;
+      }
+
+      .image-thumbnails {
+        display: flex;
+        gap: 10px;
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.9);
+      }
+
+      .thumbnail {
+        width: 80px;
+        height: 80px;
+        border-radius: 8px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+      }
+
+      .thumbnail:hover,
+      .thumbnail.active {
+        border-color: var(--primary-color);
+        transform: scale(1.05);
+      }
+
+      .thumbnail img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* Premium Product Info */
+      .product-info {
+        padding: 2rem;
+      }
+
+      .product-meta {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .product-category {
+        background: var(--light-gold);
+        color: var(--dark-color);
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+
+      .product-rating {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .rating-stars {
+        color: var(--gold);
+      }
+
+      .rating-value {
+        color: var(--text-gray);
+        font-size: 0.9rem;
+      }
+
+      /* Premium Tabs */
+      .product-tabs {
+        margin: 2rem 0;
+        border-bottom: 1px solid #e5e7eb;
+      }
+
+      .tab-buttons {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .tab-button {
+        padding: 1rem 0;
+        border: none;
+        background: none;
+        color: var(--text-gray);
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        position: relative;
+        transition: color 0.3s ease;
+      }
+
+      .tab-button.active {
+        color: var(--primary-color);
+      }
+
+      .tab-button.active::after {
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--accent-color)
+        );
+      }
+
+      .tab-content {
+        padding: 2rem 0;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .tab-content.active {
+        opacity: 1;
+      }
+
+      /* Premium Related Products */
+      .related-product {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .related-product::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--accent-color)
+        );
+      }
+
+      .related-product:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .related-product-image {
+        height: 200px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .related-product-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .related-product:hover .related-product-image img {
+        transform: scale(1.1);
+      }
+
+      .related-product-content {
+        padding: 1.5rem;
+      }
+
+      .related-product-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: var(--primary-color);
+      }
+
+      .related-product-price {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--secondary-color);
+        margin-bottom: 1rem;
+      }
+
+      /* Premium Specifications */
+      .spec-list {
+        list-style: none;
+      }
+
+      .spec-list li {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem 0;
+        border-bottom: 1px solid #f3f4f6;
+      }
+
+      .spec-list li:last-child {
+        border-bottom: none;
+      }
+
+      .spec-label {
+        font-weight: 600;
+        color: var(--dark-color);
+      }
+
+      .spec-value {
+        color: var(--text-gray);
+      }
+
+      /* Premium Ordering Steps */
+      .ordering-steps {
+        margin-top: 2rem;
+      }
+
+      .step {
+        display: flex;
+        align-items: flex-start;
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .step-number {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: linear-gradient(
+          135deg,
+          var(--secondary-color),
+          var(--primary-color)
+        );
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        flex-shrink: 0;
+      }
+
+      .step-content h4 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+        color: var(--primary-color);
+      }
+
+      .step-content p {
+        color: var(--text-gray);
+      }
+
+      /* Premium Zoom Feature */
+      .zoom-container {
+        position: relative;
+        overflow: hidden;
+        cursor: zoom-in;
+      }
+
+      .zoom-lens {
+        position: absolute;
+        border: 2px solid var(--primary-color);
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+      }
+
+      .zoom-result {
+        position: absolute;
+        top: 0;
+        right: -320px;
+        width: 300px;
+        height: 300px;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 10;
+      }
+
+      .zoom-result img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 768px) {
+        .product-title {
+          font-size: 2rem;
+        }
+
+        .main-image {
+          height: 300px;
+        }
+
+        .zoom-result {
+          display: none;
+        }
+
+        .tab-buttons {
+          overflow-x: auto;
+          gap: 1rem;
+        }
+      }
+    </style>
   </head>
   <body class="min-h-screen bg-white">
+    <!-- Premium Loading Screen -->
+    <div class="loader" id="loader">
+      <div class="leaf-loader"></div>
+    </div>
+
     <!-- Navigation -->
-    <nav class="nav">
+    <nav class="nav" id="navbar">
       <div class="nav-container">
-        <a href="index.html" class="nav-logo flex items-center space-x-2">
-          <img
-            src="img/favicon-32x32.png"
-            alt="Verda Nusadaya"
-            class="h-10 w-10"
-          />
-          <span class="font-semibold text-lg">Verda Nusadaya</span>
+        <a href="index.html" class="nav-logo">
+          <img src="img/favicon-32x32.png" alt="Verda Nusadaya" />
+          <span>Verda Nusadaya</span>
         </a>
 
         <div class="nav-menu">
@@ -105,38 +486,14 @@
 
         <div class="nav-contact">
           <div class="nav-contact-info">
-            <svg
-              class="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-              ></path>
-            </svg>
+            <i class="fas fa-phone"></i>
             <span>+62 812-3456-7890</span>
           </div>
           <a href="contact.html" class="btn btn-primary">Hubungi Kami</a>
         </div>
 
         <button class="nav-mobile-btn" onclick="toggleMobileMenu()">
-          <svg
-            class="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            ></path>
-          </svg>
+          <i class="fas fa-bars"></i>
         </button>
       </div>
     </nav>
@@ -144,17 +501,12 @@
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="mobile-menu">
       <div class="mobile-menu-header">
-        <div class="nav-logo flex items-center space-x-2">
-          <img
-            src="img/favicon-32x32.png"
-            alt="Verda Nusadaya"
-            class="h-10 w-10"
-          />
-          <span class="font-semibold text-lg">Verda Nusadaya</span>
+        <div class="nav-logo">
+          <img src="img/favicon-32x32.png" alt="Verda Nusadaya" />
+          <span>Verda Nusadaya</span>
         </div>
-
         <button class="mobile-menu-close" onclick="toggleMobileMenu()">
-          ×
+          <i class="fas fa-times"></i>
         </button>
       </div>
       <div class="mobile-menu-content">
@@ -172,49 +524,24 @@
         </ul>
         <div class="mobile-menu-contact">
           <div class="mobile-menu-contact-item">
-            <svg
-              class="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-              ></path>
-            </svg>
+            <i class="fas fa-phone"></i>
             <span>+62 812-3456-7890</span>
           </div>
           <div class="mobile-menu-contact-item">
-            <svg
-              class="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-              ></path>
-            </svg>
+            <i class="fas fa-envelope"></i>
             <span>info@verdanusadaya.com</span>
           </div>
           <a href="contact.html" class="btn btn-primary w-full">Hubungi Kami</a>
         </div>
       </div>
     </div>
-
     <div id="overlay" class="overlay" onclick="toggleMobileMenu()"></div>
 
     <!-- Main Content -->
     <main class="product-detail-container">
       <div class="container">
         <!-- Breadcrumb Navigation -->
-        <ul class="breadcrumb">
+        <ul class="breadcrumb" data-aos="fade-up">
           <li><a href="index.html">Beranda</a></li>
           <li><a href="products.html">Produk</a></li>
           <li id="productName">Memuat...</li>
@@ -236,26 +563,33 @@
         <!-- Product Detail Content -->
         <div id="productContent" class="hidden">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-            <!-- Product Image -->
-            <div class="product-image-container">
-              <img
-                id="productImage"
-                src=""
-                alt=""
-                class="product-image"
-                loading="lazy"
-              />
-              <span id="productBadge" class="product-badge hidden"></span>
+            <!-- Product Image Gallery -->
+            <div class="product-gallery" data-aos="fade-right">
+              <div class="main-image zoom-container" id="mainImageContainer">
+                <img id="productImage" src="" alt="" loading="lazy" />
+                <div class="zoom-lens" id="zoomLens"></div>
+                <div class="zoom-result" id="zoomResult">
+                  <img id="zoomImage" src="" alt="Zoomed Product" />
+                </div>
+                <span id="productBadge" class="product-badge hidden"></span>
+              </div>
+
+              <div class="image-thumbnails" id="imageThumbnails">
+                <!-- Thumbnails will be loaded by JavaScript -->
+              </div>
             </div>
 
             <!-- Product Information -->
-            <div>
-              <h1 id="productTitle" class="text-3xl font-bold mb-4"></h1>
-
-              <div class="rating-container">
-                <div class="rating-stars" id="productRating"></div>
-                <span class="rating-value" id="productRatingValue"></span>
+            <div class="product-info" data-aos="fade-left">
+              <div class="product-meta">
+                <span id="productCategory" class="product-category"></span>
+                <div class="product-rating">
+                  <div class="rating-stars" id="productRating"></div>
+                  <span class="rating-value" id="productRatingValue"></span>
+                </div>
               </div>
+
+              <h1 id="productTitle" class="product-title"></h1>
 
               <div class="product-specs" id="productSpecs"></div>
 
@@ -263,35 +597,11 @@
 
               <div class="product-actions">
                 <a href="contact.html" class="btn btn-primary">
-                  <svg
-                    class="w-5 h-5 mr-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                    ></path>
-                  </svg>
+                  <i class="fas fa-phone mr-2"></i>
                   Hubungi Kami
                 </a>
                 <a href="products.html" class="btn btn-outline">
-                  <svg
-                    class="w-5 h-5 mr-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M10 19l-7-7m0 0l7-7m-7 7h18"
-                    ></path>
-                  </svg>
+                  <i class="fas fa-arrow-left mr-2"></i>
                   Kembali ke Produk
                 </a>
               </div>
@@ -299,7 +609,7 @@
           </div>
 
           <!-- Product Tabs -->
-          <div class="product-tabs">
+          <div class="product-tabs" data-aos="fade-up">
             <div class="tab-buttons">
               <button
                 class="tab-button active"
@@ -326,64 +636,70 @@
           </div>
 
           <div class="tab-content" id="orderingTab">
-            <div class="bg-gray-50 p-6 rounded-lg">
-              <h3 class="text-xl font-semibold mb-4">Cara Pemesanan</h3>
-              <div class="space-y-4">
-                <div class="flex items-start space-x-3">
-                  <div
-                    class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0"
-                  >
-                    <span class="text-green-600 font-semibold">1</span>
-                  </div>
-                  <div>
-                    <h4 class="font-semibold">Hubungi Sales</h4>
-                    <p class="text-gray-600">
-                      Konsultasikan kebutuhan Anda dengan tim sales kami
-                    </p>
-                  </div>
-                </div>
-                <div class="flex items-start space-x-3">
-                  <div
-                    class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0"
-                  >
-                    <span class="text-green-600 font-semibold">2</span>
-                  </div>
-                  <div>
-                    <h4 class="font-semibold">Request Quote</h4>
-                    <p class="text-gray-600">
-                      Dapatkan penawaran harga khusus untuk volume besar
-                    </p>
-                  </div>
-                </div>
-                <div class="flex items-start space-x-3">
-                  <div
-                    class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0"
-                  >
-                    <span class="text-green-600 font-semibold">3</span>
-                  </div>
-                  <div>
-                    <h4 class="font-semibold">Konfirmasi Order</h4>
-                    <p class="text-gray-600">
-                      Konfirmasi ketersediaan stok dan jadwal pengiriman
-                    </p>
-                  </div>
+            <div class="ordering-steps">
+              <div class="step" data-aos="fade-up" data-aos-delay="100">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                  <h4>Hubungi Sales</h4>
+                  <p>
+                    Konsultasikan kebutuhan Anda dengan tim sales kami untuk
+                    mendapatkan informasi produk dan penawaran harga terbaik.
+                  </p>
                 </div>
               </div>
-              <div
-                class="mt-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg"
-              >
-                <p class="text-sm text-yellow-800">
-                  <strong>Informasi Penting:</strong> Harga dan ketersediaan
-                  stok dapat berubah sewaktu-waktu. Harap konfirmasi dengan tim
-                  sales kami untuk informasi terkini.
-                </p>
+
+              <div class="step" data-aos="fade-up" data-aos-delay="200">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                  <h4>Konfirmasi Pesanan</h4>
+                  <p>
+                    Setelah mendapatkan penawaran harga, konfirmasi pesanan Anda
+                    dengan menentukan jumlah dan spesifikasi yang dibutuhkan.
+                  </p>
+                </div>
               </div>
+
+              <div class="step" data-aos="fade-up" data-aos-delay="300">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                  <h4>Proses Pembayaran</h4>
+                  <p>
+                    Lakukan pembayaran sesuai dengan kesepakatan. Kami menerima
+                    berbagai metode pembayaran untuk kemudahan Anda.
+                  </p>
+                </div>
+              </div>
+
+              <div class="step" data-aos="fade-up" data-aos-delay="400">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                  <h4>Pengiriman Produk</h4>
+                  <p>
+                    Produk akan dikirim sesuai jadwal yang telah disepakati.
+                    Kami menyediakan tracking untuk memantau status pengiriman.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="mt-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg"
+              data-aos="fade-up"
+              data-aos-delay="500"
+            >
+              <p class="text-sm text-yellow-800">
+                <strong>Informasi Penting:</strong> Harga dan ketersediaan stok
+                dapat berubah sewaktu-waktu. Harap konfirmasi dengan tim sales
+                kami untuk informasi terkini.
+              </p>
             </div>
           </div>
 
           <!-- Related Products -->
           <div class="mt-16">
-            <h2 class="text-2xl font-bold mb-8">Produk Terkait</h2>
+            <h2 class="text-2xl font-bold mb-8" data-aos="fade-up">
+              Produk Terkait
+            </h2>
             <div
               id="relatedProducts"
               class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
@@ -419,33 +735,21 @@
                 class="footer-social"
                 target="_blank"
               >
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
-                  />
-                </svg>
+                <i class="fab fa-facebook-f"></i>
               </a>
               <a
                 href="https://www.instagram.com/verdanusadaya"
                 class="footer-social"
                 target="_blank"
               >
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"
-                  />
-                </svg>
+                <i class="fab fa-instagram"></i>
               </a>
               <a
                 href="https://www.twitter.com/verdanusadaya"
                 class="footer-social"
                 target="_blank"
               >
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
-                  />
-                </svg>
+                <i class="fab fa-twitter"></i>
               </a>
             </div>
           </div>
@@ -464,57 +768,15 @@
             <h3>Kontak</h3>
             <div class="space-y-3">
               <div class="flex items-center space-x-2">
-                <svg
-                  class="w-4 h-4 text-green-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                  ></path>
-                </svg>
+                <i class="fas fa-phone text-green-400"></i>
                 <span class="text-gray-300">+62 812-3456-7890</span>
               </div>
               <div class="flex items-center space-x-2">
-                <svg
-                  class="w-4 h-4 text-green-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  ></path>
-                </svg>
+                <i class="fas fa-envelope text-green-400"></i>
                 <span class="text-gray-300">info@verdanusadaya.com</span>
               </div>
               <div class="flex items-start space-x-2">
-                <svg
-                  class="w-4 h-4 text-green-400 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                  ></path>
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                  ></path>
-                </svg>
+                <i class="fas fa-map-marker-alt text-green-400 mt-1"></i>
                 <span class="text-gray-300">
                   Jl. Raya Gondang No.16, Gondang Village<br />
                   Gangga Subdistrict, North Lombok Regency<br />
@@ -532,10 +794,34 @@
     </footer>
 
     <!-- JavaScript -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="./js/main.js"></script>
 
     <!-- Product Detail JavaScript -->
     <script>
+      // Initialize AOS
+      AOS.init({
+        duration: 1000,
+        once: true,
+      });
+
+      // Hide loader when page is fully loaded
+      window.addEventListener("load", function () {
+        setTimeout(function () {
+          document.getElementById("loader").classList.add("hidden");
+        }, 1000);
+      });
+
+      // Navbar scroll effect
+      window.addEventListener("scroll", function () {
+        const navbar = document.getElementById("navbar");
+        if (window.scrollY > 100) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
       // Get product ID from URL parameter
       const urlParams = new URLSearchParams(window.location.search);
       const productId = urlParams.get("id");
@@ -550,6 +836,7 @@
       const productImage = document.getElementById("productImage");
       const productBadge = document.getElementById("productBadge");
       const productTitle = document.getElementById("productTitle");
+      const productCategory = document.getElementById("productCategory");
       const productRating = document.getElementById("productRating");
       const productRatingValue = document.getElementById("productRatingValue");
       const productSpecs = document.getElementById("productSpecs");
@@ -557,6 +844,7 @@
       const fullDescription = document.getElementById("fullDescription");
       const specList = document.getElementById("specList");
       const relatedProducts = document.getElementById("relatedProducts");
+      const imageThumbnails = document.getElementById("imageThumbnails");
 
       // Initialize product detail page
       document.addEventListener("DOMContentLoaded", function () {
@@ -575,6 +863,7 @@
         if (product) {
           displayProductDetail(product);
           loadRelatedProducts(product.category, product.id);
+          setupImageZoom();
           updateCanonicalUrl(product);
         } else {
           showError();
@@ -602,9 +891,11 @@
         productImage.alt = product.name;
         productImage.onerror = function () {
           this.src =
-            "https://via.placeholder.com/600x400?text=" +
-            encodeURIComponent(product.name);
+            "https://picsum.photos/seed/" + product.id + "/600/600.jpg";
         };
+
+        // Create image thumbnails
+        createImageThumbnails(product);
 
         // Update product badge if featured
         if (product.isFeatured) {
@@ -615,6 +906,9 @@
 
         // Update product title
         productTitle.textContent = product.name;
+
+        // Update product category
+        productCategory.textContent = getCategoryLabel(product.category);
 
         // Update rating
         productRating.innerHTML = generateRatingStars(product.rating);
@@ -645,7 +939,7 @@ Keunggulan Produk:
 • Layanan pelanggan terbaik
 
 Aplikasi Produk:
-${product.specs.map((spec) => `• ${spec}`).join("\n")}
+ ${product.specs.map((spec) => `• ${spec}`).join("\n")}
 
 Untuk informasi lebih lanjut tentang harga, ketersediaan stok, dan proses pemesanan, silakan hubungi tim sales kami.`;
 
@@ -676,9 +970,9 @@ Untuk informasi lebih lanjut tentang harga, ketersediaan stok, dan proses pemesa
         basicSpecs.forEach((spec) => {
           const specItem = document.createElement("li");
           specItem.innerHTML = `
-            <span class="spec-label">${spec.label}</span>
-            <span class="spec-value">${spec.value}</span>
-          `;
+                    <span class="spec-label">${spec.label}</span>
+                    <span class="spec-value">${spec.value}</span>
+                `;
           specList.appendChild(specItem);
         });
 
@@ -686,14 +980,101 @@ Untuk informasi lebih lanjut tentang harga, ketersediaan stok, dan proses pemesa
         product.specs.forEach((spec) => {
           const specItem = document.createElement("li");
           specItem.innerHTML = `
-            <span class="spec-label">${spec}</span>
-            <span class="spec-value">Tersedia</span>
-          `;
+                    <span class="spec-label">${spec}</span>
+                    <span class="spec-value">Tersedia</span>
+                `;
           specList.appendChild(specItem);
         });
 
         // Show product content
         productContent.classList.remove("hidden");
+      }
+
+      // Create image thumbnails
+      function createImageThumbnails(product) {
+        // Clear existing thumbnails
+        imageThumbnails.innerHTML = "";
+
+        // Generate additional image URLs for thumbnails
+        const thumbnailImages = [
+          product.image,
+          `https://picsum.photos/seed/${product.id}-1/300/300.jpg`,
+          `https://picsum.photos/seed/${product.id}-2/300/300.jpg`,
+          `https://picsum.photos/seed/${product.id}-3/300/300.jpg`,
+        ];
+
+        // Create thumbnail elements
+        thumbnailImages.forEach((imageUrl, index) => {
+          const thumbnail = document.createElement("div");
+          thumbnail.className = "thumbnail" + (index === 0 ? " active" : "");
+
+          const img = document.createElement("img");
+          img.src = imageUrl;
+          img.alt = `${product.name} - Gambar ${index + 1}`;
+          img.loading = "lazy";
+
+          thumbnail.appendChild(img);
+          thumbnail.addEventListener("click", function () {
+            // Update main image
+            productImage.src = imageUrl;
+
+            // Update active thumbnail
+            document
+              .querySelectorAll(".thumbnail")
+              .forEach((t) => t.classList.remove("active"));
+            this.classList.add("active");
+          });
+
+          imageThumbnails.appendChild(thumbnail);
+        });
+      }
+
+      // Setup image zoom functionality
+      function setupImageZoom() {
+        const mainImageContainer =
+          document.getElementById("mainImageContainer");
+        const zoomLens = document.getElementById("zoomLens");
+        const zoomResult = document.getElementById("zoomResult");
+        const zoomImage = document.getElementById("zoomImage");
+        const productImage = document.getElementById("productImage");
+
+        // Only enable zoom on desktop
+        if (window.innerWidth > 768) {
+          mainImageContainer.addEventListener("mousemove", function (e) {
+            zoomLens.style.opacity = "1";
+            zoomResult.style.opacity = "1";
+
+            // Get mouse position
+            const rect = mainImageContainer.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            // Position lens
+            let lensX = x - 50;
+            let lensY = y - 50;
+
+            // Constrain lens within image
+            if (lensX < 0) lensX = 0;
+            if (lensY < 0) lensY = 0;
+            if (lensX > rect.width - 100) lensX = rect.width - 100;
+            if (lensY > rect.height - 100) lensY = rect.height - 100;
+
+            zoomLens.style.left = lensX + "px";
+            zoomLens.style.top = lensY + "px";
+
+            // Update zoomed image
+            const zoomX = (lensX / rect.width) * 100;
+            const zoomY = (lensY / rect.height) * 100;
+
+            zoomImage.src = productImage.src;
+            zoomImage.style.transform = `scale(2) translate(-${zoomX}%, -${zoomY}%)`;
+          });
+
+          mainImageContainer.addEventListener("mouseleave", function () {
+            zoomLens.style.opacity = "0";
+            zoomResult.style.opacity = "0";
+          });
+        }
       }
 
       // Load related products
@@ -716,8 +1097,10 @@ Untuk informasi lebih lanjut tentang harga, ketersediaan stok, dan proses pemesa
         }
 
         // Add related products
-        related.forEach((product) => {
+        related.forEach((product, index) => {
           const productCard = createRelatedProductCard(product);
+          productCard.setAttribute("data-aos", "fade-up");
+          productCard.setAttribute("data-aos-delay", (index * 100).toString());
           relatedProducts.appendChild(productCard);
         });
       }
@@ -725,64 +1108,56 @@ Untuk informasi lebih lanjut tentang harga, ketersediaan stok, dan proses pemesa
       // Create related product card
       function createRelatedProductCard(product) {
         const card = document.createElement("div");
-        card.className = "card related-product";
+        card.className = "related-product";
 
         const categoryLabel = getCategoryLabel(product.category);
         const ratingStars = generateRatingStars(product.rating);
 
         card.innerHTML = `
-          <div class="card-image-container">
-            <img src="${product.image}" alt="${
+                <div class="related-product-image">
+                    <img src="${product.image}" alt="${
           product.name
-        }" class="card-image" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300?text=${encodeURIComponent(
-          product.name
-        )}'">
-            <span class="badge badge-primary absolute top-4 left-4">${categoryLabel}</span>
-            ${
-              product.isFeatured
-                ? `
-              <span class="badge badge-yellow absolute top-4 right-4">
-                <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                </svg>
-                Unggulan
-              </span>
-            `
-                : ""
-            }
-          </div>
-          <div class="card-content">
-            <h3 class="text-xl font-semibold mb-2">${product.name}</h3>
-            <p class="text-gray-600 mb-4 line-clamp-2">${
-              product.description
-            }</p>
-            
-            <div class="flex items-center mb-3">
-              <div class="flex">
-                ${ratingStars}
-              </div>
-              <span class="ml-2 text-sm text-gray-600">${product.rating}</span>
-            </div>
+        }" loading="lazy" onerror="this.src='https://picsum.photos/seed/${
+          product.id
+        }/400/300.jpg'">
+                    ${
+                      product.isFeatured
+                        ? `
+                        <span class="product-badge">Unggulan</span>
+                        `
+                        : ""
+                    }
+                </div>
+                <div class="related-product-content">
+                    <h3 class="related-product-title">${product.name}</h3>
+                    <p class="text-gray-600 mb-4 line-clamp-2">${
+                      product.description
+                    }</p>
+                    
+                    <div class="product-rating mb-3">
+                        <div class="rating-stars">${ratingStars}</div>
+                        <span class="rating-value">${product.rating}</span>
+                    </div>
 
-            <div class="flex justify-between items-center">
-              <div>
-                <span class="text-lg font-bold text-green-600">${
-                  product.price
-                }</span>
-                <span class="text-xs text-gray-500 block">Min. ${
-                  product.minOrder
-                } ${
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <span class="text-lg font-bold text-green-600">${
+                              product.price
+                            }</span>
+                            <span class="text-xs text-gray-500 block">Min. ${
+                              product.minOrder
+                            } ${
           product.category === "kelapa-sawit" && product.name.includes("Liter")
             ? "liter"
             : "kg"
         }</span>
-              </div>
-              <a href="product-detail.html?id=${
-                product.id
-              }" class="btn btn-primary btn-sm">Detail</a>
-            </div>
-          </div>
-        `;
+                        </div>
+                        <a href="product-detail.html?id=${
+                          product.id
+                        }" class="btn btn-primary btn-sm">Detail</a>
+                    </div>
+                </div>
+            `;
 
         return card;
       }
@@ -807,54 +1182,19 @@ Untuk informasi lebih lanjut tentang harga, ketersediaan stok, dan proses pemesa
         // Update tab content with fade effect
         const tabContents = document.querySelectorAll(".tab-content");
         tabContents.forEach((content) => {
-          content.style.opacity = "0";
-          setTimeout(() => {
-            content.classList.remove("active");
-          }, 150);
+          content.classList.remove("active");
         });
 
         setTimeout(() => {
           const activeTab = document.getElementById(`${tabName}Tab`);
           if (activeTab) {
-            activeTab.style.opacity = "0";
             activeTab.classList.add("active");
-            setTimeout(() => {
-              activeTab.style.opacity = "1";
-            }, 50);
           }
-        }, 200);
-      }
-
-      // Add to cart functionality (placeholder)
-      function addToCart(product) {
-        // Placeholder for cart functionality
-        alert("Fitur keranjang akan segera tersedia!");
-      }
-
-      // Share functionality
-      function shareProduct(product) {
-        if (navigator.share) {
-          navigator.share({
-            title: product.name,
-            text: product.description,
-            url: window.location.href,
-          });
-        } else {
-          // Fallback for browsers that don't support Web Share API
-          const dummy = document.createElement("input");
-          document.body.appendChild(dummy);
-          dummy.value = window.location.href;
-          dummy.select();
-          document.execCommand("copy");
-          document.body.removeChild(dummy);
-          alert("Link produk telah disalin!");
-        }
+        }, 100);
       }
 
       // Make functions globally available
       window.showTab = showTab;
-      window.addToCart = addToCart;
-      window.shareProduct = shareProduct;
     </script>
   </body>
 </html>

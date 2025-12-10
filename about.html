@@ -49,6 +49,21 @@
     <link rel="icon" href="./img/favicon-32x32.png" />
     <link rel="apple-touch-icon" href="./img/favicon-32x32.png" />
 
+    <!-- Premium Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
     <!-- CSS -->
     <link rel="stylesheet" href="./css/style.css" />
 
@@ -124,23 +139,362 @@
       }
     </script>
 
-    <!-- Font Awesome for Icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+    <!-- Custom Premium Styles -->
+    <style>
+      /* Premium Typography */
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+      }
+
+      body {
+        font-family: "Montserrat", sans-serif;
+      }
+
+      .hero-title {
+        font-family: "Playfair Display", serif;
+        font-weight: 900;
+        font-size: 3.5rem;
+        line-height: 1.1;
+      }
+
+      .section-subtitle {
+        font-family: "Crimson Text", serif;
+        font-style: italic;
+        font-size: 1.2rem;
+      }
+
+      /* Premium Hero Section */
+      .about-hero {
+        background: linear-gradient(
+            135deg,
+            rgba(44, 95, 45, 0.9),
+            rgba(0, 0, 0, 0.8)
+          ),
+          url("https://picsum.photos/seed/agro-about-hero/1920/800.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        padding: 120px 0 80px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .about-hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("https://picsum.photos/seed/agro-pattern/1920/800.jpg");
+        background-size: cover;
+        opacity: 0.1;
+        z-index: 0;
+      }
+
+      .about-hero .container {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Premium Card Design */
+      .premium-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .premium-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--accent-color)
+        );
+      }
+
+      .premium-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Premium Team Cards */
+      .team-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .team-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .team-card .team-image {
+        position: relative;
+        overflow: hidden;
+        height: 280px;
+      }
+
+      .team-card .team-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .team-card:hover .team-image img {
+        transform: scale(1.1);
+      }
+
+      .team-card .team-content {
+        padding: 2rem;
+      }
+
+      .team-card .team-name {
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        color: var(--primary-color);
+      }
+
+      .team-card .team-position {
+        color: var(--secondary-color);
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      /* Premium Value Cards */
+      .value-card {
+        background: white;
+        border-radius: 15px;
+        padding: 2.5rem;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .value-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+      }
+
+      .value-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .value-icon {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: linear-gradient(
+          135deg,
+          var(--secondary-color),
+          var(--primary-color)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        color: white;
+        font-size: 2rem;
+      }
+
+      /* Premium Statistics */
+      .stat-card {
+        text-align: center;
+        padding: 2rem;
+        border-radius: 15px;
+        background: white;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .stat-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .stat-number {
+        font-size: 3rem;
+        font-weight: 900;
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+        font-family: "Playfair Display", serif;
+      }
+
+      .stat-label {
+        font-size: 1.1rem;
+        color: var(--text-gray);
+        font-weight: 500;
+      }
+
+      /* Premium Vision/Mission Cards */
+      .vm-card {
+        background: white;
+        border-radius: 15px;
+        padding: 2.5rem;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .vm-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+      }
+
+      .vm-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .vm-icon {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: linear-gradient(
+          135deg,
+          var(--secondary-color),
+          var(--primary-color)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        color: white;
+        font-size: 2rem;
+      }
+
+      /* Premium Timeline */
+      .timeline {
+        position: relative;
+        padding: 2rem 0;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(
+          to bottom,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+      }
+
+      .timeline-item {
+        position: relative;
+        margin-bottom: 3rem;
+      }
+
+      .timeline-content {
+        background: white;
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        width: 45%;
+        position: relative;
+      }
+
+      .timeline-item:nth-child(odd) .timeline-content {
+        margin-left: auto;
+      }
+
+      .timeline-dot {
+        position: absolute;
+        top: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: var(--accent-color);
+        border: 4px solid white;
+        box-shadow: 0 0 0 4px rgba(244, 224, 77, 0.3);
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 768px) {
+        .timeline::before {
+          left: 20px;
+        }
+
+        .timeline-content {
+          width: calc(100% - 60px);
+          margin-left: 60px !important;
+        }
+
+        .timeline-dot {
+          left: 20px;
+        }
+
+        .hero-title {
+          font-size: 2.5rem;
+        }
+
+        .stat-number {
+          font-size: 2rem;
+        }
+      }
+    </style>
   </head>
   <body class="min-h-screen bg-white">
+    <!-- Premium Loading Screen -->
+    <div class="loader" id="loader">
+      <div class="leaf-loader"></div>
+    </div>
+
     <!-- Navigation -->
-    <nav class="nav">
+    <nav class="nav" id="navbar">
       <div class="nav-container">
-        <a href="index.html" class="nav-logo flex items-center space-x-2">
-          <img
-            src="img/favicon-32x32.png"
-            alt="Verda Nusadaya"
-            class="h-10 w-10"
-          />
-          <span class="font-semibold text-lg">Verda Nusadaya</span>
+        <a href="index.html" class="nav-logo">
+          <img src="img/favicon-32x32.png" alt="Verda Nusadaya" />
+          <span>Verda Nusadaya</span>
         </a>
 
         <div class="nav-menu">
@@ -152,38 +506,14 @@
 
         <div class="nav-contact">
           <div class="nav-contact-info">
-            <svg
-              class="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-              ></path>
-            </svg>
+            <i class="fas fa-phone"></i>
             <span>+62 812-3456-7890</span>
           </div>
           <a href="contact.html" class="btn btn-primary">Hubungi Kami</a>
         </div>
 
         <button class="nav-mobile-btn" onclick="toggleMobileMenu()">
-          <svg
-            class="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            ></path>
-          </svg>
+          <i class="fas fa-bars"></i>
         </button>
       </div>
     </nav>
@@ -191,17 +521,13 @@
     <!-- Mobile Menu -->
     <div id="mobileMenu" class="mobile-menu">
       <div class="mobile-menu-header">
-        <div class="nav-logo flex items-center space-x-2">
-          <img
-            src="img/favicon-32x32.png"
-            alt="Verda Nusadaya"
-            class="h-10 w-10"
-          />
-          <span class="font-semibold text-lg">Verda Nusadaya</span>
+        <div class="nav-logo">
+          <img src="img/favicon-32x32.png" alt="Verda Nusadaya" />
+          <span>Verda Nusadaya</span>
         </div>
 
         <button class="mobile-menu-close" onclick="toggleMobileMenu()">
-          ×
+          <i class="fas fa-times"></i>
         </button>
       </div>
       <div class="mobile-menu-content">
@@ -221,35 +547,11 @@
         </ul>
         <div class="mobile-menu-contact">
           <div class="mobile-menu-contact-item">
-            <svg
-              class="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-              ></path>
-            </svg>
+            <i class="fas fa-phone"></i>
             <span>+62 812-3456-7890</span>
           </div>
           <div class="mobile-menu-contact-item">
-            <svg
-              class="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-              ></path>
-            </svg>
+            <i class="fas fa-envelope"></i>
             <span>info@verdanusadaya.com</span>
           </div>
           <a href="contact.html" class="btn btn-primary w-full">Hubungi Kami</a>
@@ -259,13 +561,17 @@
 
     <div id="overlay" class="overlay" onclick="toggleMobileMenu()"></div>
 
-    <!-- Hero Section -->
-    <section class="py-20 bg-gray-50">
-      <div class="container text-center">
-        <h1 class="text-4xl font-bold mb-4">About Verda Nusadaya</h1>
-        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-          A trusted agro-industry company committed to delivering premium
-          products to the global market with the highest quality standards.
+    <!-- Premium Hero Section -->
+    <section class="about-hero">
+      <div class="container text-center text-white">
+        <h1 class="hero-title" data-aos="fade-up">Tentang Verda Nusadaya</h1>
+        <p
+          class="section-subtitle max-w-3xl mx-auto mt-4"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          Perusahaan agroindustri terpercaya yang berkomitmen untuk menghadirkan
+          produk premium ke pasar global dengan standar kualitas tertinggi.
         </p>
       </div>
     </section>
@@ -274,39 +580,38 @@
     <section class="section">
       <div class="container">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div class="animate-fade-in-up">
+          <div data-aos="fade-right">
             <img
-              src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src="https://picsum.photos/seed/agro-about-team/600/600.jpg"
               alt="Tim Verda Nusadaya"
-              class="rounded-2xl shadow-xl w-full"
+              class="rounded-2xl shadow-premium w-full"
               loading="lazy"
             />
           </div>
-          <div class="animate-fade-in-up">
-            <h2 class="text-3xl font-bold text-gray-800 mb-6">
+          <div data-aos="fade-left">
+            <h2 class="text-3xl font-bold mb-6">
               PT Verda Nusadaya:
-              <span class="text-green-600"
-                >PT Verda Nusadaya: Premium Agro Commodities</span
-              >
+              <span class="text-green-600">Komoditas Agro Premium</span>
             </h2>
             <p class="text-gray-600 mb-4 leading-relaxed">
-              PT Verda Nusadaya is a leading exporter and trader of high-quality
-              agricultural products from Indonesia. Based in North Lombok, West
-              Nusa Tenggara, we are committed to delivering the finest
-              commodities sourced directly from trusted local farmers.
+              PT Verda Nusadaya adalah eksportir dan trader terkemuka produk
+              pertanian berkualitas tinggi dari Indonesia. Berbasis di Lombok
+              Utara, Nusa Tenggara Barat, kami berkomitmen untuk menghadirkan
+              komoditas terbaik yang bersumber langsung dari petani lokal
+              terpercaya.
             </p>
             <p class="text-gray-600 mb-4 leading-relaxed">
-              With a strong focus on quality, consistency, and sustainability,
-              we build long-term partnerships both domestically and
-              internationally. Each product undergoes rigorous selection and
-              quality control to meet global standards, ensuring safe and
-              premium commodities for clients worldwide.
+              Dengan fokus kuat pada kualitas, konsistensi, dan keberlanjutan,
+              kami membangun kemitraan jangka panjang baik di dalam negeri
+              maupun internasional. Setiap produk melalui seleksi dan kontrol
+              kualitas yang ketat untuk memenuhi standar global, memastikan
+              komoditas yang aman dan premium untuk klien di seluruh dunia.
             </p>
             <p class="text-gray-600 leading-relaxed">
-              We believe in Indonesia’s abundant natural resources and are
-              dedicated to enhancing the value of agricultural products,
-              empowering farmers, and providing competitive solutions for the
-              global market.
+              Kami percaya pada sumber daya alam Indonesia yang melimpah dan
+              berdedikasi untuk meningkatkan nilai produk pertanian,
+              memberdayakan petani, dan menyediakan solusi kompetitif untuk
+              pasar global.
             </p>
           </div>
         </div>
@@ -316,56 +621,53 @@
     <!-- Vision & Mission Section -->
     <section class="section section-gray">
       <div class="container">
-        <div class="section-title">
-          <h2>Vision & <span class="text-green-600">Mission</span></h2>
+        <div class="section-title" data-aos="fade-up">
+          <h2>Visi & <span class="text-green-600">Misi</span></h2>
           <p class="max-w-2xl mx-auto">
-            Our vision and commitment to advancing the agro-industrial sector in
+            Visi dan komitmen kami untuk memajukan sektor agroindustri di
             Indonesia.
           </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div class="card text-center p-8 hover:shadow-lg transition-all">
-            <div
-              class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6"
-            >
-              <i class="fas fa-eye text-green-600 text-2xl"></i>
+          <div class="vm-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="vm-icon">
+              <i class="fas fa-eye"></i>
             </div>
-            <h3 class="text-2xl font-bold text-gray-800 mb-4">Our Vision</h3>
+            <h3 class="text-2xl font-bold mb-4">Visi Kami</h3>
             <p class="text-gray-600 leading-relaxed">
-              To become a trusted partner in digital transformation for
-              businesses in Indonesia, providing innovative, efficient, and
-              sustainable technology solutions that support national digital
-              economic growth.
+              Menjadi mitra terpercaya dalam transformasi digital untuk bisnis
+              di Indonesia, menyediakan solusi teknologi yang inovatif, efisien,
+              dan berkelanjutan yang mendukung pertumbuhan ekonomi digital
+              nasional.
             </p>
           </div>
 
-          <div class="card text-center p-8 hover:shadow-lg transition-all">
-            <div
-              class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6"
-            >
-              <i class="fas fa-bullseye text-green-600 text-2xl"></i>
+          <div class="vm-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="vm-icon">
+              <i class="fas fa-bullseye"></i>
             </div>
-            <h3 class="text-2xl font-bold text-gray-800 mb-4">Our Mission</h3>
+            <h3 class="text-2xl font-bold mb-4">Misi Kami</h3>
             <ul class="text-gray-600 space-y-3 text-left">
               <li class="flex items-start">
                 <i class="fas fa-check-circle text-green-600 mt-1 mr-3"></i>
                 <span>
-                  Provide high-quality digital solutions tailored to our
-                  clients' needs
+                  Menyediakan solusi digital berkualitas tinggi yang disesuaikan
+                  dengan kebutuhan klien
                 </span>
               </li>
               <li class="flex items-start">
                 <i class="fas fa-check-circle text-green-600 mt-1 mr-3"></i>
                 <span>
-                  Develop technological innovations that create a positive
-                  impact on society
+                  Mengembangkan inovasi teknologi yang menciptakan dampak
+                  positif pada masyarakat
                 </span>
               </li>
               <li class="flex items-start">
                 <i class="fas fa-check-circle text-green-600 mt-1 mr-3"></i>
                 <span>
-                  Support businesses in achieving sustainable digital growth
+                  Mendukung bisnis dalam mencapai pertumbuhan digital yang
+                  berkelanjutan
                 </span>
               </li>
             </ul>
@@ -377,66 +679,56 @@
     <!-- Values Section -->
     <section class="section">
       <div class="container">
-        <div class="section-title">
-          <h2>Company <span class="text-green-600">Values</span></h2>
+        <div class="section-title" data-aos="fade-up">
+          <h2>Nilai <span class="text-green-600">Perusahaan</span></h2>
           <p class="max-w-2xl mx-auto">
-            The guiding principles that form the foundation of every step we
-            take in delivering excellence and integrity.
+            Prinsip-prinsip panduan yang membentuk fondasi setiap langkah yang
+            kami ambil dalam memberikan keunggulan dan integritas.
           </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="card text-center p-6 hover:shadow-lg transition-all">
-            <div
-              class="w-20 h-20 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4"
-            >
-              <i class="fas fa-lightbulb text-white text-3xl"></i>
+          <div class="value-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="value-icon">
+              <i class="fas fa-lightbulb"></i>
             </div>
-            <h3 class="text-xl font-semibold text-gray-800 mb-2">Innovation</h3>
+            <h3 class="text-xl font-semibold mb-2">Inovasi</h3>
             <p class="text-gray-600 text-sm">
-              Continuously innovating and seeking creative solutions for every
-              challenge we encounter.
+              Terus berinovasi dan mencari solusi kreatif untuk setiap tantangan
+              yang kami hadapi.
             </p>
           </div>
 
-          <div class="card text-center p-6 hover:shadow-lg transition-all">
-            <div
-              class="w-20 h-20 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4"
-            >
-              <i class="fas fa-handshake text-white text-3xl"></i>
+          <div class="value-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="value-icon">
+              <i class="fas fa-handshake"></i>
             </div>
-            <h3 class="text-xl font-semibold text-gray-800 mb-2">Integrity</h3>
+            <h3 class="text-xl font-semibold mb-2">Integritas</h3>
             <p class="text-gray-600 text-sm">
-              Upholding honesty and transparency in every business interaction
-              we conduct.
+              Menjunjung tinggi kejujuran dan transparansi dalam setiap
+              interaksi bisnis yang kami lakukan.
             </p>
           </div>
 
-          <div class="card text-center p-6 hover:shadow-lg transition-all">
-            <div
-              class="w-20 h-20 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4"
-            >
-              <i class="fas fa-award text-white text-3xl"></i>
+          <div class="value-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="value-icon">
+              <i class="fas fa-award"></i>
             </div>
-            <h3 class="text-xl font-semibold text-gray-800 mb-2">Quality</h3>
+            <h3 class="text-xl font-semibold mb-2">Kualitas</h3>
             <p class="text-gray-600 text-sm">
-              Delivering the best results while maintaining the highest quality
-              standards.
+              Memberikan hasil terbaik sambil mempertahankan standar kualitas
+              tertinggi.
             </p>
           </div>
 
-          <div class="card text-center p-6 hover:shadow-lg transition-all">
-            <div
-              class="w-20 h-20 bg-gradient-to-br from-green-400 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4"
-            >
-              <i class="fas fa-users text-white text-3xl"></i>
+          <div class="value-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="value-icon">
+              <i class="fas fa-users"></i>
             </div>
-            <h3 class="text-xl font-semibold text-gray-800 mb-2">
-              Collaboration
-            </h3>
+            <h3 class="text-xl font-semibold mb-2">Kolaborasi</h3>
             <p class="text-gray-600 text-sm">
-              Working together as a team to achieve shared goals and drive
-              collective success.
+              Bekerja sama sebagai tim untuk mencapai tujuan bersama dan
+              mendorong kesuksesan kolektif.
             </p>
           </div>
         </div>
@@ -446,71 +738,62 @@
     <!-- Team Section -->
     <section class="section section-gray">
       <div class="container">
-        <div class="section-title">
-          <h2>Our <span class="text-green-600">Professional</span> Team</h2>
+        <div class="section-title" data-aos="fade-up">
+          <h2>Tim <span class="text-green-600">Profesional</span> Kami</h2>
           <p class="max-w-2xl mx-auto">
-            Experienced and dedicated professionals committed to ensuring the
-            success of every project we undertake.
+            Profesional berpengalaman dan berdedikasi yang berkomitmen untuk
+            memastikan kesuksesan setiap proyek yang kami kerjakan.
           </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div
-            class="card bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all"
-          >
-            <img
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
-              alt="CEO Verda Nusadaya"
-              class="w-full h-64 object-cover"
-              loading="lazy"
-            />
-            <div class="p-6">
-              <h3 class="text-xl font-semibold text-gray-800 mb-1">
-                Ahmad Pratama
-              </h3>
-              <p class="text-green-600 mb-3">Chief Executive Officer</p>
+          <div class="team-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="team-image">
+              <img
+                src="https://picsum.photos/seed/ceo-verdanusadaya/400/400.jpg"
+                alt="CEO Verda Nusadaya"
+                loading="lazy"
+              />
+            </div>
+            <div class="team-content">
+              <h3 class="team-name">Ahmad Pratama</h3>
+              <p class="team-position">Chief Executive Officer</p>
               <p class="text-gray-600 text-sm">
-                Over 15 years of experience in the agro-industrial sector and
-                supply chain management.
+                Lebih dari 15 tahun pengalaman di sektor agroindustri dan
+                manajemen rantai pasok.
               </p>
             </div>
           </div>
 
-          <div
-            class="card bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all"
-          >
-            <img
-              src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
-              alt="CTO Verda Nusadaya"
-              class="w-full h-64 object-cover"
-              loading="lazy"
-            />
-            <div class="p-6">
-              <h3 class="text-xl font-semibold text-gray-800 mb-1">
-                Sarah Wijaya
-              </h3>
-              <p class="text-green-600 mb-3">Chief Technology Officer</p>
+          <div class="team-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="team-image">
+              <img
+                src="https://picsum.photos/seed/cto-verdanusadaya/400/400.jpg"
+                alt="CTO Verda Nusadaya"
+                loading="lazy"
+              />
+            </div>
+            <div class="team-content">
+              <h3 class="team-name">Sarah Wijaya</h3>
+              <p class="team-position">Chief Technology Officer</p>
               <p class="text-gray-600 text-sm">
-                An expert in developing technology-based products and supply
-                chain solutions.
+                Ahli dalam mengembangkan produk berbasis teknologi dan solusi
+                rantai pasok.
               </p>
             </div>
           </div>
 
-          <div
-            class="card bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all"
-          >
-            <img
-              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80"
-              alt="COO Verda Nusadaya"
-              class="w-full h-64 object-cover"
-              loading="lazy"
-            />
-            <div class="p-6">
-              <h3 class="text-xl font-semibold text-gray-800 mb-1">
-                Budi Santoso
-              </h3>
-              <p class="text-green-600 mb-3">Chief Operating Officer</p>
+          <div class="team-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="team-image">
+              <img
+                src="https://picsum.photos/seed/coo-verdanusadaya/400/400.jpg"
+                alt="COO Verda Nusadaya"
+                loading="lazy"
+              />
+            </div>
+            <div class="team-content">
+              <h3 class="team-name">Budi Santoso</h3>
+              <p class="team-position">Chief Operating Officer</p>
               <p class="text-gray-600 text-sm">
                 Spesialis dalam operasional logistik dan pengembangan bisnis
                 pasar global.
@@ -524,30 +807,89 @@
     <!-- Statistics Section -->
     <section class="section">
       <div class="container">
-        <div class="section-title">
-          <h2>Our <span class="text-green-600">Achievements</span></h2>
+        <div class="section-title" data-aos="fade-up">
+          <h2>Pencapaian <span class="text-green-600">Kami</span></h2>
           <p class="max-w-2xl mx-auto">
-            Numbers that reflect our dedication and success in the
-            agro-industrial sector.
+            Angka-angka yang mencerminkan dedikasi dan kesuksesan kami di sektor
+            agroindustri.
           </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div class="text-center">
-            <div class="text-4xl font-bold text-green-600 mb-2">500+</div>
-            <p class="text-gray-600">Klien Puas</p>
+          <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="stat-number" data-count="500">0</div>
+            <p class="stat-label">Klien Puas</p>
           </div>
-          <div class="text-center">
-            <div class="text-4xl font-bold text-green-600 mb-2">10+</div>
-            <p class="text-gray-600">Tahun Pengalaman</p>
+          <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="stat-number" data-count="10">0</div>
+            <p class="stat-label">Tahun Pengalaman</p>
           </div>
-          <div class="text-center">
-            <div class="text-4xl font-bold text-green-600 mb-2">50+</div>
-            <p class="text-gray-600">Partner Distributor</p>
+          <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="stat-number" data-count="50">0</div>
+            <p class="stat-label">Partner Distributor</p>
           </div>
-          <div class="text-center">
-            <div class="text-4xl font-bold text-green-600 mb-2">1000+</div>
-            <p class="text-gray-600">Ton Produk Terkirim</p>
+          <div class="stat-card" data-aos="fade-up" data-aos-delay="400">
+            <div class="stat-number" data-count="1000">0</div>
+            <p class="stat-label">Ton Produk Terkirim</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Company History Timeline -->
+    <section class="section section-gray">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h2>Sejarah <span class="text-green-600">Perusahaan</span></h2>
+          <p class="max-w-2xl mx-auto">
+            Perjalanan kami dari awal hingga menjadi pemimpin di industri
+            agroindustri.
+          </p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item" data-aos="fade-up">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3 class="text-xl font-bold mb-2">2020</h3>
+              <p class="text-gray-600">
+                PT Verda Nusadaya didirikan dengan visi untuk menjadi pemimpin
+                dalam industri agroindustri Indonesia.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-aos="fade-up">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3 class="text-xl font-bold mb-2">2021</h3>
+              <p class="text-gray-600">
+                Memperluas jaringan petani mitra dan memulai ekspor ke pasar
+                internasional pertama.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-aos="fade-up">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3 class="text-xl font-bold mb-2">2022</h3>
+              <p class="text-gray-600">
+                Menerima sertifikasi standar kualitas internasional dan
+                memperluas lini produk.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-aos="fade-up">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3 class="text-xl font-bold mb-2">2023</h3>
+              <p class="text-gray-600">
+                Mencapai tonggak sejarah 1000 ton produk terkirim dan memperluas
+                ke 10 negara.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -556,49 +898,26 @@
     <!-- CTA Section -->
     <section class="cta-section">
       <div class="container">
-        <h2>Ready to Start a Partnership?</h2>
-        <p class="max-w-2xl mx-auto">
-          Consult with our expert team to explore tailored solutions that drive
-          growth and elevate your business to the next level.
+        <h2 data-aos="fade-up">Siap Memulai Kemitraan?</h2>
+        <p class="max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+          Berkonsultasi dengan tim ahli kami untuk menjelajahi solusi yang
+          disesuaikan yang mendorong pertumbuhan dan meningkatkan bisnis Anda ke
+          level berikutnya.
         </p>
 
-        <div class="cta-buttons">
+        <div class="cta-buttons" data-aos="fade-up" data-aos-delay="200">
           <a
             href="contact.html"
             class="btn bg-white text-green-600 hover:bg-gray-100 px-8"
           >
-            <svg
-              class="w-5 h-5 mr-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-              ></path>
-            </svg>
+            <i class="fas fa-phone mr-2"></i>
             Hubungi Kami
           </a>
           <a
             href="products.html"
             class="btn btn-outline border-white text-white hover:bg-white hover:text-green-600 px-8"
           >
-            <svg
-              class="w-5 h-5 mr-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-              ></path>
-            </svg>
+            <i class="fas fa-seedling mr-2"></i>
             Lihat Produk
           </a>
         </div>
@@ -619,9 +938,9 @@
               <span>Verda Nusadaya</span>
             </div>
             <p class="text-gray-300 mb-4 max-w-md">
-              PT. Verda Nusadaya is a trusted agro-industrial company that
-              provides high-quality products sourced from Indonesia’s
-              agricultural harvests.
+              PT. Verda Nusadaya adalah perusahaan agroindustri terpercaya yang
+              menyediakan produk berkualitas tinggi yang bersumber dari hasil
+              pertanian Indonesia.
             </p>
 
             <div class="footer-social">
@@ -630,33 +949,21 @@
                 class="footer-social"
                 target="_blank"
               >
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
-                  />
-                </svg>
+                <i class="fab fa-facebook-f"></i>
               </a>
               <a
                 href="https://www.instagram.com/verdanusadaya"
                 class="footer-social"
                 target="_blank"
               >
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"
-                  />
-                </svg>
+                <i class="fab fa-instagram"></i>
               </a>
               <a
                 href="https://www.twitter.com/verdanusadaya"
                 class="footer-social"
                 target="_blank"
               >
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
-                  />
-                </svg>
+                <i class="fab fa-twitter"></i>
               </a>
             </div>
           </div>
@@ -675,57 +982,15 @@
             <h3>Kontak</h3>
             <div class="space-y-3">
               <div class="flex items-center space-x-2">
-                <svg
-                  class="w-4 h-4 text-green-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                  ></path>
-                </svg>
+                <i class="fas fa-phone text-green-400"></i>
                 <span class="text-gray-300">+62 812-3456-7890</span>
               </div>
               <div class="flex items-center space-x-2">
-                <svg
-                  class="w-4 h-4 text-green-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  ></path>
-                </svg>
+                <i class="fas fa-envelope text-green-400"></i>
                 <span class="text-gray-300">info@verdanusadaya.com</span>
               </div>
               <div class="flex items-start space-x-2">
-                <svg
-                  class="w-4 h-4 text-green-400 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                  ></path>
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                  ></path>
-                </svg>
+                <i class="fas fa-map-marker-alt text-green-400 mt-1"></i>
                 <span class="text-gray-300">
                   Jl. Raya Gondang No.16, Gondang Village<br />
                   Gangga Subdistrict, North Lombok Regency<br />
@@ -743,6 +1008,75 @@
     </footer>
 
     <!-- JavaScript -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="./js/main.js"></script>
+
+    <script>
+      // Initialize AOS
+      AOS.init({
+        duration: 1000,
+        once: true,
+      });
+
+      // Hide loader when page is fully loaded
+      window.addEventListener("load", function () {
+        setTimeout(function () {
+          document.getElementById("loader").classList.add("hidden");
+        }, 1000);
+      });
+
+      // Navbar scroll effect
+      window.addEventListener("scroll", function () {
+        const navbar = document.getElementById("navbar");
+        if (window.scrollY > 100) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Counter Animation for Statistics
+      function animateCounters() {
+        const counters = document.querySelectorAll(".stat-number");
+        const speed = 200;
+
+        counters.forEach((counter) => {
+          const animate = () => {
+            const value = +counter.getAttribute("data-count");
+            const data = +counter.innerText;
+            const time = value / speed;
+
+            if (data < value) {
+              counter.innerText = Math.ceil(data + time);
+              setTimeout(animate, 1);
+            } else {
+              counter.innerText =
+                value +
+                (counter.getAttribute("data-count") === "1000" ? "+" : "+");
+            }
+          };
+
+          // Check if element is in viewport
+          const rect = counter.getBoundingClientRect();
+          const isInViewport =
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <=
+              (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <=
+              (window.innerWidth || document.documentElement.clientWidth);
+
+          if (isInViewport && counter.innerText === "0") {
+            animate();
+          }
+        });
+      }
+
+      // Run counter animation on scroll
+      window.addEventListener("scroll", animateCounters);
+
+      // Run counter animation on page load
+      window.addEventListener("load", animateCounters);
+    </script>
   </body>
 </html>

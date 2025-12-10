@@ -51,7 +51,7 @@ const products = [
     name: "Premium Coffee",
     category: "kopi",
     description:
-      "Premium Coffee – designed for the modern lifestyle. Savor the rich aroma and deep flavor, whether at home, at work, or with friends.",
+      "Premium Coffee – designed for modern lifestyle. Savor rich aroma and deep flavor, whether at home, at work, or with friends.",
     image:
       "https://images.unsplash.com/photo-1589830802010-c2c25d784842?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     price: "Rp 150.000/kg",
@@ -146,28 +146,16 @@ function generateRatingStars(rating) {
   let stars = "";
 
   for (let i = 0; i < fullStars; i++) {
-    stars += `
-      <svg class="star w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-      </svg>
-    `;
+    stars += `<i class="fas fa-star star"></i>`;
   }
 
   if (hasHalfStar) {
-    stars += `
-      <svg class="star w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-      </svg>
-    `;
+    stars += `<i class="fas fa-star-half-alt star"></i>`;
   }
 
   const emptyStars = 5 - Math.ceil(rating);
   for (let i = 0; i < emptyStars; i++) {
-    stars += `
-      <svg class="star w-4 h-4 star-empty" fill="currentColor" viewBox="0 0 20 20">
-        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-      </svg>
-    `;
+    stars += `<i class="far fa-star star-empty"></i>`;
   }
 
   return stars;
@@ -192,50 +180,36 @@ function generateSpecsBadges(specs) {
 
 function createProductCard(product) {
   const card = document.createElement("div");
-  card.className =
-    "card group hover:shadow-xl transition-all duration-300 overflow-hidden";
+  card.className = "product-card";
 
   const categoryLabel = getCategoryLabel(product.category);
   const ratingStars = generateRatingStars(product.rating);
   const specsBadges = generateSpecsBadges(product.specs);
 
   card.innerHTML = `
-    <div class="card-image-container">
+    <div class="product-image">
       <img src="${product.image}" alt="${
     product.name
-  }" class="card-image" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300?text=${encodeURIComponent(
-    product.name
-  )}'">
-      <span class="badge badge-primary absolute top-4 left-4">${categoryLabel}</span>
-      ${
-        product.isFeatured
-          ? `
-        <span class="badge badge-yellow absolute top-4 right-4">
-          <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
-            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292z"></path>
-          </svg>
-          Unggulan
-        </span>
-      `
-          : ""
-      }
+  }" loading="lazy" onerror="this.src='https://picsum.photos/seed/${
+    product.id
+  }/400/300.jpg'">
+      <span class="product-badge">${categoryLabel}</span>
+      ${product.isFeatured ? `<span class="product-badge">Unggulan</span>` : ""}
       ${
         !product.inStock
-          ? `
-        <span class="badge bg-red-500 text-white absolute top-4 right-4">Stok Habis</span>
-      `
+          ? `<span class="product-badge" style="background-color: #dc2626;">Stok Habis</span>`
           : ""
       }
     </div>
-    <div class="card-content">
-      <h3 class="text-xl font-semibold mb-2">${product.name}</h3>
+    <div class="product-content">
+      <h3 class="product-title">${product.name}</h3>
       <p class="text-gray-600 mb-4 line-clamp-2">${product.description}</p>
       
-      <div class="flex items-center mb-3">
-        <div class="flex">
+      <div class="product-rating">
+        <div class="rating-stars">
           ${ratingStars}
         </div>
-        <span class="ml-2 text-sm text-gray-600">${product.rating}</span>
+        <span class="rating-value">${product.rating}</span>
       </div>
 
       <div class="mb-4">
@@ -244,23 +218,20 @@ function createProductCard(product) {
         </div>
       </div>
 
-      <div class="flex justify-between items-center">
-        <div>
-          <span class="text-lg font-bold text-green-600">${product.price}</span>
-          <span class="text-xs text-gray-500 block">Min. ${product.minOrder} ${
+      <div class="product-price">${product.price}</div>
+      <div class="text-xs text-gray-500 mb-4">Min. ${product.minOrder} ${
     product.category === "kelapa-sawit" && product.name.includes("Liter")
       ? "liter"
       : "kg"
-  }</span>
-        </div>
-        <div class="flex gap-2">
-          <a href="product-detail.html?id=${
-            product.id
-          }" class="btn btn-outline btn-sm">Detail</a>
-          <a href="#contact" class="btn btn-primary btn-sm" onclick="setProductInterest('${
-            product.name
-          }')">Beli</a>
-        </div>
+  }</div>
+
+      <div class="product-actions">
+        <a href="product-detail.html?id=${
+          product.id
+        }" class="product-btn product-btn-outline">Detail</a>
+        <a href="contact.html" class="product-btn product-btn-primary" onclick="setProductInterest('${
+          product.name
+        }')">Beli</a>
       </div>
     </div>
   `;
@@ -310,24 +281,416 @@ function renderFeaturedProducts() {
   });
 }
 
+// Product Detail Functions
+function loadProductDetail(productId) {
+  const product = products.find((p) => p.id == productId);
+
+  if (!product) {
+    showError();
+    return;
+  }
+
+  displayProductDetail(product);
+  loadRelatedProducts(product.category, product.id);
+  setupImageZoom();
+  updateCanonicalUrl(product);
+}
+
+function displayProductDetail(product) {
+  // Hide loading state
+  const loadingState = document.getElementById("loadingState");
+  const productContent = document.getElementById("productContent");
+
+  if (loadingState) loadingState.classList.add("hidden");
+  if (productContent) productContent.classList.remove("hidden");
+
+  // Update breadcrumb
+  const productName = document.getElementById("productName");
+  if (productName) productName.textContent = product.name;
+
+  // Update product image
+  const productImage = document.getElementById("productImage");
+  if (productImage) {
+    productImage.src = product.image;
+    productImage.alt = product.name;
+    productImage.onerror = function () {
+      this.src = `https://picsum.photos/seed/${product.id}/600/600.jpg`;
+    };
+  }
+
+  // Create image thumbnails
+  createImageThumbnails(product);
+
+  // Update product badge if featured
+  const productBadge = document.getElementById("productBadge");
+  if (productBadge && product.isFeatured) {
+    productBadge.textContent = "Unggulan";
+    productBadge.classList.add("badge-featured");
+    productBadge.classList.remove("hidden");
+  }
+
+  // Update product title
+  const productTitle = document.getElementById("productTitle");
+  if (productTitle) productTitle.textContent = product.name;
+
+  // Update product category
+  const productCategory = document.getElementById("productCategory");
+  if (productCategory)
+    productCategory.textContent = getCategoryLabel(product.category);
+
+  // Update rating
+  const productRating = document.getElementById("productRating");
+  const productRatingValue = document.getElementById("productRatingValue");
+  if (productRating)
+    productRating.innerHTML = generateRatingStars(product.rating);
+  if (productRatingValue)
+    productRatingValue.textContent = `${product.rating} (${
+      Math.floor(Math.random() * 50) + 10
+    } ulasan)`;
+
+  // Update product specs
+  const productSpecs = document.getElementById("productSpecs");
+  if (productSpecs) {
+    productSpecs.innerHTML = "";
+    product.specs.forEach((spec) => {
+      const badge = document.createElement("span");
+      badge.className = "spec-badge";
+      badge.textContent = spec;
+      productSpecs.appendChild(badge);
+    });
+  }
+
+  // Update description
+  const productDescription = document.getElementById("productDescription");
+  const fullDescription = document.getElementById("fullDescription");
+  if (productDescription) productDescription.textContent = product.description;
+  if (fullDescription) {
+    fullDescription.textContent = `${product.description} 
+
+Produk ini memiliki kualitas terbaik dan telah melalui proses quality control yang ketat untuk memastikan kepuasan pelanggan. Dengan harga yang kompetitif, produk ini menjadi pilihan utama untuk kebutuhan agroindustri Anda.
+
+Keunggulan Produk:
+• Kualitas premium terjamin
+• Sertifikasi internasional
+• Harga kompetitif
+• Pengiriman tepat waktu
+• Layanan pelanggan terbaik
+
+Aplikasi Produk:
+ ${product.specs.map((spec) => `• ${spec}`).join("\n")}
+
+Untuk informasi lebih lanjut tentang harga, ketersediaan stok, dan proses pemesanan, silakan hubungi tim sales kami.`;
+  }
+
+  // Update specifications
+  const specList = document.getElementById("specList");
+  if (specList) {
+    specList.innerHTML = "";
+    const categoryLabel = getCategoryLabel(product.category);
+
+    // Add basic specs
+    const basicSpecs = [
+      { label: "Kategori", value: categoryLabel },
+      { label: "Harga", value: product.price },
+      {
+        label: "Minimum Order",
+        value: `${product.minOrder} ${
+          product.category === "kelapa-sawit" && product.name.includes("Liter")
+            ? "liter"
+            : "kg"
+        }`,
+      },
+      {
+        label: "Ketersediaan",
+        value: product.inStock ? "Tersedia" : "Stok Habis",
+      },
+      { label: "Rating", value: `${product.rating}/5.0` },
+    ];
+
+    basicSpecs.forEach((spec) => {
+      const specItem = document.createElement("li");
+      specItem.innerHTML = `
+        <span class="spec-label">${spec.label}</span>
+        <span class="spec-value">${spec.value}</span>
+      `;
+      specList.appendChild(specItem);
+    });
+
+    // Add all specs from product data
+    product.specs.forEach((spec) => {
+      const specItem = document.createElement("li");
+      specItem.innerHTML = `
+        <span class="spec-label">${spec}</span>
+        <span class="spec-value">Tersedia</span>
+      `;
+      specList.appendChild(specItem);
+    });
+  }
+}
+
+function createImageThumbnails(product) {
+  const imageThumbnails = document.getElementById("imageThumbnails");
+  if (!imageThumbnails) return;
+
+  // Clear existing thumbnails
+  imageThumbnails.innerHTML = "";
+
+  // Generate additional image URLs for thumbnails
+  const thumbnailImages = [
+    product.image,
+    `https://picsum.photos/seed/${product.id}-1/300/300.jpg`,
+    `https://picsum.photos/seed/${product.id}-2/300/300.jpg`,
+    `https://picsum.photos/seed/${product.id}-3/300/300.jpg`,
+  ];
+
+  // Create thumbnail elements
+  thumbnailImages.forEach((imageUrl, index) => {
+    const thumbnail = document.createElement("div");
+    thumbnail.className = "thumbnail" + (index === 0 ? " active" : "");
+
+    const img = document.createElement("img");
+    img.src = imageUrl;
+    img.alt = `${product.name} - Gambar ${index + 1}`;
+    img.loading = "lazy";
+
+    thumbnail.appendChild(img);
+    thumbnail.addEventListener("click", function () {
+      // Update main image
+      const productImage = document.getElementById("productImage");
+      if (productImage) productImage.src = imageUrl;
+
+      // Update active thumbnail
+      document
+        .querySelectorAll(".thumbnail")
+        .forEach((t) => t.classList.remove("active"));
+      this.classList.add("active");
+    });
+
+    imageThumbnails.appendChild(thumbnail);
+  });
+}
+
+function setupImageZoom() {
+  const mainImageContainer = document.getElementById("mainImageContainer");
+  const zoomLens = document.getElementById("zoomLens");
+  const zoomResult = document.getElementById("zoomResult");
+  const zoomImage = document.getElementById("zoomImage");
+  const productImage = document.getElementById("productImage");
+
+  if (
+    !mainImageContainer ||
+    !zoomLens ||
+    !zoomResult ||
+    !zoomImage ||
+    !productImage
+  )
+    return;
+
+  // Only enable zoom on desktop
+  if (window.innerWidth > 768) {
+    mainImageContainer.addEventListener("mousemove", function (e) {
+      zoomLens.style.opacity = "1";
+      zoomResult.style.opacity = "1";
+
+      // Get mouse position
+      const rect = mainImageContainer.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      // Position lens
+      let lensX = x - 50;
+      let lensY = y - 50;
+
+      // Constrain lens within image
+      if (lensX < 0) lensX = 0;
+      if (lensY < 0) lensY = 0;
+      if (lensX > rect.width - 100) lensX = rect.width - 100;
+      if (lensY > rect.height - 100) lensY = rect.height - 100;
+
+      zoomLens.style.left = lensX + "px";
+      zoomLens.style.top = lensY + "px";
+
+      // Update zoomed image
+      const zoomX = (lensX / rect.width) * 100;
+      const zoomY = (lensY / rect.height) * 100;
+
+      zoomImage.src = productImage.src;
+      zoomImage.style.transform = `scale(2) translate(-${zoomX}%, -${zoomY}%)`;
+    });
+
+    mainImageContainer.addEventListener("mouseleave", function () {
+      zoomLens.style.opacity = "0";
+      zoomResult.style.opacity = "0";
+    });
+  }
+}
+
+function loadRelatedProducts(category, currentProductId) {
+  const relatedProducts = document.getElementById("relatedProducts");
+  if (!relatedProducts) return;
+
+  // Filter products by category (excluding current product)
+  const related = products
+    .filter(
+      (p) => p.category === category && p.id != currentProductId && p.inStock
+    )
+    .slice(0, 4);
+
+  // Clear related products container
+  relatedProducts.innerHTML = "";
+
+  if (related.length === 0) {
+    relatedProducts.innerHTML =
+      '<p class="text-gray-500 text-center col-span-full">Tidak ada produk terkait yang tersedia</p>';
+    return;
+  }
+
+  // Add related products
+  related.forEach((product, index) => {
+    const productCard = createRelatedProductCard(product);
+    productCard.setAttribute("data-aos", "fade-up");
+    productCard.setAttribute("data-aos-delay", (index * 100).toString());
+    relatedProducts.appendChild(productCard);
+  });
+}
+
+function createRelatedProductCard(product) {
+  const card = document.createElement("div");
+  card.className = "related-product";
+
+  const categoryLabel = getCategoryLabel(product.category);
+  const ratingStars = generateRatingStars(product.rating);
+
+  card.innerHTML = `
+    <div class="related-product-image">
+      <img src="${product.image}" alt="${
+    product.name
+  }" loading="lazy" onerror="this.src='https://picsum.photos/seed/${
+    product.id
+  }/400/300.jpg'">
+      ${product.isFeatured ? `<span class="product-badge">Unggulan</span>` : ""}
+    </div>
+    <div class="related-product-content">
+      <h3 class="related-product-title">${product.name}</h3>
+      <p class="text-gray-600 mb-4 line-clamp-2">${product.description}</p>
+      
+      <div class="product-rating mb-3">
+        <div class="rating-stars">${ratingStars}</div>
+        <span class="rating-value">${product.rating}</span>
+      </div>
+
+      <div class="flex justify-between items-center">
+        <div>
+          <span class="text-lg font-bold text-green-600">${product.price}</span>
+          <span class="text-xs text-gray-500 block">Min. ${product.minOrder} ${
+    product.category === "kelapa-sawit" && product.name.includes("Liter")
+      ? "liter"
+      : "kg"
+  }</span>
+        </div>
+        <a href="product-detail.html?id=${
+          product.id
+        }" class="btn btn-primary btn-sm">Detail</a>
+      </div>
+    </div>
+  `;
+
+  return card;
+}
+
+function updateCanonicalUrl(product) {
+  const canonicalLink = document.querySelector('link[rel="canonical"]');
+  if (canonicalLink) {
+    canonicalLink.href = `https://officialverdanusadaya-pixel.github.io/official.verdanusadaya/product-detail.html?id=${product.id}`;
+  }
+}
+
+function showError() {
+  const loadingState = document.getElementById("loadingState");
+  const errorState = document.getElementById("errorState");
+
+  if (loadingState) loadingState.classList.add("hidden");
+  if (errorState) errorState.classList.remove("hidden");
+}
+
 // Filter and Search Functions
 function filterProducts() {
   const searchInput = document.getElementById("searchInput");
   const categoryFilter = document.getElementById("categoryFilter");
+  const sortBy = document.getElementById("sortBy");
 
   const searchTerm = searchInput ? searchInput.value.toLowerCase() : "";
   const selectedCategory = categoryFilter ? categoryFilter.value : "all";
+  const selectedSort = sortBy ? sortBy.value : "featured";
 
-  const filteredProducts = products.filter((product) => {
+  let filteredProducts = products.filter((product) => {
     const matchesCategory =
       selectedCategory === "all" || product.category === selectedCategory;
     const matchesSearch =
       product.name.toLowerCase().includes(searchTerm) ||
-      product.description.toLowerCase().includes(searchTerm);
+      product.description.toLowerCase().includes(searchTerm) ||
+      product.categoryLabel.toLowerCase().includes(searchTerm);
     return matchesCategory && matchesSearch && product.inStock;
   });
 
+  // Sort products
+  switch (selectedSort) {
+    case "name":
+      filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
+      break;
+    case "price-low":
+      filteredProducts.sort((a, b) => {
+        const priceA = parseInt(a.price.replace(/[^\d]/g, ""));
+        const priceB = parseInt(b.price.replace(/[^\d]/g, ""));
+        return priceA - priceB;
+      });
+      break;
+    case "price-high":
+      filteredProducts.sort((a, b) => {
+        const priceA = parseInt(a.price.replace(/[^\d]/g, ""));
+        const priceB = parseInt(b.price.replace(/[^\d]/g, ""));
+        return priceB - priceA;
+      });
+      break;
+    case "rating":
+      filteredProducts.sort((a, b) => b.rating - a.rating);
+      break;
+    case "featured":
+    default:
+      // Featured products first, then by rating
+      filteredProducts.sort((a, b) => {
+        if (a.isFeatured && !b.isFeatured) return -1;
+        if (!a.isFeatured && b.isFeatured) return 1;
+        return b.rating - a.rating;
+      });
+      break;
+  }
+
   renderProducts(filteredProducts);
+}
+
+function filterByCategory(category) {
+  const categoryFilter = document.getElementById("categoryFilter");
+  if (categoryFilter) {
+    categoryFilter.value = category;
+    filterProducts();
+  }
+}
+
+function toggleView(viewType) {
+  const container = document.getElementById("productsContainer");
+  const gridBtn = document.getElementById("gridViewBtn");
+  const listBtn = document.getElementById("listViewBtn");
+
+  if (viewType === "list") {
+    container.classList.add("product-list-view");
+    listBtn.classList.add("text-green-600");
+    gridBtn.classList.remove("text-green-600");
+  } else {
+    container.classList.remove("product-list-view");
+    gridBtn.classList.add("text-green-600");
+    listBtn.classList.remove("text-green-600");
+  }
 }
 
 function resetFilters() {
@@ -455,9 +818,7 @@ function handleContactForm(e) {
     // Reset button
     if (submitBtn) {
       submitBtn.innerHTML = `
-        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
-        </svg>
+        <i class="fas fa-paper-plane mr-2"></i>
         Kirim Pesan
       `;
       submitBtn.disabled = false;
@@ -503,11 +864,101 @@ function initializeProductInterest() {
   }
 }
 
+// Tab switching for product detail
+function showTab(tabName) {
+  const tabButtons = document.querySelectorAll(".tab-button");
+  const tabContents = document.querySelectorAll(".tab-content");
+
+  tabButtons.forEach((button) => {
+    button.classList.remove("active");
+    if (button.textContent.toLowerCase().includes(tabName)) {
+      button.classList.add("active");
+    }
+  });
+
+  tabContents.forEach((content) => {
+    content.classList.remove("active");
+  });
+
+  const activeTab = document.getElementById(`${tabName}Tab`);
+  if (activeTab) {
+    activeTab.classList.add("active");
+  }
+}
+
+// Download catalog function
+function downloadCatalog() {
+  const catalogContent = `
+VERDA NUSADAYA - PRODUCT CATALOG
+=====================================
+
+Premium Agro-Industry Products
+
+ ${products
+   .map(
+     (product) => `
+ ${product.id}. ${product.name}
+   Category: ${product.categoryLabel}
+   Price: ${product.price}
+   Minimum Order: ${product.minOrder} ${
+       product.category === "kelapa-sawit" && product.name.includes("Liter")
+         ? "liter"
+         : "kg"
+     }
+   Rating: ${product.rating}/5
+   ${product.isFeatured ? "⭐ Featured Product" : ""}
+   
+   Description: ${product.description}
+   
+   Specifications:
+   ${product.specs.map((spec) => `   • ${spec}`).join("\n")}
+   
+   ---
+`
+   )
+   .join("\n")}
+
+Company Information:
+==================
+ ${COMPANY_CONFIG.name}
+Address: ${COMPANY_CONFIG.address.street}
+         ${COMPANY_CONFIG.address.district}
+         ${COMPANY_CONFIG.address.regency}
+         ${COMPANY_CONFIG.address.province} ${COMPANY_CONFIG.address.postalCode}
+         ${COMPANY_CONFIG.address.country}
+
+Contact:
+Phone: ${COMPANY_CONFIG.contact.phone}
+Email: ${COMPANY_CONFIG.contact.email}
+
+Operating Hours:
+Monday - Friday: ${COMPANY_CONFIG.operatingHours.weekdays}
+Saturday: ${COMPANY_CONFIG.operatingHours.saturday}
+
+Website: https://officialverdanusadaya-pixel.github.io/official.verdanusadaya/
+
+For more information or to place an order, please contact our sales team.
+
+Generated on: ${new Date().toLocaleDateString("id-ID")}
+  `;
+
+  const blob = new Blob([catalogContent], { type: "text/plain" });
+  const url = window.URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "verda-nusadaya-product-catalog.txt";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  window.URL.revokeObjectURL(url);
+}
+
 // Event Listeners Setup
 function setupEventListeners() {
   // Search functionality
   const searchInput = document.getElementById("searchInput");
   const categoryFilter = document.getElementById("categoryFilter");
+  const sortBy = document.getElementById("sortBy");
 
   if (searchInput) {
     searchInput.addEventListener("input", filterProducts);
@@ -515,6 +966,10 @@ function setupEventListeners() {
 
   if (categoryFilter) {
     categoryFilter.addEventListener("change", filterProducts);
+  }
+
+  if (sortBy) {
+    sortBy.addEventListener("change", filterProducts);
   }
 
   // Contact form
@@ -553,118 +1008,11 @@ function setupNavScrollEffect() {
   if (nav) {
     window.addEventListener("scroll", function () {
       if (window.scrollY > 100) {
-        nav.classList.add("shadow-md");
+        nav.classList.add("scrolled");
       } else {
-        nav.classList.remove("shadow-md");
+        nav.classList.remove("scrolled");
       }
     });
-  }
-}
-
-// Lazy loading for images
-function setupLazyLoading() {
-  const images = document.querySelectorAll("img[data-src]");
-
-  const imageObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        const img = entry.target;
-        img.src = img.dataset.src;
-        img.removeAttribute("data-src");
-        observer.unobserve(img);
-      }
-    });
-  });
-
-  images.forEach((img) => imageObserver.observe(img));
-}
-
-// Download catalog function
-function downloadCatalog() {
-  const catalogContent = `
-VERDA NUSADAYA - PRODUCT CATALOG
-=====================================
-
-Premium Agro-Industry Products
-
-${products
-  .map(
-    (product) => `
-${product.id}. ${product.name}
-   Category: ${product.categoryLabel}
-   Price: ${product.price}
-   Minimum Order: ${product.minOrder} ${
-      product.category === "kelapa-sawit" && product.name.includes("Liter")
-        ? "liter"
-        : "kg"
-    }
-   Rating: ${product.rating}/5
-   ${product.isFeatured ? "⭐ Featured Product" : ""}
-   
-   Description: ${product.description}
-   
-   Specifications:
-   ${product.specs.map((spec) => `   • ${spec}`).join("\n")}
-   
-   ---
-`
-  )
-  .join("\n")}
-
-Company Information:
-==================
-${COMPANY_CONFIG.name}
-Address: ${COMPANY_CONFIG.address.street}
-         ${COMPANY_CONFIG.address.district}
-         ${COMPANY_CONFIG.address.regency}
-         ${COMPANY_CONFIG.address.province} ${COMPANY_CONFIG.address.postalCode}
-         ${COMPANY_CONFIG.address.country}
-
-Contact:
-Phone: ${COMPANY_CONFIG.contact.phone}
-Email: ${COMPANY_CONFIG.contact.email}
-
-Operating Hours:
-Monday - Friday: ${COMPANY_CONFIG.operatingHours.weekdays}
-Saturday: ${COMPANY_CONFIG.operatingHours.saturday}
-
-Website: https://officialverdanusadaya-pixel.github.io/official.verdanusadaya/
-
-For more information or to place an order, please contact our sales team.
-
-Generated on: ${new Date().toLocaleDateString("id-ID")}
-  `;
-
-  const blob = new Blob([catalogContent], { type: "text/plain" });
-  const url = window.URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "verda-nusadaya-product-catalog.txt";
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  window.URL.revokeObjectURL(url);
-}
-
-// Tab switching for product detail
-function showTab(tabName) {
-  const tabButtons = document.querySelectorAll(".tab-button");
-  const tabContents = document.querySelectorAll(".tab-content");
-
-  tabButtons.forEach((button) => {
-    button.classList.remove("active");
-    if (button.textContent.toLowerCase().includes(tabName)) {
-      button.classList.add("active");
-    }
-  });
-
-  tabContents.forEach((content) => {
-    content.classList.remove("active");
-  });
-
-  const activeTab = document.getElementById(`${tabName}Tab`);
-  if (activeTab) {
-    activeTab.classList.add("active");
   }
 }
 
@@ -674,13 +1022,22 @@ document.addEventListener("DOMContentLoaded", function () {
   setupEventListeners();
   setupSmoothScroll();
   setupNavScrollEffect();
-  setupLazyLoading();
 
   // Check current page and initialize accordingly
   if (document.getElementById("productsContainer")) {
     renderProducts();
   } else if (document.getElementById("featuredProductsContainer")) {
     renderFeaturedProducts();
+  } else if (window.location.pathname.includes("product-detail.html")) {
+    // Get product ID from URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get("id");
+
+    if (productId) {
+      loadProductDetail(productId);
+    } else {
+      showError();
+    }
   }
 });
 
@@ -690,3 +1047,5 @@ window.showTab = showTab;
 window.downloadCatalog = downloadCatalog;
 window.setProductInterest = setProductInterest;
 window.resetFilters = resetFilters;
+window.filterByCategory = filterByCategory;
+window.toggleView = toggleView;

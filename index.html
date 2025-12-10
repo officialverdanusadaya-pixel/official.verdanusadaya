@@ -46,6 +46,21 @@
     <link rel="icon" href="./img/favicon-32x32.png" />
     <link rel="apple-touch-icon" href="./img/favicon-32x32.png" />
 
+    <!-- Premium Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
     <!-- CSS -->
     <link rel="stylesheet" href="./css/style.css" />
 
@@ -89,79 +104,800 @@
       rel="canonical"
       href="https://officialverdanusadaya-pixel.github.io/official.verdanusadaya/"
     />
+
+    <!-- Custom Premium Styles -->
+    <style>
+      :root {
+        --primary-color: #2c5f2d;
+        --secondary-color: #97bc62;
+        --accent-color: #f4e04d;
+        --dark-color: #1a1a1a;
+        --light-color: #f8f9fa;
+        --text-gray: #6c757d;
+        --gold: #d4af37;
+        --light-gold: #f0e6d2;
+      }
+
+      body {
+        font-family: "Montserrat", sans-serif;
+        line-height: 1.6;
+        color: var(--dark-color);
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      /* Premium Typography */
+      .hero-title {
+        font-family: "Playfair Display", serif;
+        font-weight: 900;
+        font-size: 3.5rem;
+        line-height: 1.1;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Premium Navigation */
+      .nav {
+        background: linear-gradient(
+          135deg,
+          rgba(44, 95, 45, 0.95),
+          rgba(151, 188, 98, 0.95)
+        );
+        backdrop-filter: blur(10px);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav.scrolled {
+        background: linear-gradient(
+          135deg,
+          rgba(44, 95, 45, 1),
+          rgba(151, 188, 98, 1)
+        );
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .nav-container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 1rem 5%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        color: white;
+        font-weight: 700;
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .nav-logo:hover {
+        transform: translateY(-2px);
+      }
+
+      .nav-logo img {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .nav-logo:hover img {
+        transform: rotate(10deg);
+      }
+
+      .nav-menu {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+      }
+
+      .nav-menu a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        position: relative;
+        padding: 0.5rem 0;
+      }
+
+      .nav-menu a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--accent-color);
+        transition: width 0.3s ease;
+      }
+
+      .nav-menu a:hover::after {
+        width: 100%;
+      }
+
+      .nav-menu a.active {
+        color: var(--accent-color);
+      }
+
+      .nav-contact {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      .nav-contact-info {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: white;
+        font-weight: 500;
+      }
+
+      .btn {
+        padding: 12px 24px;
+        border-radius: 50px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        border: none;
+        cursor: pointer;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, var(--accent-color), #f4d03f);
+        color: var(--dark-color);
+        box-shadow: 0 5px 15px rgba(244, 224, 77, 0.3);
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(244, 224, 77, 0.4);
+      }
+
+      .btn-lg {
+        padding: 15px 40px;
+        font-size: 1.1rem;
+      }
+
+      /* Premium Hero Section */
+      .hero {
+        height: 100vh;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .hero-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -2;
+      }
+
+      .hero-bg img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          rgba(44, 95, 45, 0.7),
+          rgba(0, 0, 0, 0.7)
+        );
+        z-index: -1;
+      }
+
+      .hero-content {
+        max-width: 1200px;
+        padding: 0 20px;
+        text-align: center;
+        color: white;
+        z-index: 1;
+      }
+
+      .hero-subtitle {
+        font-family: "Crimson Text", serif;
+        font-size: 1.5rem;
+        font-style: italic;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+      }
+
+      /* Premium Section Styles */
+      .section {
+        padding: 100px 0;
+        position: relative;
+      }
+
+      .section-gray {
+        background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        position: relative;
+        display: inline-block;
+      }
+
+      .section-title h2::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--accent-color)
+        );
+      }
+
+      .section-title p {
+        font-size: 1.1rem;
+        color: var(--text-gray);
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      /* Premium Cards */
+      .card {
+        background: white;
+        border-radius: 15px;
+        padding: 2.5rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(
+          90deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+      }
+
+      .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .feature-icon {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background: linear-gradient(
+          135deg,
+          var(--secondary-color),
+          var(--primary-color)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        color: white;
+        font-size: 1.5rem;
+      }
+
+      /* Premium Product Cards */
+      .product-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .product-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .product-image {
+        height: 200px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .product-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .product-card:hover .product-image img {
+        transform: scale(1.1);
+      }
+
+      .product-badge {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: var(--accent-color);
+        color: var(--dark-color);
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+
+      .product-content {
+        padding: 1.5rem;
+      }
+
+      .product-title {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+        color: var(--primary-color);
+      }
+
+      .product-price {
+        font-weight: 700;
+        color: var(--secondary-color);
+        margin-bottom: 1rem;
+      }
+
+      /* Premium Testimonial Cards */
+      .testimonial-card {
+        background: white;
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .testimonial-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .testimonial-card::before {
+        content: '"';
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-size: 4rem;
+        color: var(--light-gold);
+        font-family: "Playfair Display", serif;
+        line-height: 1;
+      }
+
+      .rating {
+        margin-bottom: 1rem;
+      }
+
+      .star {
+        color: var(--gold);
+      }
+
+      /* Premium CTA Section */
+      .cta-section {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        padding: 80px 0;
+        text-align: center;
+        color: white;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("https://picsum.photos/seed/agro-pattern/1920/800.jpg");
+        background-size: cover;
+        opacity: 0.1;
+        z-index: 0;
+      }
+
+      .cta-section .container {
+        position: relative;
+        z-index: 1;
+      }
+
+      .cta-section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .cta-section p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .cta-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      /* Premium Footer */
+      .footer {
+        background: linear-gradient(135deg, var(--dark-color), #2c2c2c);
+        color: white;
+        padding: 60px 0 20px;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .footer-section h3 {
+        color: var(--accent-color);
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+      }
+
+      .footer-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 1rem;
+      }
+
+      .footer-logo-icon {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 0.5rem;
+      }
+
+      .footer-links a {
+        color: #ccc;
+        text-decoration: none;
+        transition: color 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        color: var(--accent-color);
+      }
+
+      .footer-social {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .footer-social a {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        transition: all 0.3s ease;
+      }
+
+      .footer-social a:hover {
+        background: var(--accent-color);
+        color: var(--dark-color);
+        transform: translateY(-3px);
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid #444;
+        color: #999;
+      }
+
+      /* Mobile Menu */
+      .mobile-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 400px;
+        height: 100vh;
+        background: white;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        z-index: 1001;
+        transition: right 0.3s ease;
+        overflow-y: auto;
+      }
+
+      .mobile-menu.active {
+        right: 0;
+      }
+
+      .mobile-menu-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1.5rem;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        color: white;
+      }
+
+      .mobile-menu-close {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 2rem;
+        cursor: pointer;
+      }
+
+      .mobile-menu-content {
+        padding: 1.5rem;
+      }
+
+      .mobile-menu-links {
+        list-style: none;
+        margin-bottom: 2rem;
+      }
+
+      .mobile-menu-links li {
+        margin-bottom: 1rem;
+      }
+
+      .mobile-menu-links a {
+        color: var(--dark-color);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1.1rem;
+        display: block;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid #eee;
+        transition: color 0.3s ease;
+      }
+
+      .mobile-menu-links a:hover,
+      .mobile-menu-links a.active {
+        color: var(--primary-color);
+      }
+
+      .mobile-menu-contact {
+        margin-top: 2rem;
+      }
+
+      .mobile-menu-contact-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+        color: var(--text-gray);
+      }
+
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+      }
+
+      .overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .nav-mobile-btn {
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        display: none;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 992px) {
+        .nav-menu,
+        .nav-contact {
+          display: none;
+        }
+
+        .nav-mobile-btn {
+          display: block;
+        }
+
+        .hero-title {
+          font-size: 2.5rem;
+        }
+
+        .section-title h2 {
+          font-size: 2rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hero-title {
+          font-size: 2rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1.2rem;
+        }
+
+        .section {
+          padding: 60px 0;
+        }
+
+        .cta-section h2 {
+          font-size: 2rem;
+        }
+
+        .cta-section p {
+          font-size: 1rem;
+        }
+      }
+
+      /* Loading Animation */
+      .loader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease;
+      }
+
+      .loader.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .leaf-loader {
+        width: 60px;
+        height: 60px;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-top-color: var(--accent-color);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
   </head>
-  <body class="min-h-screen bg-white">
-    <!-- Navigation -->
-    <nav class="nav">
+  <body>
+    <!-- Premium Loading Screen -->
+    <div class="loader" id="loader">
+      <div class="leaf-loader"></div>
+    </div>
+
+    <!-- Premium Navigation -->
+    <nav class="nav" id="navbar">
       <div class="nav-container">
-        <a href="index.html" class="nav-logo flex items-center space-x-2">
-          <img
-            src="img/favicon-32x32.png"
-            alt="Verda Nusadaya"
-            class="h-10 w-10"
-          />
-          <span class="font-semibold text-lg">Verda Nusadaya</span>
+        <a href="index.html" class="nav-logo">
+          <img src="img/favicon-32x32.png" alt="Verda Nusadaya" />
+          <span>Verda Nusadaya</span>
         </a>
 
-        <div class="nav-menu">
-          <a href="index.html" class="active">Beranda</a>
-          <a href="about.html">Tentang Kami</a>
-          <a href="products.html">Produk</a>
-          <a href="contact.html">Kontak</a>
-        </div>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="active">Beranda</a></li>
+          <li><a href="about.html">Tentang Kami</a></li>
+          <li><a href="products.html">Produk</a></li>
+          <li><a href="contact.html">Kontak</a></li>
+        </ul>
 
         <div class="nav-contact">
           <div class="nav-contact-info">
-            <svg
-              class="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-              ></path>
-            </svg>
+            <i class="fas fa-phone"></i>
             <span>+62 812-3456-7890</span>
           </div>
           <a href="contact.html" class="btn btn-primary">Hubungi Kami</a>
         </div>
 
         <button class="nav-mobile-btn" onclick="toggleMobileMenu()">
-          <svg
-            class="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            ></path>
-          </svg>
+          <i class="fas fa-bars"></i>
         </button>
       </div>
     </nav>
 
-    <!-- Mobile Menu -->
+    <!-- Premium Mobile Menu -->
     <div id="mobileMenu" class="mobile-menu">
       <div class="mobile-menu-header">
-        <div class="nav-logo flex items-center space-x-2">
-          <img
-            src="img/favicon-32x32.png"
-            alt="Verda Nusadaya"
-            class="h-10 w-10"
-          />
-          <span class="font-semibold text-lg">Verda Nusadaya</span>
+        <div class="nav-logo">
+          <img src="img/favicon-32x32.png" alt="Verda Nusadaya" />
+          <span>Verda Nusadaya</span>
         </div>
-
         <button class="mobile-menu-close" onclick="toggleMobileMenu()">
-          ×
+          <i class="fas fa-times"></i>
         </button>
       </div>
       <div class="mobile-menu-content">
@@ -183,35 +919,11 @@
         </ul>
         <div class="mobile-menu-contact">
           <div class="mobile-menu-contact-item">
-            <svg
-              class="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-              ></path>
-            </svg>
+            <i class="fas fa-phone"></i>
             <span>+62 812-3456-7890</span>
           </div>
           <div class="mobile-menu-contact-item">
-            <svg
-              class="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-              ></path>
-            </svg>
+            <i class="fas fa-envelope"></i>
             <span>info@verdanusadaya.com</span>
           </div>
           <a href="contact.html" class="btn btn-primary w-full">Hubungi Kami</a>
@@ -221,35 +933,33 @@
 
     <div id="overlay" class="overlay" onclick="toggleMobileMenu()"></div>
 
-    <!-- Hero Section -->
+    <!-- Premium Hero Section -->
     <section class="hero">
       <div class="hero-bg">
         <div class="hero-overlay"></div>
-        <img
-          src="img/banner.webp"
-          alt="Agroindustri"
-          class="absolute inset-0 w-full h-full object-cover"
-          loading="lazy"
-        />
+        <img src="img/banner.webp" alt="Agroindustri" loading="lazy" />
       </div>
-      <div class="hero-content">
-        <div class="hero-text">
-          <h1 class="hero-title">Trusted Agro-Industry Solutions</h1>
-          <p class="hero-subtitle">
-            Delivering the highest quality for Indonesia's agricultural produce
-          </p>
-
-          <a href="products.html" class="btn btn-primary btn-lg"
-            >Explore Products</a
-          >
-        </div>
+      <div class="hero-content" data-aos="fade-up">
+        <h1 class="hero-title">Trusted Agro-Industry Solutions</h1>
+        <p class="hero-subtitle">
+          Delivering the highest quality for Indonesia's agricultural produce
+        </p>
+        <a
+          href="products.html"
+          class="btn btn-primary btn-lg"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <i class="fas fa-seedling"></i>
+          Explore Products
+        </a>
       </div>
     </section>
 
     <!-- Tentang Perusahaan -->
     <section class="section section-gray">
       <div class="container">
-        <div class="section-title">
+        <div class="section-title" data-aos="fade-up">
           <h2>About Verda Nusadaya</h2>
           <p>
             A trusted agro-industry company committed to delivering high-quality
@@ -258,21 +968,9 @@
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-6">
-          <div class="card text-center p-6 hover:shadow-lg transition-all">
+          <div class="card text-center" data-aos="fade-up" data-aos-delay="100">
             <div class="feature-icon">
-              <svg
-                class="w-8 h-8"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
-                ></path>
-              </svg>
+              <i class="fas fa-award"></i>
             </div>
             <h3 class="text-xl font-semibold mb-2">Premium Quality</h3>
             <p class="text-gray-600">
@@ -281,21 +979,9 @@
             </p>
           </div>
 
-          <div class="card text-center p-6 hover:shadow-lg transition-all">
+          <div class="card text-center" data-aos="fade-up" data-aos-delay="200">
             <div class="feature-icon">
-              <svg
-                class="w-8 h-8"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
-                ></path>
-              </svg>
+              <i class="fas fa-handshake"></i>
             </div>
             <h3 class="text-xl font-semibold mb-2">Excellent Service</h3>
             <p class="text-gray-600">
@@ -304,21 +990,9 @@
             </p>
           </div>
 
-          <div class="card text-center p-6 hover:shadow-lg transition-all">
+          <div class="card text-center" data-aos="fade-up" data-aos-delay="300">
             <div class="feature-icon">
-              <svg
-                class="w-8 h-8"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-                ></path>
-              </svg>
+              <i class="fas fa-chart-line"></i>
             </div>
             <h3 class="text-xl font-semibold mb-2">Competitive Pricing</h3>
             <p class="text-gray-600">
@@ -333,7 +1007,7 @@
     <!-- Produk Unggulan -->
     <section class="section">
       <div class="container">
-        <div class="section-title">
+        <div class="section-title" data-aos="fade-up">
           <h2>Featured Products</h2>
           <p>
             Our finest agro-industry selections sourced directly from our
@@ -353,55 +1027,25 @@
     <!-- Testimoni -->
     <section class="section section-gray">
       <div class="container">
-        <div class="section-title">
+        <div class="section-title" data-aos="fade-up">
           <h2>What They Say</h2>
           <p>Testimonials from our valued customers and partners</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="testimonial-card">
+          <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
             <div class="rating mb-4">
-              <svg class="star w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                ></path>
-              </svg>
-              <svg class="star w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                ></path>
-              </svg>
-              <svg class="star w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                ></path>
-              </svg>
-              <svg class="star w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                ></path>
-              </svg>
-              <svg class="star w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                ></path>
-              </svg>
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
             </div>
-            <svg
-              class="w-8 h-8 text-gray-300 mb-4"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"
-              />
-            </svg>
             <p class="text-gray-600 mb-4 italic">
               "Verda Nusadaya is a trusted supplier for our industrial rubber
               needs. The product quality is consistently excellent, and
               deliveries are always on time."
             </p>
-
             <div class="flex items-center">
               <div class="w-12 h-12 bg-gray-200 rounded-full mr-4"></div>
               <div>
@@ -411,43 +1055,14 @@
             </div>
           </div>
 
-          <div class="testimonial-card">
+          <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
             <div class="rating mb-4">
-              <svg class="star w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                ></path>
-              </svg>
-              <svg class="star w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                ></path>
-              </svg>
-              <svg class="star w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                ></path>
-              </svg>
-              <svg class="star w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                ></path>
-              </svg>
-              <svg class="star w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                ></path>
-              </svg>
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
             </div>
-            <svg
-              class="w-8 h-8 text-gray-300 mb-4"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"
-              />
-            </svg>
             <p class="text-gray-600 mb-4 italic">
               "Verda Nusadaya coffee is of the highest quality. Its distinctive
               aroma and flavor leave our customers thoroughly satisfied."
@@ -461,49 +1076,19 @@
             </div>
           </div>
 
-          <div class="testimonial-card">
+          <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
             <div class="rating mb-4">
-              <svg class="star w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                ></path>
-              </svg>
-              <svg class="star w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                ></path>
-              </svg>
-              <svg class="star w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                ></path>
-              </svg>
-              <svg class="star w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                ></path>
-              </svg>
-              <svg class="star w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                ></path>
-              </svg>
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star"></i>
             </div>
-            <svg
-              class="w-8 h-8 text-gray-300 mb-4"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"
-              />
-            </svg>
             <p class="text-gray-600 mb-4 italic">
               "Partnering with Verda Nusadaya has been highly beneficial.
               High-quality products, competitive pricing, and exceptional
               service."
             </p>
-
             <div class="flex items-center">
               <div class="w-12 h-12 bg-gray-200 rounded-full mr-4"></div>
               <div>
@@ -519,7 +1104,7 @@
     <!-- Partners -->
     <section class="section">
       <div class="container">
-        <div class="section-title">
+        <div class="section-title" data-aos="fade-up">
           <h2>Our Partners</h2>
           <p>Companies that have trusted and collaborated with us</p>
         </div>
@@ -527,6 +1112,8 @@
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
           <div
             class="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
+            data-aos="zoom-in"
+            data-aos-delay="100"
           >
             <div
               class="w-24 h-12 bg-gray-200 rounded flex items-center justify-center text-gray-500 text-xs"
@@ -536,6 +1123,8 @@
           </div>
           <div
             class="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
+            data-aos="zoom-in"
+            data-aos-delay="200"
           >
             <div
               class="w-24 h-12 bg-gray-200 rounded flex items-center justify-center text-gray-500 text-xs"
@@ -545,6 +1134,8 @@
           </div>
           <div
             class="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
+            data-aos="zoom-in"
+            data-aos-delay="300"
           >
             <div
               class="w-24 h-12 bg-gray-200 rounded flex items-center justify-center text-gray-500 text-xs"
@@ -554,6 +1145,8 @@
           </div>
           <div
             class="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
+            data-aos="zoom-in"
+            data-aos-delay="400"
           >
             <div
               class="w-24 h-12 bg-gray-200 rounded flex items-center justify-center text-gray-500 text-xs"
@@ -563,6 +1156,8 @@
           </div>
           <div
             class="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
+            data-aos="zoom-in"
+            data-aos-delay="500"
           >
             <div
               class="w-24 h-12 bg-gray-200 rounded flex items-center justify-center text-gray-500 text-xs"
@@ -572,6 +1167,8 @@
           </div>
           <div
             class="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
+            data-aos="zoom-in"
+            data-aos-delay="600"
           >
             <div
               class="w-24 h-12 bg-gray-200 rounded flex items-center justify-center text-gray-500 text-xs"
@@ -586,30 +1183,18 @@
     <!-- Call to Action -->
     <section class="cta-section">
       <div class="container">
-        <h2>Ready to Partner with Us?</h2>
-        <p>
+        <h2 data-aos="fade-up">Ready to Partner with Us?</h2>
+        <p data-aos="fade-up" data-aos-delay="100">
           Access high-quality agro-industry products at the best prices with
           Verda Nusadaya.
         </p>
 
-        <div class="cta-buttons">
+        <div class="cta-buttons" data-aos="fade-up" data-aos-delay="200">
           <a
             href="contact.html"
             class="btn bg-white text-green-600 hover:bg-gray-100 px-8"
           >
-            <svg
-              class="w-5 h-5 mr-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-              ></path>
-            </svg>
+            <i class="fas fa-phone"></i>
             Contact Us
           </a>
           <a
@@ -617,26 +1202,14 @@
             class="btn btn-outline border-white text-white hover:bg-white hover:text-green-600 px-8"
             onclick="downloadCatalog()"
           >
-            <svg
-              class="w-5 h-5 mr-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M12 10v6m0 0l-3 3m3 3l-3 3m2 8H7a2 2 0 01-2 2h5.586a1 1 0 01.707.293l-2.414 2.414a1 1 0 01-.293.707V19a2 2 0 01-2 2h-1z"
-              ></path>
-            </svg>
+            <i class="fas fa-download"></i>
             Download Catalog
           </a>
         </div>
       </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Premium Footer -->
     <footer class="footer">
       <div class="container">
         <div class="footer-content">
@@ -649,45 +1222,20 @@
               />
               <span>Verda Nusadaya</span>
             </div>
-
             <p class="text-gray-300 mb-4 max-w-md">
               PT. Verda Nusadaya is a trusted agro-industry company providing
               high-quality products sourced from Indonesia's finest agricultural
               produce.
             </p>
             <div class="footer-social">
-              <a
-                href="https://www.facebook.com/verdanusadaya"
-                class="footer-social"
-                target="_blank"
-              >
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
-                  />
-                </svg>
+              <a href="https://www.facebook.com/verdanusadaya" target="_blank">
+                <i class="fab fa-facebook-f"></i>
               </a>
-              <a
-                href="https://www.instagram.com/verdanusadaya"
-                class="footer-social"
-                target="_blank"
-              >
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM5.838 12a6.162 6.162 0 1112.324 0 6.162 6.162 0 01-12.324 0zM12 16a4 4 0 110-8 4 4 0 010 8zm4.965-10.405a1.44 1.44 0 112.881.001 1.44 1.44 0 01-2.881-.001z"
-                  />
-                </svg>
+              <a href="https://www.instagram.com/verdanusadaya" target="_blank">
+                <i class="fab fa-instagram"></i>
               </a>
-              <a
-                href="https://www.twitter.com/verdanusadaya"
-                class="footer-social"
-                target="_blank"
-              >
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path
-                    d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"
-                  />
-                </svg>
+              <a href="https://www.twitter.com/verdanusadaya" target="_blank">
+                <i class="fab fa-twitter"></i>
               </a>
             </div>
           </div>
@@ -706,57 +1254,15 @@
             <h3>Kontak</h3>
             <div class="space-y-3">
               <div class="flex items-center space-x-2">
-                <svg
-                  class="w-4 h-4 text-green-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                  ></path>
-                </svg>
+                <i class="fas fa-phone text-green-400"></i>
                 <span class="text-gray-300">+62 812-3456-7890</span>
               </div>
               <div class="flex items-center space-x-2">
-                <svg
-                  class="w-4 h-4 text-green-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  ></path>
-                </svg>
+                <i class="fas fa-envelope text-green-400"></i>
                 <span class="text-gray-300">info@verdanusadaya.com</span>
               </div>
               <div class="flex items-start space-x-2">
-                <svg
-                  class="w-4 h-4 text-green-400 mt-1"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                  ></path>
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                  ></path>
-                </svg>
+                <i class="fas fa-map-marker-alt text-green-400 mt-1"></i>
                 <span class="text-gray-300">
                   Jl. Raya Gondang No.16, Gondang Village<br />
                   Gangga Subdistrict, North Lombok Regency<br />
@@ -774,9 +1280,33 @@
     </footer>
 
     <!-- JavaScript -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="./js/main.js"></script>
 
     <script>
+      // Initialize AOS
+      AOS.init({
+        duration: 1000,
+        once: true,
+      });
+
+      // Hide loader when page is fully loaded
+      window.addEventListener("load", function () {
+        setTimeout(function () {
+          document.getElementById("loader").classList.add("hidden");
+        }, 1000);
+      });
+
+      // Navbar scroll effect
+      window.addEventListener("scroll", function () {
+        const navbar = document.getElementById("navbar");
+        if (window.scrollY > 100) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
       // Initialize featured products on page load
       document.addEventListener("DOMContentLoaded", function () {
         renderFeaturedProducts();
@@ -806,7 +1336,7 @@ For more information, contact us:
 Phone: +62 812-3456-7890
 Email: info@verdanusadaya.com
 Website: https://officialverdanusadaya-pixel.github.io/official.verdanusadaya/
-        `;
+            `;
 
         const blob = new Blob([catalogContent], { type: "text/plain" });
         const url = window.URL.createObjectURL(blob);
