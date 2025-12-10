@@ -127,43 +127,6 @@ const products = [
     specs: ["100% Robusta", "Grade 1", "High Caffeine", "Medium Roast"],
     categoryLabel: "Kopi",
   },
-  // {
-  //   id: 5,
-  //   name: "RSS-1 Rubber Grade",
-  //   category: "karet",
-  //   description:
-  //     "High-quality RSS-1 rubber suitable for various industrial applications and manufacturing.",
-  //   image:
-  //     "https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-  //   price: "Rp 22.000/kg",
-  //   rating: 4.5,
-  //   isFeatured: false,
-  //   inStock: true,
-  //   minOrder: 500,
-  //   specs: [
-  //     "RSS-1 Standard",
-  //     "Moisture < 0.8%",
-  //     "Impurities < 0.05%",
-  //     "Packing 50kg",
-  //   ],
-  //   categoryLabel: "Karet",
-  // },
-  // {
-  //   id: 6,
-  //   name: "Refined Palm Oil",
-  //   category: "kelapa-sawit",
-  //   description:
-  //     "Premium refined palm oil suitable for household and industrial cooking applications.",
-  //   image:
-  //     "https://images.unsplash.com/photo-1592982537442-025781f5f7eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
-  //   price: "Rp 15.000/liter",
-  //   rating: 4.7,
-  //   isFeatured: false,
-  //   inStock: true,
-  //   minOrder: 200,
-  //   specs: ["RBDPO", "FFA < 0.1%", "Packing 1L & 5L", "Halal Certified"],
-  //   categoryLabel: "Kelapa Sawit",
-  // },
 ];
 
 // Helper Functions
