@@ -138,6 +138,7 @@
         line-height: 1.6;
         color: var(--dark-color);
         overflow-x: hidden;
+        font-size: 16px; /* Ukuran dasar */
       }
 
       h1,
@@ -151,13 +152,22 @@
         line-height: 1.2;
       }
 
-      /* Premium Typography */
+      /* Premium Typography Responsif */
       .hero-title {
         font-family: "Playfair Display", serif;
         font-weight: 900;
-        font-size: 3.5rem;
+        font-size: clamp(2rem, 6vw, 3.5rem);
         line-height: 1.1;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        margin-bottom: clamp(1rem, 3vw, 2rem);
+      }
+
+      .hero-subtitle {
+        font-family: "Crimson Text", serif;
+        font-size: clamp(1rem, 3vw, 1.5rem);
+        font-style: italic;
+        margin-bottom: clamp(1.5rem, 4vw, 2rem);
+        opacity: 0.9;
       }
 
       /* Premium Navigation */
@@ -201,7 +211,7 @@
         text-decoration: none;
         color: white;
         font-weight: 700;
-        font-size: 1.5rem;
+        font-size: clamp(1.2rem, 3vw, 1.5rem);
         transition: all 0.3s ease;
       }
 
@@ -210,8 +220,8 @@
       }
 
       .nav-logo img {
-        height: 50px;
-        width: 50px;
+        height: clamp(40px, 5vw, 50px);
+        width: clamp(40px, 5vw, 50px);
         border-radius: 50%;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         transition: all 0.3s ease;
@@ -222,9 +232,9 @@
       }
 
       .nav-menu {
-        display: flex;
-        list-style: none;
+        display: none;
         gap: 2rem;
+        align-items: center;
       }
 
       .nav-menu a {
@@ -234,6 +244,7 @@
         transition: all 0.3s ease;
         position: relative;
         padding: 0.5rem 0;
+        font-size: clamp(0.9rem, 2vw, 1rem);
       }
 
       .nav-menu a::after {
@@ -256,21 +267,22 @@
       }
 
       .nav-contact {
-        display: flex;
+        display: none;
         align-items: center;
         gap: 1.5rem;
       }
 
       .nav-contact-info {
-        display: flex;
+        display: none;
         align-items: center;
         gap: 0.5rem;
         color: white;
         font-weight: 500;
+        font-size: clamp(0.8rem, 2vw, 1rem);
       }
 
       .btn {
-        padding: 12px 24px;
+        padding: clamp(0.5rem, 1.5vw, 0.75rem) clamp(1rem, 3vw, 1.5rem);
         border-radius: 50px;
         font-weight: 600;
         text-decoration: none;
@@ -281,6 +293,7 @@
         gap: 0.5rem;
         border: none;
         cursor: pointer;
+        font-size: clamp(0.875rem, 2vw, 1rem);
       }
 
       .btn-primary {
@@ -295,8 +308,8 @@
       }
 
       .btn-lg {
-        padding: 15px 40px;
-        font-size: 1.1rem;
+        padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2.5rem);
+        font-size: clamp(0.9rem, 2.5vw, 1.1rem);
       }
 
       /* Premium Hero Section */
@@ -346,17 +359,9 @@
         z-index: 1;
       }
 
-      .hero-subtitle {
-        font-family: "Crimson Text", serif;
-        font-size: 1.5rem;
-        font-style: italic;
-        margin-bottom: 2rem;
-        opacity: 0.9;
-      }
-
-      /* Premium Section Styles */
+      /* Premium Section Styles Responsif */
       .section {
-        padding: 100px 0;
+        padding: clamp(3rem, 8vw, 6rem) 0;
         position: relative;
       }
 
@@ -367,18 +372,18 @@
       .container {
         max-width: 1200px;
         margin: 0 auto;
-        padding: 0 20px;
+        padding: 0 clamp(1rem, 4vw, 2rem);
       }
 
       .section-title {
         text-align: center;
-        margin-bottom: 3rem;
+        margin-bottom: clamp(2rem, 5vw, 3rem);
       }
 
       .section-title h2 {
-        font-size: 2.5rem;
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
         color: var(--primary-color);
-        margin-bottom: 1rem;
+        margin-bottom: clamp(0.75rem, 2vw, 1rem);
         position: relative;
         display: inline-block;
       }
@@ -399,21 +404,22 @@
       }
 
       .section-title p {
-        font-size: 1.1rem;
+        font-size: clamp(0.9rem, 2.5vw, 1.1rem);
         color: var(--text-gray);
         max-width: 700px;
         margin: 0 auto;
       }
 
-      /* Premium Cards */
+      /* Premium Cards Responsif */
       .card {
         background: white;
         border-radius: 15px;
-        padding: 2.5rem;
+        padding: clamp(1.5rem, 4vw, 2.5rem);
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         transition: all 0.3s ease;
         position: relative;
         overflow: hidden;
+        margin-bottom: clamp(1rem, 3vw, 2rem);
       }
 
       .card::before {
@@ -436,8 +442,8 @@
       }
 
       .feature-icon {
-        width: 70px;
-        height: 70px;
+        width: clamp(50px, 7vw, 70px);
+        height: clamp(50px, 7vw, 70px);
         border-radius: 50%;
         background: linear-gradient(
           135deg,
@@ -447,12 +453,12 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 0 auto 1.5rem;
+        margin: 0 auto clamp(1rem, 2vw, 1.5rem);
         color: white;
-        font-size: 1.5rem;
+        font-size: clamp(1.2rem, 3vw, 1.5rem);
       }
 
-      /* Premium Product Cards */
+      /* Premium Product Cards Responsif */
       .product-card {
         background: white;
         border-radius: 15px;
@@ -460,6 +466,7 @@
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         transition: all 0.3s ease;
         position: relative;
+        margin-bottom: clamp(1rem, 3vw, 2rem);
       }
 
       .product-card:hover {
@@ -468,7 +475,7 @@
       }
 
       .product-image {
-        height: 200px;
+        height: clamp(150px, 30vw, 200px);
         overflow: hidden;
         position: relative;
       }
@@ -492,34 +499,36 @@
         color: var(--dark-color);
         padding: 5px 10px;
         border-radius: 20px;
-        font-size: 0.8rem;
+        font-size: clamp(0.7rem, 2vw, 0.8rem);
         font-weight: 600;
       }
 
       .product-content {
-        padding: 1.5rem;
+        padding: clamp(1rem, 3vw, 1.5rem);
       }
 
       .product-title {
-        font-size: 1.2rem;
+        font-size: clamp(1rem, 2.5vw, 1.2rem);
         margin-bottom: 0.5rem;
         color: var(--primary-color);
       }
 
       .product-price {
         font-weight: 700;
+        font-size: clamp(0.9rem, 2vw, 1rem);
         color: var(--secondary-color);
         margin-bottom: 1rem;
       }
 
-      /* Premium Testimonial Cards */
+      /* Premium Testimonial Cards Responsif */
       .testimonial-card {
         background: white;
         border-radius: 15px;
-        padding: 2rem;
+        padding: clamp(1.5rem, 4vw, 2rem);
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         transition: all 0.3s ease;
         position: relative;
+        margin-bottom: clamp(1rem, 3vw, 2rem);
       }
 
       .testimonial-card:hover {
@@ -532,7 +541,7 @@
         position: absolute;
         top: 20px;
         left: 20px;
-        font-size: 4rem;
+        font-size: clamp(2rem, 5vw, 4rem);
         color: var(--light-gold);
         font-family: "Playfair Display", serif;
         line-height: 1;
@@ -546,14 +555,14 @@
         color: var(--gold);
       }
 
-      /* Premium CTA Section */
+      /* Premium CTA Section Responsif */
       .cta-section {
         background: linear-gradient(
           135deg,
           var(--primary-color),
           var(--secondary-color)
         );
-        padding: 80px 0;
+        padding: clamp(3rem, 8vw, 5rem) 0;
         text-align: center;
         color: white;
         position: relative;
@@ -579,13 +588,13 @@
       }
 
       .cta-section h2 {
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+        margin-bottom: clamp(0.75rem, 2vw, 1rem);
       }
 
       .cta-section p {
-        font-size: 1.2rem;
-        margin-bottom: 2rem;
+        font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+        margin-bottom: clamp(1.5rem, 4vw, 2rem);
         max-width: 700px;
         margin-left: auto;
         margin-right: auto;
@@ -598,11 +607,11 @@
         flex-wrap: wrap;
       }
 
-      /* Premium Footer */
+      /* Premium Footer Responsif */
       .footer {
         background: linear-gradient(135deg, var(--dark-color), #2c2c2c);
         color: white;
-        padding: 60px 0 20px;
+        padding: clamp(2rem, 6vw, 4rem) 0 clamp(1rem, 3vw, 2rem);
       }
 
       .footer-content {
@@ -614,8 +623,8 @@
 
       .footer-section h3 {
         color: var(--accent-color);
-        margin-bottom: 1rem;
-        font-size: 1.3rem;
+        margin-bottom: clamp(0.75rem, 2vw, 1rem);
+        font-size: clamp(1.1rem, 3vw, 1.3rem);
       }
 
       .footer-logo {
@@ -643,6 +652,7 @@
         color: #ccc;
         text-decoration: none;
         transition: color 0.3s ease;
+        font-size: clamp(0.875rem, 2vw, 1rem);
       }
 
       .footer-links a:hover {
@@ -680,18 +690,18 @@
         color: #999;
       }
 
-      /* Mobile Menu */
+      /* Mobile Menu - Versi Ditingkatkan */
       .mobile-menu {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 80%;
-        max-width: 400px;
+        width: 85%;
+        max-width: 350px;
         height: 100vh;
         background: white;
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
         z-index: 1001;
-        transition: right 0.3s ease;
+        transition: right 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         overflow-y: auto;
       }
 
@@ -710,14 +720,26 @@
           var(--secondary-color)
         );
         color: white;
+        position: relative;
       }
 
       .mobile-menu-close {
         background: none;
         border: none;
         color: white;
-        font-size: 2rem;
+        font-size: 1.5rem;
         cursor: pointer;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+      }
+
+      .mobile-menu-close:hover {
+        background-color: rgba(255, 255, 255, 0.2);
       }
 
       .mobile-menu-content {
@@ -730,7 +752,9 @@
       }
 
       .mobile-menu-links li {
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
+        position: relative;
+        overflow: hidden;
       }
 
       .mobile-menu-links a {
@@ -739,28 +763,93 @@
         font-weight: 500;
         font-size: 1.1rem;
         display: block;
-        padding: 0.5rem 0;
-        border-bottom: 1px solid #eee;
-        transition: color 0.3s ease;
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .mobile-menu-links a::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 3px;
+        background: var(--primary-color);
+        transform: scaleY(0);
+        transition: transform 0.3s ease;
+      }
+
+      .mobile-menu-links a:hover::before,
+      .mobile-menu-links a.active::before {
+        transform: scaleY(1);
       }
 
       .mobile-menu-links a:hover,
       .mobile-menu-links a.active {
+        background-color: rgba(44, 95, 45, 0.1);
         color: var(--primary-color);
+        padding-left: 1.5rem;
       }
 
       .mobile-menu-contact {
         margin-top: 2rem;
+        padding: 1.5rem;
+        background-color: rgba(44, 95, 45, 0.05);
+        border-radius: 10px;
       }
 
       .mobile-menu-contact-item {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
+        gap: 0.75rem;
         margin-bottom: 1rem;
         color: var(--text-gray);
       }
 
+      .mobile-menu-contact-item i {
+        color: var(--primary-color);
+        width: 20px;
+        text-align: center;
+      }
+
+      /* Hamburger Button - Versi Ditingkatkan */
+      .nav-mobile-btn {
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        display: block;
+        width: 30px;
+        height: 30px;
+        position: relative;
+        z-index: 1002;
+      }
+
+      .nav-mobile-btn span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: white;
+        margin: 5px 0;
+        transition: all 0.3s ease;
+        border-radius: 3px;
+      }
+
+      .nav-mobile-btn.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .nav-mobile-btn.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .nav-mobile-btn.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+      }
+
+      /* Overlay - Versi Ditingkatkan */
       .overlay {
         position: fixed;
         top: 0;
@@ -779,15 +868,50 @@
         visibility: visible;
       }
 
-      .nav-mobile-btn {
-        background: none;
-        border: none;
+      /* Indikator Swipe di sisi kiri layar */
+      .swipe-indicator {
+        position: fixed;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(44, 95, 45, 0.8);
         color: white;
-        cursor: pointer;
-        display: none;
+        padding: 0.5rem;
+        border-radius: 0 4px 4px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 97;
+        pointer-events: none;
       }
 
-      /* WhatsApp Button */
+      .swipe-indicator.show {
+        opacity: 1;
+      }
+
+      .swipe-indicator i {
+        font-size: 1.5rem;
+        margin-bottom: 0.25rem;
+      }
+
+      .swipe-indicator p {
+        font-size: 0.75rem;
+        margin: 0;
+        writing-mode: vertical-rl;
+        text-orientation: mixed;
+      }
+
+      /* Hanya tampilkan di mobile */
+      @media (min-width: 769px) {
+        .swipe-indicator {
+          display: none;
+        }
+      }
+
+      /* WhatsApp Button Responsif */
       .whatsapp-button {
         position: fixed;
         bottom: 20px;
@@ -815,7 +939,7 @@
         font-size: 20px;
       }
 
-      /* Live Chat Button */
+      /* Live Chat Button Responsif */
       .chat-button {
         position: fixed;
         bottom: 80px;
@@ -845,13 +969,13 @@
         font-size: 20px;
       }
 
-      /* Live Chat Container */
+      /* Live Chat Container Responsif */
       .live-chat-container {
         position: fixed;
         bottom: 150px;
         right: 20px;
-        width: 350px;
-        height: 450px;
+        width: min(90%, 350px);
+        height: min(70vh, 450px);
         background: white;
         border-radius: 10px;
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
@@ -872,7 +996,7 @@
           var(--secondary-color)
         );
         color: white;
-        padding: 15px;
+        padding: clamp(0.75rem, 2vw, 1rem);
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -880,7 +1004,7 @@
 
       .chat-header h3 {
         margin: 0;
-        font-size: 16px;
+        font-size: clamp(0.9rem, 2.5vw, 1rem);
       }
 
       .close-chat {
@@ -893,7 +1017,7 @@
 
       .chat-body {
         flex: 1;
-        padding: 15px;
+        padding: clamp(0.75rem, 2vw, 1rem);
         overflow-y: auto;
         display: flex;
         flex-direction: column;
@@ -905,6 +1029,7 @@
         padding: 10px;
         border-radius: 10px;
         word-wrap: break-word;
+        font-size: clamp(0.875rem, 2vw, 1rem);
       }
 
       .chat-message.bot {
@@ -919,7 +1044,7 @@
       }
 
       .chat-footer {
-        padding: 15px;
+        padding: clamp(0.75rem, 2vw, 1rem);
         border-top: 1px solid #eee;
         display: flex;
         gap: 10px;
@@ -931,6 +1056,7 @@
         border-radius: 20px;
         padding: 8px 15px;
         outline: none;
+        font-size: clamp(0.875rem, 2vw, 1rem);
       }
 
       .send-message {
@@ -1012,14 +1138,6 @@
           display: block;
         }
 
-        .hero-title {
-          font-size: 2.5rem;
-        }
-
-        .section-title h2 {
-          font-size: 2rem;
-        }
-
         .whatsapp-button span {
           display: none;
         }
@@ -1040,24 +1158,35 @@
       }
 
       @media (max-width: 768px) {
-        .hero-title {
-          font-size: 2rem;
-        }
-
-        .hero-subtitle {
-          font-size: 1.2rem;
-        }
-
         .section {
-          padding: 60px 0;
+          padding: 3rem 0;
         }
 
-        .cta-section h2 {
-          font-size: 2rem;
+        .container {
+          padding: 0 1rem;
         }
 
-        .cta-section p {
-          font-size: 1rem;
+        /* Button Full Width di Mobile */
+        .btn {
+          width: 100%;
+          margin-bottom: 0.5rem;
+        }
+
+        /* Grid Produk untuk Mobile */
+        .grid {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        /* Spasi Tambahan untuk Layar Sangat Kecil */
+        .section {
+          padding: 2rem 0;
+        }
+
+        .container {
+          padding: 0 1rem;
         }
       }
     </style>
@@ -1103,7 +1232,9 @@
           onclick="toggleMobileMenu()"
           aria-label="Toggle Mobile Menu"
         >
-          <i class="fas fa-bars" aria-hidden="true"></i>
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
       </div>
     </nav>
@@ -1173,6 +1304,12 @@
       aria-hidden="true"
     ></div>
 
+    <!-- Indikator Swipe di sisi kiri layar -->
+    <div class="swipe-indicator" id="swipe-indicator">
+      <i class="fas fa-hand-point-right"></i>
+      <p>Swipe untuk menu</p>
+    </div>
+
     <!-- Premium Hero Section -->
     <section class="hero" id="main-content">
       <div class="hero-bg">
@@ -1190,7 +1327,7 @@
       <div class="hero-content" data-aos="fade-up">
         <h1 class="hero-title">Trusted Agro-Industry Solutions</h1>
         <p class="hero-subtitle">
-          Delivering the highest quality for Indonesia's agricultural produce
+          Delivering highest quality for Indonesia's agricultural produce
         </p>
         <a
           href="products.html"
@@ -1315,7 +1452,7 @@
               <i class="fas fa-star star" aria-hidden="true"></i>
             </div>
             <p class="text-gray-600 mb-4 italic">
-              "Verda Nusadaya coffee is of the highest quality. Its distinctive
+              "Verda Nusadaya coffee is of highest quality. Its distinctive
               aroma and flavor leave our customers thoroughly satisfied."
             </p>
             <div class="flex items-center">
@@ -1750,7 +1887,7 @@ Generated on: ${new Date().toLocaleDateString("id-ID")}
         const url = window.URL.createObjectURL(blob);
         const a = document.createElement("a");
         a.href = url;
-        a.download = "verda-nusadaya-product-catalog.txt";
+        a.download = "verda-nusadaya-product-verda";
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);

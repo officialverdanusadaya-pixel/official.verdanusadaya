@@ -28,21 +28,119 @@ const COMPANY_CONFIG = {
   },
 };
 
-// Mobile Menu Toggle Function
+// Mobile Menu Toggle Function - Versi Ditingkatkan
 function toggleMobileMenu() {
   const mobileMenu = document.getElementById("mobileMenu");
   const overlay = document.getElementById("overlay");
+  const mobileBtn = document.querySelector(".nav-mobile-btn");
 
   if (mobileMenu.classList.contains("active")) {
     mobileMenu.classList.remove("active");
     overlay.classList.remove("active");
+    mobileBtn.classList.remove("active");
     document.body.style.overflow = "";
   } else {
     mobileMenu.classList.add("active");
     overlay.classList.add("active");
+    mobileBtn.classList.add("active");
     document.body.style.overflow = "hidden";
   }
 }
+
+// Gesture Navigation untuk Mobile
+document.addEventListener("DOMContentLoaded", function () {
+  const mobileMenu = document.getElementById("mobileMenu");
+  const overlay = document.getElementById("overlay");
+  const mobileBtn = document.querySelector(".nav-mobile-btn");
+  const swipeIndicator = document.getElementById("swipe-indicator");
+
+  // Variabel untuk tracking sentuhan
+  let touchStartX = 0;
+  let touchEndX = 0;
+  let touchStartY = 0;
+  let touchEndY = 0;
+
+  // Fungsi untuk menangani swipe
+  function handleSwipe() {
+    // Swipe dari kiri ke kanan (buka menu)
+    if (
+      touchEndX - touchStartX > 50 &&
+      Math.abs(touchEndY - touchStartY) < 100
+    ) {
+      mobileMenu.classList.add("active");
+      overlay.classList.add("active");
+      mobileBtn.classList.add("active");
+      document.body.style.overflow = "hidden";
+    }
+
+    // Swipe dari kanan ke kiri (tutup menu)
+    if (
+      touchStartX - touchEndX > 50 &&
+      Math.abs(touchEndY - touchStartY) < 100
+    ) {
+      mobileMenu.classList.remove("active");
+      overlay.classList.remove("active");
+      mobileBtn.classList.remove("active");
+      document.body.style.overflow = "";
+    }
+  }
+
+  // Event listener untuk sentuhan
+  document.addEventListener(
+    "touchstart",
+    function (e) {
+      touchStartX = e.changedTouches[0].screenX;
+      touchStartY = e.changedTouches[0].screenY;
+
+      // Tampilkan indikator swipe saat pengguna mulai swipe dari kiri
+      if (touchStartX < 20) {
+        swipeIndicator.classList.add("show");
+      }
+    },
+    false
+  );
+
+  document.addEventListener(
+    "touchend",
+    function (e) {
+      touchEndX = e.changedTouches[0].screenX;
+      touchEndY = e.changedTouches[0].screenY;
+      handleSwipe();
+
+      // Sembunyikan indikator swipe
+      setTimeout(function () {
+        swipeIndicator.classList.remove("show");
+      }, 1000);
+    },
+    false
+  );
+
+  // Tampilkan indikator swipe saat halaman dimuat
+  setTimeout(function () {
+    swipeIndicator.classList.add("show");
+
+    // Sembunyikan setelah 3 detik
+    setTimeout(function () {
+      swipeIndicator.classList.remove("show");
+    }, 3000);
+  }, 1000);
+});
+
+// Tutup menu saat tombol ESC ditekan
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") {
+    const mobileMenu = document.getElementById("mobileMenu");
+    const overlay = document.getElementById("overlay");
+    const mobileBtn = document.querySelector(".nav-mobile-btn");
+
+    if (mobileMenu.classList.contains("active")) {
+      mobileMenu.classList.remove("active");
+      overlay.classList.remove("active");
+      mobileBtn.classList.remove("active");
+      document.body.style.overflow = "";
+    }
+  }
+});
 
 // Product Data with Enhanced Information
 const products = [
@@ -94,7 +192,7 @@ const products = [
     name: "Golden Clove",
     category: "kelapa-sawit",
     description:
-      "Golden Clove offers the finest, hand-selected cloves with a rich, warm aroma. Perfect for enhancing the flavor of your culinary creations, beverages, or spice blends, delivering an unforgettable taste experience.",
+      "Golden Clove offers finest, hand-selected cloves with a rich, warm aroma. Perfect for enhancing flavor of your culinary creations, beverages, or spice blends, delivering an unforgettable taste experience.",
     image:
       "https://images.unsplash.com/photo-1726771517475-e7acdd34cd8a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     price: "Rp 12.000/kg",
@@ -116,7 +214,7 @@ const products = [
     name: "Golden Coconut",
     category: "kopi",
     description:
-      "Experience the tropical freshness of Golden Coconut. Its rich aroma and natural sweetness bring a refreshing taste to every dish or drink.",
+      "Experience tropical freshness of Golden Coconut. Its rich aroma and natural sweetness bring a refreshing taste to every dish or drink.",
     image:
       "https://images.unsplash.com/photo-1537191072641-5e19cc173c6a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     price: "Rp 120.000/kg",
@@ -886,71 +984,70 @@ function showTab(tabName) {
   }
 }
 
-// Download catalog function
+// Download catalog function - Versi PDF
 function downloadCatalog() {
-  const catalogContent = `
-VERDA NUSADAYA - PRODUCT CATALOG
-=====================================
+  // Path ke file PDF katalog
+  const pdfPath = "./pdf/catalog.pdf";
 
-Premium Agro-Industry Products
+  // Buat elemen link untuk mengunduh PDF
+  const link = document.createElement("a");
+  link.href = pdfPath;
+  link.download = "verda-nusadaya-product-catalog.pdf";
+  link.target = "_blank"; // Opsional: buka di tab baru jika tidak bisa diunduh
 
- ${products
-   .map(
-     (product) => `
- ${product.id}. ${product.name}
-   Category: ${product.categoryLabel}
-   Price: ${product.price}
-   Minimum Order: ${product.minOrder} ${
-       product.category === "kelapa-sawit" && product.name.includes("Liter")
-         ? "liter"
-         : "kg"
-     }
-   Rating: ${product.rating}/5
-   ${product.isFeatured ? "⭐ Featured Product" : ""}
-   
-   Description: ${product.description}
-   
-   Specifications:
-   ${product.specs.map((spec) => `   • ${spec}`).join("\n")}
-   
-   ---
-`
-   )
-   .join("\n")}
+  // Tambahkan ke DOM, klik, lalu hapus
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
 
-Company Information:
-==================
- ${COMPANY_CONFIG.name}
-Address: ${COMPANY_CONFIG.address.street}
-         ${COMPANY_CONFIG.address.district}
-         ${COMPANY_CONFIG.address.regency}
-         ${COMPANY_CONFIG.address.province} ${COMPANY_CONFIG.address.postalCode}
-         ${COMPANY_CONFIG.address.country}
+  // Tampilkan notifikasi bahwa unduhan telah dimulai
+  showDownloadNotification();
+}
 
-Contact:
-Phone: ${COMPANY_CONFIG.contact.phone}
-Email: ${COMPANY_CONFIG.contact.email}
-
-Operating Hours:
-Monday - Friday: ${COMPANY_CONFIG.operatingHours.weekdays}
-Saturday: ${COMPANY_CONFIG.operatingHours.saturday}
-
-Website: https://officialverdanusadaya-pixel.github.io/official.verdanusadaya/
-
-For more information or to place an order, please contact our sales team.
-
-Generated on: ${new Date().toLocaleDateString("id-ID")}
+// Fungsi untuk menampilkan notifikasi unduhan
+function showDownloadNotification() {
+  // Buat elemen notifikasi
+  const notification = document.createElement("div");
+  notification.className = "download-notification";
+  notification.innerHTML = `
+    <div class="notification-content">
+      <i class="fas fa-check-circle"></i>
+      <p>Unduhan katalog telah dimulai. Jika unduhan tidak dimulai secara otomatis, 
+      <a href="./pdf/catalog.pdf" target="_blank">klik di sini</a>.</p>
+    </div>
+    <button class="notification-close">
+      <i class="fas fa-times"></i>
+    </button>
   `;
 
-  const blob = new Blob([catalogContent], { type: "text/plain" });
-  const url = window.URL.createObjectURL(blob);
-  const a = document.createElement("a");
-  a.href = url;
-  a.download = "verda-nusadaya-product-catalog.txt";
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-  window.URL.revokeObjectURL(url);
+  // Tambahkan ke halaman
+  document.body.appendChild(notification);
+
+  // Tampilkan dengan animasi
+  setTimeout(() => {
+    notification.classList.add("show");
+  }, 100);
+
+  // Tombol tutup notifikasi
+  const closeBtn = notification.querySelector(".notification-close");
+  closeBtn.addEventListener("click", () => {
+    notification.classList.remove("show");
+    setTimeout(() => {
+      document.body.removeChild(notification);
+    }, 300);
+  });
+
+  // Otomatis tutup setelah 5 detik
+  setTimeout(() => {
+    if (document.body.contains(notification)) {
+      notification.classList.remove("show");
+      setTimeout(() => {
+        if (document.body.contains(notification)) {
+          document.body.removeChild(notification);
+        }
+      }, 300);
+    }
+  }, 5000);
 }
 
 // Event Listeners Setup
