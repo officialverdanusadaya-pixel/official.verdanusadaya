@@ -924,15 +924,24 @@ p {
   font-weight: 700;
   font-size: 1.5rem;
   transition: all 0.3s ease;
+  /* PERBAIKAN 3: Tampilan Brand Navbar */
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  padding: 8px 20px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .nav-logo:hover {
   transform: translateY(-2px);
+  /* PERBAIKAN 3: Efek hover untuk background */
+  background-color: rgba(255, 255, 255, 0.25);
 }
 
 .nav-logo img {
-  height: 50px;
-  width: 50px;
+  /* PERBAIKAN 3: Ukuran logo disesuaikan */
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
@@ -1020,10 +1029,11 @@ p {
 .hero-overlay {
   position: absolute;
   inset: 0;
+  /* PERBAIKAN 2: Overlay lebih gelap untuk kontras teks */
   background: linear-gradient(
     135deg,
-    rgba(44, 95, 45, 0.7),
-    rgba(0, 0, 0, 0.7)
+    rgba(44, 95, 45, 0.85),
+    rgba(0, 0, 0, 0.85)
   );
   z-index: -1;
 }
@@ -1050,7 +1060,8 @@ p {
   font-weight: 900;
   font-size: 3.5rem;
   line-height: 1.1;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  /* PERBAIKAN 2: Bayangan teks lebih tebal */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
   margin-bottom: 1.5rem;
 }
 
@@ -1060,6 +1071,8 @@ p {
   font-style: italic;
   margin-bottom: 2rem;
   opacity: 0.9;
+  /* PERBAIKAN 2: Tambahkan bayangan pada subtitle */
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
 }
 
 /* Premium Buttons */
@@ -2324,5 +2337,16 @@ p {
     width: 90%;
     right: 5%;
     left: 5%;
+  }
+}
+
+/* =====================================================
+   PERBAIKAN TAMBAHAN UNTUK WEBSITE VERDA NUSADAYA
+   ===================================================== */
+
+/* --- 1. PERBAIKAN GAMBAR HERO DI MOBILE --- */
+@media (max-width: 767px) {
+  .hero-bg img {
+    object-position: center top;
   }
 }
