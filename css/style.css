@@ -915,6 +915,7 @@ p {
   align-items: center;
 }
 
+/* PERBAIKAN 3: Tampilan Brand Navbar yang Premium */
 .nav-logo {
   display: flex;
   align-items: center;
@@ -924,15 +925,21 @@ p {
   font-weight: 700;
   font-size: 1.5rem;
   transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 8px 22px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .nav-logo:hover {
-  transform: translateY(-2px);
+  transform: translateY(-2px) scale(1.02);
+  background-color: rgba(255, 255, 255, 0.25);
 }
 
 .nav-logo img {
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
@@ -1015,15 +1022,17 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center center; /* Pastikan gambar terpusat */
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
+  /* Overlay lebih gelap untuk kontras yang lebih baik */
   background: linear-gradient(
     135deg,
-    rgba(44, 95, 45, 0.7),
-    rgba(0, 0, 0, 0.7)
+    rgba(44, 95, 45, 0.8),
+    rgba(0, 0, 0, 0.8)
   );
   z-index: -1;
 }
@@ -1050,7 +1059,8 @@ p {
   font-weight: 900;
   font-size: 3.5rem;
   line-height: 1.1;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  /* Bayangan teks yang lebih tebal untuk keterbacaan maksimal */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
   margin-bottom: 1.5rem;
 }
 
@@ -1060,6 +1070,8 @@ p {
   font-style: italic;
   margin-bottom: 2rem;
   opacity: 0.9;
+  /* Tambahkan bayangan pada subtitle agar konsisten dan mudah dibaca */
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
 }
 
 /* Premium Buttons */
@@ -2286,14 +2298,52 @@ p {
   }
 }
 
-/* Mobile Responsive */
+/* Mobile Responsive - PERBAIKAN UTAMA ADA DI SINI */
 @media (max-width: 767px) {
+  /* --- PERBAIKAN 1: NAVBAR YANG LEBIH RAPIH --- */
+  .nav-container {
+    padding: 0.75rem 1rem; /* Mengurangi jarak di dalam navbar */
+  }
+
+  .nav-logo {
+    font-size: 1.2rem; /* Mengecilkan ukuran teks "Verda Nusadaya" */
+  }
+
+  .nav-logo img {
+    height: 35px; /* Mengecilkan ukuran logo */
+    width: 35px;
+  }
+
+  /* --- PERBAIKAN 2: TAMPILAN HERO YANG PROFESIONAL --- */
+  .hero {
+    height: 70vh; /* Diubah dari 100vh menjadi 70vh */
+  }
+
+  /* SOLUSI UTAMA: Beri latar belakang pada area teks */
+  .hero-text {
+    background-color: rgba(
+      0,
+      0,
+      0,
+      0.65
+    ); /* Latar belakang hitam semi-transparan */
+    padding: 2.5rem 2rem; /* Beri jarak dalam kotak teks */
+    border-radius: 15px; /* Buat sudutnya melengkung */
+    backdrop-filter: blur(8px); /* Efek kaca modern (glassmorphism) */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Garis tepi tipis untuk efek premium */
+  }
+
+  /* Sesuaikan ukuran teks di dalam kotak baru */
   .hero-title {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+    line-height: 1.2;
+    /* Bayangan teks yang kuat untuk keterbacaan maksimal di dalam kotak */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
   }
 
   .hero-subtitle {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
   }
 
   .section {
