@@ -1022,13 +1022,12 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center center; /* Pastikan gambar terpusat */
+  object-position: center center;
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
-  /* Overlay lebih gelap untuk kontras yang lebih baik */
   background: linear-gradient(
     135deg,
     rgba(44, 95, 45, 0.8),
@@ -1059,7 +1058,6 @@ p {
   font-weight: 900;
   font-size: 3.5rem;
   line-height: 1.1;
-  /* Bayangan teks yang lebih tebal untuk keterbacaan maksimal */
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
   margin-bottom: 1.5rem;
 }
@@ -1070,7 +1068,6 @@ p {
   font-style: italic;
   margin-bottom: 2rem;
   opacity: 0.9;
-  /* Tambahkan bayangan pada subtitle agar konsisten dan mudah dibaca */
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
 }
 
@@ -2298,56 +2295,116 @@ p {
   }
 }
 
-/* Mobile Responsive - PERBAIKAN UTAMA ADA DI SINI */
+/* =====================================================
+   DESAIN ULANG PREMIUM UNTUK MOBILE - VERDA NUSADAYA
+   Ganti seluruh kode @media (max-width: 767px) yang lama dengan ini.
+   ===================================================== */
 @media (max-width: 767px) {
-  /* --- PERBAIKAN 1: NAVBAR YANG LEBIH RAPIH --- */
+  /* --- PERBAIKAN 1: NAVBAR YANG LEBIH RINGKAS --- */
   .nav-container {
-    padding: 0.75rem 1rem; /* Mengurangi jarak di dalam navbar */
+    padding: 0.75rem 1rem;
   }
 
   .nav-logo {
-    font-size: 1.2rem; /* Mengecilkan ukuran teks "Verda Nusadaya" */
+    font-size: 1.2rem;
+    padding: 6px 18px;
   }
 
   .nav-logo img {
-    height: 35px; /* Mengecilkan ukuran logo */
-    width: 35px;
+    height: 32px !important;
+    width: 32px !important;
   }
 
-  /* --- PERBAIKAN 2: TAMPILAN HERO YANG PROFESIONAL --- */
+  /* --- PERBAIKAN 2: HERO SECTION YANG BENAR-BENAR BARU & PREMIUM --- */
   .hero {
-    height: 70vh; /* Diubah dari 100vh menjadi 70vh */
+    /* Gunakan latar belakang bersih, bukan gambar */
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    /* Tinggi hero yang lebih proporsional */
+    min-height: 90vh;
+    /* Hilangkan overflow hidden dan positioning yang lama */
+    overflow: visible;
+    position: relative;
   }
 
-  /* SOLUSI UTAMA: Beri latar belakang pada area teks */
+  /* Sembunyikan gambar latar dan overlay lama */
+  .hero-bg,
+  .hero-overlay {
+    display: none;
+  }
+
+  .hero-content {
+    /* Ubah tata letak menjadi vertikal (kolom) */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    height: auto;
+    min-height: 60vh; /* Beri ruang untuk teks */
+  }
+
   .hero-text {
-    background-color: rgba(
-      0,
-      0,
-      0,
-      0.65
-    ); /* Latar belakang hitam semi-transparan */
-    padding: 2.5rem 2rem; /* Beri jarak dalam kotak teks */
-    border-radius: 15px; /* Buat sudutnya melengkung */
-    backdrop-filter: blur(8px); /* Efek kaca modern (glassmorphism) */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Garis tepi tipis untuk efek premium */
+    /* Hapus semua style lama */
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    backdrop-filter: none;
+    border: none;
+    /* Gunakan teks berwarna gelap untuk kontras maksimal */
+    color: var(--dark-color);
+    max-width: 100%;
   }
 
-  /* Sesuaikan ukuran teks di dalam kotak baru */
   .hero-title {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     line-height: 1.2;
-    /* Bayangan teks yang kuat untuk keterbacaan maksimal di dalam kotak */
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9);
+    /* Hapus text-shadow, tidak perlu lagi */
+    text-shadow: none;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
   }
 
   .hero-subtitle {
     font-size: 1.1rem;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+    /* Hapus text-shadow */
+    text-shadow: none;
+    color: var(--text-gray);
+    margin-bottom: 2rem;
   }
 
+  /* Tombol dengan warna yang sesuai */
+  .btn-primary {
+    background: linear-gradient(
+      135deg,
+      var(--primary-color),
+      var(--secondary-color)
+    );
+    color: white;
+  }
+
+  /* --- GAMBAR HERO SEBAGAI ELEMEN TERPISAH --- */
+  /* Tambahkan gambar hero di bawah teks */
+  .hero-content::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 250px;
+    margin-top: 3rem;
+    /* Catatan: Pastikan path ini benar. Jika file CSS Anda di folder 'css', gunakan '../img/banner.jpg' */
+    background-image: url("../img/banner.jpg");
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  /* --- PENYESUAIAN UNTUK SECTION LAINNYA --- */
   .section {
     padding: 60px 0;
+  }
+
+  .section-title h2 {
+    font-size: 2rem;
   }
 
   .cta-section h2 {
