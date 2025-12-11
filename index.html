@@ -28,7 +28,7 @@
       content="https://officialverdanusadaya-pixel.github.io/official.verdanusadaya/"
     />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="./img/favicon-32x32.png" />
+    <meta property="og:image" content="./img/verda-nusadaya-og-image.jpg" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -40,11 +40,29 @@
       name="twitter:description"
       content="PT. Verda Nusadaya menyediakan berbagai produk agroindustri berkualitas tinggi dengan harga terbaik."
     />
-    <meta name="twitter:image" content="./img/favicon-32x32.png" />
+    <meta
+      name="twitter:image"
+      content="./img/verda-nusadaya-twitter-image.jpg"
+    />
+
+    <!-- Additional SEO Meta Tags -->
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="language" content="Indonesian" />
+    <meta name="revisit-after" content="7 days" />
+    <link
+      rel="canonical"
+      href="https://officialverdanusadaya-pixel.github.io/official.verdanusadaya/"
+    />
 
     <!-- Favicon -->
     <link rel="icon" href="./img/favicon-32x32.png" />
     <link rel="apple-touch-icon" href="./img/favicon-32x32.png" />
+
+    <!-- Preconnect untuk domain eksternal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
 
     <!-- Premium Fonts -->
     <link
@@ -56,10 +74,17 @@
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      media="print"
+      onload="this.media='all'"
     />
 
     <!-- AOS Animation -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link
+      href="https://unpkg.com/aos@2.3.1/dist/aos.css"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
 
     <!-- CSS -->
     <link rel="stylesheet" href="./css/style.css" />
@@ -94,16 +119,6 @@
         ]
       }
     </script>
-
-    <!-- Additional SEO Meta Tags -->
-    <meta name="robots" content="index, follow" />
-    <meta name="googlebot" content="index, follow" />
-    <meta name="language" content="Indonesian" />
-    <meta name="revisit-after" content="7 days" />
-    <link
-      rel="canonical"
-      href="https://officialverdanusadaya-pixel.github.io/official.verdanusadaya/"
-    />
 
     <!-- Custom Premium Styles -->
     <style>
@@ -772,46 +787,163 @@
         display: none;
       }
 
-      /* Responsive Design */
-      @media (max-width: 992px) {
-        .nav-menu,
-        .nav-contact {
-          display: none;
-        }
-
-        .nav-mobile-btn {
-          display: block;
-        }
-
-        .hero-title {
-          font-size: 2.5rem;
-        }
-
-        .section-title h2 {
-          font-size: 2rem;
-        }
+      /* WhatsApp Button */
+      .whatsapp-button {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #25d366;
+        color: white;
+        border-radius: 50px;
+        padding: 12px 20px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
       }
 
-      @media (max-width: 768px) {
-        .hero-title {
-          font-size: 2rem;
-        }
+      .whatsapp-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      }
 
-        .hero-subtitle {
-          font-size: 1.2rem;
-        }
+      .whatsapp-button i {
+        font-size: 20px;
+      }
 
-        .section {
-          padding: 60px 0;
-        }
+      /* Live Chat Button */
+      .chat-button {
+        position: fixed;
+        bottom: 80px;
+        right: 20px;
+        background-color: var(--primary-color);
+        color: white;
+        border-radius: 50%;
+        width: 56px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
 
-        .cta-section h2 {
-          font-size: 2rem;
-        }
+      .chat-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+      }
 
-        .cta-section p {
-          font-size: 1rem;
-        }
+      .chat-button i {
+        font-size: 20px;
+      }
+
+      /* Live Chat Container */
+      .live-chat-container {
+        position: fixed;
+        bottom: 150px;
+        right: 20px;
+        width: 350px;
+        height: 450px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        display: none;
+        flex-direction: column;
+        overflow: hidden;
+      }
+
+      .live-chat-container.open {
+        display: flex;
+      }
+
+      .chat-header {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        color: white;
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .chat-header h3 {
+        margin: 0;
+        font-size: 16px;
+      }
+
+      .close-chat {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+      }
+
+      .chat-body {
+        flex: 1;
+        padding: 15px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .chat-message {
+        max-width: 80%;
+        padding: 10px;
+        border-radius: 10px;
+        word-wrap: break-word;
+      }
+
+      .chat-message.bot {
+        background: #f1f1f1;
+        align-self: flex-start;
+      }
+
+      .chat-message.user {
+        background: var(--primary-color);
+        color: white;
+        align-self: flex-end;
+      }
+
+      .chat-footer {
+        padding: 15px;
+        border-top: 1px solid #eee;
+        display: flex;
+        gap: 10px;
+      }
+
+      .chat-input {
+        flex: 1;
+        border: 1px solid #ddd;
+        border-radius: 20px;
+        padding: 8px 15px;
+        outline: none;
+      }
+
+      .send-message {
+        background: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
       }
 
       /* Loading Animation */
@@ -852,24 +984,107 @@
           transform: rotate(360deg);
         }
       }
+
+      /* Skip Link untuk Aksesibilitas */
+      .skip-link {
+        position: absolute;
+        top: -40px;
+        left: 0;
+        background: var(--primary-color);
+        color: white;
+        padding: 8px;
+        z-index: 100;
+        transition: top 0.3s;
+      }
+
+      .skip-link:focus {
+        top: 0;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 992px) {
+        .nav-menu,
+        .nav-contact {
+          display: none;
+        }
+
+        .nav-mobile-btn {
+          display: block;
+        }
+
+        .hero-title {
+          font-size: 2.5rem;
+        }
+
+        .section-title h2 {
+          font-size: 2rem;
+        }
+
+        .whatsapp-button span {
+          display: none;
+        }
+
+        .whatsapp-button {
+          width: 56px;
+          height: 56px;
+          border-radius: 50%;
+          justify-content: center;
+          padding: 0;
+        }
+
+        .live-chat-container {
+          width: 90%;
+          right: 5%;
+          left: 5%;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hero-title {
+          font-size: 2rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1.2rem;
+        }
+
+        .section {
+          padding: 60px 0;
+        }
+
+        .cta-section h2 {
+          font-size: 2rem;
+        }
+
+        .cta-section p {
+          font-size: 1rem;
+        }
+      }
     </style>
   </head>
   <body>
+    <!-- Skip Link untuk Aksesibilitas -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- Premium Loading Screen -->
     <div class="loader" id="loader">
       <div class="leaf-loader"></div>
     </div>
 
     <!-- Premium Navigation -->
-    <nav class="nav" id="navbar">
+    <nav class="nav" id="navbar" role="navigation" aria-label="Main Navigation">
       <div class="nav-container">
-        <a href="index.html" class="nav-logo">
-          <img src="img/favicon-32x32.png" alt="Verda Nusadaya" />
+        <a href="index.html" class="nav-logo" aria-label="Verda Nusadaya Home">
+          <img
+            src="img/favicon-32x32.png"
+            alt="Verda Nusadaya Logo"
+            loading="lazy"
+          />
           <span>Verda Nusadaya</span>
         </a>
 
         <ul class="nav-menu">
-          <li><a href="index.html" class="active">Beranda</a></li>
+          <li><a href="index.html" aria-current="page">Beranda</a></li>
           <li><a href="about.html">Tentang Kami</a></li>
           <li><a href="products.html">Produk</a></li>
           <li><a href="contact.html">Kontak</a></li>
@@ -877,33 +1092,53 @@
 
         <div class="nav-contact">
           <div class="nav-contact-info">
-            <i class="fas fa-phone"></i>
+            <i class="fas fa-phone" aria-hidden="true"></i>
             <span>+62 812-3456-7890</span>
           </div>
           <a href="contact.html" class="btn btn-primary">Hubungi Kami</a>
         </div>
 
-        <button class="nav-mobile-btn" onclick="toggleMobileMenu()">
-          <i class="fas fa-bars"></i>
+        <button
+          class="nav-mobile-btn"
+          onclick="toggleMobileMenu()"
+          aria-label="Toggle Mobile Menu"
+        >
+          <i class="fas fa-bars" aria-hidden="true"></i>
         </button>
       </div>
     </nav>
 
     <!-- Premium Mobile Menu -->
-    <div id="mobileMenu" class="mobile-menu">
+    <div
+      id="mobileMenu"
+      class="mobile-menu"
+      role="navigation"
+      aria-label="Mobile Navigation"
+    >
       <div class="mobile-menu-header">
         <div class="nav-logo">
-          <img src="img/favicon-32x32.png" alt="Verda Nusadaya" />
+          <img
+            src="img/favicon-32x32.png"
+            alt="Verda Nusadaya Logo"
+            loading="lazy"
+          />
           <span>Verda Nusadaya</span>
         </div>
-        <button class="mobile-menu-close" onclick="toggleMobileMenu()">
-          <i class="fas fa-times"></i>
+        <button
+          class="mobile-menu-close"
+          onclick="toggleMobileMenu()"
+          aria-label="Close Mobile Menu"
+        >
+          <i class="fas fa-times" aria-hidden="true"></i>
         </button>
       </div>
       <div class="mobile-menu-content">
         <ul class="mobile-menu-links">
           <li>
-            <a href="index.html" onclick="toggleMobileMenu()" class="active"
+            <a
+              href="index.html"
+              onclick="toggleMobileMenu()"
+              aria-current="page"
               >Beranda</a
             >
           </li>
@@ -919,11 +1154,11 @@
         </ul>
         <div class="mobile-menu-contact">
           <div class="mobile-menu-contact-item">
-            <i class="fas fa-phone"></i>
+            <i class="fas fa-phone" aria-hidden="true"></i>
             <span>+62 812-3456-7890</span>
           </div>
           <div class="mobile-menu-contact-item">
-            <i class="fas fa-envelope"></i>
+            <i class="fas fa-envelope" aria-hidden="true"></i>
             <span>info@verdanusadaya.com</span>
           </div>
           <a href="contact.html" class="btn btn-primary w-full">Hubungi Kami</a>
@@ -931,13 +1166,26 @@
       </div>
     </div>
 
-    <div id="overlay" class="overlay" onclick="toggleMobileMenu()"></div>
+    <div
+      id="overlay"
+      class="overlay"
+      onclick="toggleMobileMenu()"
+      aria-hidden="true"
+    ></div>
 
     <!-- Premium Hero Section -->
-    <section class="hero">
+    <section class="hero" id="main-content">
       <div class="hero-bg">
         <div class="hero-overlay"></div>
-        <img src="img/banner.webp" alt="Agroindustri" loading="lazy" />
+        <picture>
+          <source srcset="img/banner.webp" type="image/webp" />
+          <source srcset="img/banner.jpg" type="image/jpeg" />
+          <img
+            src="img/banner.jpg"
+            alt="Agroindustri Indonesia"
+            loading="lazy"
+          />
+        </picture>
       </div>
       <div class="hero-content" data-aos="fade-up">
         <h1 class="hero-title">Trusted Agro-Industry Solutions</h1>
@@ -950,7 +1198,7 @@
           data-aos="fade-up"
           data-aos-delay="200"
         >
-          <i class="fas fa-seedling"></i>
+          <i class="fas fa-seedling" aria-hidden="true"></i>
           Explore Products
         </a>
       </div>
@@ -970,7 +1218,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-6">
           <div class="card text-center" data-aos="fade-up" data-aos-delay="100">
             <div class="feature-icon">
-              <i class="fas fa-award"></i>
+              <i class="fas fa-award" aria-hidden="true"></i>
             </div>
             <h3 class="text-xl font-semibold mb-2">Premium Quality</h3>
             <p class="text-gray-600">
@@ -981,7 +1229,7 @@
 
           <div class="card text-center" data-aos="fade-up" data-aos-delay="200">
             <div class="feature-icon">
-              <i class="fas fa-handshake"></i>
+              <i class="fas fa-handshake" aria-hidden="true"></i>
             </div>
             <h3 class="text-xl font-semibold mb-2">Excellent Service</h3>
             <p class="text-gray-600">
@@ -992,7 +1240,7 @@
 
           <div class="card text-center" data-aos="fade-up" data-aos-delay="300">
             <div class="feature-icon">
-              <i class="fas fa-chart-line"></i>
+              <i class="fas fa-chart-line" aria-hidden="true"></i>
             </div>
             <h3 class="text-xl font-semibold mb-2">Competitive Pricing</h3>
             <p class="text-gray-600">
@@ -1035,11 +1283,11 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
             <div class="rating mb-4">
-              <i class="fas fa-star star"></i>
-              <i class="fas fa-star star"></i>
-              <i class="fas fa-star star"></i>
-              <i class="fas fa-star star"></i>
-              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star" aria-hidden="true"></i>
+              <i class="fas fa-star star" aria-hidden="true"></i>
+              <i class="fas fa-star star" aria-hidden="true"></i>
+              <i class="fas fa-star star" aria-hidden="true"></i>
+              <i class="fas fa-star star" aria-hidden="true"></i>
             </div>
             <p class="text-gray-600 mb-4 italic">
               "Verda Nusadaya is a trusted supplier for our industrial rubber
@@ -1047,7 +1295,10 @@
               deliveries are always on time."
             </p>
             <div class="flex items-center">
-              <div class="w-12 h-12 bg-gray-200 rounded-full mr-4"></div>
+              <div
+                class="w-12 h-12 bg-gray-200 rounded-full mr-4"
+                aria-hidden="true"
+              ></div>
               <div>
                 <h4 class="font-semibold">PT. Agro Makmur</h4>
                 <p class="text-sm text-gray-500">Partner Industri</p>
@@ -1057,18 +1308,21 @@
 
           <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
             <div class="rating mb-4">
-              <i class="fas fa-star star"></i>
-              <i class="fas fa-star star"></i>
-              <i class="fas fa-star star"></i>
-              <i class="fas fa-star star"></i>
-              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star" aria-hidden="true"></i>
+              <i class="fas fa-star star" aria-hidden="true"></i>
+              <i class="fas fa-star star" aria-hidden="true"></i>
+              <i class="fas fa-star star" aria-hidden="true"></i>
+              <i class="fas fa-star star" aria-hidden="true"></i>
             </div>
             <p class="text-gray-600 mb-4 italic">
               "Verda Nusadaya coffee is of the highest quality. Its distinctive
               aroma and flavor leave our customers thoroughly satisfied."
             </p>
             <div class="flex items-center">
-              <div class="w-12 h-12 bg-gray-200 rounded-full mr-4"></div>
+              <div
+                class="w-12 h-12 bg-gray-200 rounded-full mr-4"
+                aria-hidden="true"
+              ></div>
               <div>
                 <h4 class="font-semibold">Budi Santoso</h4>
                 <p class="text-sm text-gray-500">Pembeli Kopi</p>
@@ -1078,11 +1332,11 @@
 
           <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
             <div class="rating mb-4">
-              <i class="fas fa-star star"></i>
-              <i class="fas fa-star star"></i>
-              <i class="fas fa-star star"></i>
-              <i class="fas fa-star star"></i>
-              <i class="fas fa-star star"></i>
+              <i class="fas fa-star star" aria-hidden="true"></i>
+              <i class="fas fa-star star" aria-hidden="true"></i>
+              <i class="fas fa-star star" aria-hidden="true"></i>
+              <i class="fas fa-star star" aria-hidden="true"></i>
+              <i class="fas fa-star star" aria-hidden="true"></i>
             </div>
             <p class="text-gray-600 mb-4 italic">
               "Partnering with Verda Nusadaya has been highly beneficial.
@@ -1090,7 +1344,10 @@
               service."
             </p>
             <div class="flex items-center">
-              <div class="w-12 h-12 bg-gray-200 rounded-full mr-4"></div>
+              <div
+                class="w-12 h-12 bg-gray-200 rounded-full mr-4"
+                aria-hidden="true"
+              ></div>
               <div>
                 <h4 class="font-semibold">CV. Nusantara Jaya</h4>
                 <p class="text-sm text-gray-500">Distributor</p>
@@ -1194,7 +1451,7 @@
             href="contact.html"
             class="btn bg-white text-green-600 hover:bg-gray-100 px-8"
           >
-            <i class="fas fa-phone"></i>
+            <i class="fas fa-phone" aria-hidden="true"></i>
             Contact Us
           </a>
           <a
@@ -1202,7 +1459,7 @@
             class="btn btn-outline border-white text-white hover:bg-white hover:text-green-600 px-8"
             onclick="downloadCatalog()"
           >
-            <i class="fas fa-download"></i>
+            <i class="fas fa-download" aria-hidden="true"></i>
             Download Catalog
           </a>
         </div>
@@ -1219,6 +1476,7 @@
                 src="img/favicon-32x32.png"
                 alt="Verda Nusadaya Logo"
                 class="footer-logo-icon"
+                loading="lazy"
               />
               <span>Verda Nusadaya</span>
             </div>
@@ -1228,14 +1486,29 @@
               produce.
             </p>
             <div class="footer-social">
-              <a href="https://www.facebook.com/verdanusadaya" target="_blank">
-                <i class="fab fa-facebook-f"></i>
+              <a
+                href="https://www.facebook.com/verdanusadaya"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+              >
+                <i class="fab fa-facebook-f" aria-hidden="true"></i>
               </a>
-              <a href="https://www.instagram.com/verdanusadaya" target="_blank">
-                <i class="fab fa-instagram"></i>
+              <a
+                href="https://www.instagram.com/verdanusadaya"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+              >
+                <i class="fab fa-instagram" aria-hidden="true"></i>
               </a>
-              <a href="https://www.twitter.com/verdanusadaya" target="_blank">
-                <i class="fab fa-twitter"></i>
+              <a
+                href="https://www.twitter.com/verdanusadaya"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Twitter"
+              >
+                <i class="fab fa-twitter" aria-hidden="true"></i>
               </a>
             </div>
           </div>
@@ -1254,15 +1527,21 @@
             <h3>Kontak</h3>
             <div class="space-y-3">
               <div class="flex items-center space-x-2">
-                <i class="fas fa-phone text-green-400"></i>
+                <i class="fas fa-phone text-green-400" aria-hidden="true"></i>
                 <span class="text-gray-300">+62 812-3456-7890</span>
               </div>
               <div class="flex items-center space-x-2">
-                <i class="fas fa-envelope text-green-400"></i>
+                <i
+                  class="fas fa-envelope text-green-400"
+                  aria-hidden="true"
+                ></i>
                 <span class="text-gray-300">info@verdanusadaya.com</span>
               </div>
               <div class="flex items-start space-x-2">
-                <i class="fas fa-map-marker-alt text-green-400 mt-1"></i>
+                <i
+                  class="fas fa-map-marker-alt text-green-400 mt-1"
+                  aria-hidden="true"
+                ></i>
                 <span class="text-gray-300">
                   Jl. Raya Gondang No.16, Gondang Village<br />
                   Gangga Subdistrict, North Lombok Regency<br />
@@ -1279,15 +1558,68 @@
       </div>
     </footer>
 
+    <!-- WhatsApp Button -->
+    <a
+      href="https://wa.me/6281234567890?text=Halo%20Verda%20Nusadaya,%20saya%20tertarik%20dengan%20produk%20Anda"
+      class="whatsapp-button"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat on WhatsApp"
+    >
+      <i class="fab fa-whatsapp" aria-hidden="true"></i>
+      <span>Chat via WhatsApp</span>
+    </a>
+
+    <!-- Live Chat Button -->
+    <button class="chat-button" id="open-chat" aria-label="Open Live Chat">
+      <i class="fas fa-comments" aria-hidden="true"></i>
+    </button>
+
+    <!-- Live Chat Container -->
+    <div class="live-chat-container" id="live-chat">
+      <div class="chat-header">
+        <h3>Ada yang bisa kami bantu?</h3>
+        <button class="close-chat" id="close-chat" aria-label="Close Chat">
+          <i class="fas fa-times" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="chat-body">
+        <div class="chat-message bot">
+          <p>
+            Halo! Selamat datang di Verda Nusadaya. Ada yang bisa kami bantu?
+          </p>
+        </div>
+        <div class="chat-messages" id="chat-messages"></div>
+      </div>
+      <div class="chat-footer">
+        <input
+          type="text"
+          id="chat-input"
+          class="chat-input"
+          placeholder="Ketik pesan..."
+          aria-label="Type your message"
+        />
+        <button
+          class="send-message"
+          id="send-message"
+          aria-label="Send Message"
+        >
+          <i class="fas fa-paper-plane" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+
     <!-- JavaScript -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="./js/main.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+    <script src="./js/main.js" defer></script>
 
     <script>
       // Initialize AOS
-      AOS.init({
-        duration: 1000,
-        once: true,
+      document.addEventListener("DOMContentLoaded", function () {
+        AOS.init({
+          duration: 1000,
+          once: true,
+        });
       });
 
       // Hide loader when page is fully loaded
@@ -1312,37 +1644,113 @@
         renderFeaturedProducts();
       });
 
+      // Live Chat Functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const openChatBtn = document.getElementById("open-chat");
+        const closeChatBtn = document.getElementById("close-chat");
+        const liveChat = document.getElementById("live-chat");
+        const sendBtn = document.getElementById("send-message");
+        const chatInput = document.getElementById("chat-input");
+        const chatMessages = document.getElementById("chat-messages");
+
+        openChatBtn.addEventListener("click", function () {
+          liveChat.classList.add("open");
+        });
+
+        closeChatBtn.addEventListener("click", function () {
+          liveChat.classList.remove("open");
+        });
+
+        sendBtn.addEventListener("click", function () {
+          const message = chatInput.value.trim();
+          if (message) {
+            addMessage(message, "user");
+            chatInput.value = "";
+
+            // Simulasi respons bot
+            setTimeout(function () {
+              const responses = [
+                "Terima kasih atas pesan Anda. Tim kami akan segera merespons.",
+                "Silakan tinggalkan nomor telepon Anda, kami akan menghubungi segera.",
+                "Untuk informasi produk, silakan kunjungi halaman produk kami.",
+              ];
+              const randomResponse =
+                responses[Math.floor(Math.random() * responses.length)];
+              addMessage(randomResponse, "bot");
+            }, 1000);
+          }
+        });
+
+        function addMessage(message, sender) {
+          const messageDiv = document.createElement("div");
+          messageDiv.className = `chat-message ${sender}`;
+          messageDiv.innerHTML = `<p>${message}</p>`;
+          chatMessages.appendChild(messageDiv);
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+      });
+
       // Download catalog function
       function downloadCatalog() {
-        // Create a simple catalog download
         const catalogContent = `
 VERDA NUSADAYA - PRODUCT CATALOG
+=====================================
 
 Premium Agro-Industry Products
 
-1. Coffee Products
-   - Arabica Coffee: Rp 150.000/kg
-   - Robusta Coffee: Rp 120.000/kg
+ ${products
+   .map(
+     (product) => `
+ ${product.id}. ${product.name}
+   Category: ${product.categoryLabel}
+   Price: ${product.price}
+   Minimum Order: ${product.minOrder} ${
+       product.category === "kelapa-sawit" && product.name.includes("Liter")
+         ? "liter"
+         : "kg"
+     }
+   Rating: ${product.rating}/5
+   ${product.isFeatured ? "⭐ Featured Product" : ""}
+   
+   Description: ${product.description}
+   
+   Specifications:
+   ${product.specs.map((spec) => `   • ${spec}`).join("\n")}
+   
+   ---
+`
+   )
+   .join("\n")}
 
-2. Rubber Products
-   - SIR-20 Standard: Rp 25.000/kg
-   - RSS-1 Standard: Rp 22.000/kg
+Company Information:
+==================
+ ${COMPANY_CONFIG.name}
+Address: ${COMPANY_CONFIG.address.street}
+         ${COMPANY_CONFIG.address.district}
+         ${COMPANY_CONFIG.address.regency}
+         ${COMPANY_CONFIG.address.province} ${COMPANY_CONFIG.address.postalCode}
+         ${COMPANY_CONFIG.address.country}
 
-3. Palm Oil Products
-   - Crude Palm Oil: Rp 12.000/kg
-   - Refined Palm Oil: Rp 15.000/liter
+Contact:
+Phone: ${COMPANY_CONFIG.contact.phone}
+Email: ${COMPANY_CONFIG.contact.email}
 
-For more information, contact us:
-Phone: +62 812-3456-7890
-Email: info@verdanusadaya.com
+Operating Hours:
+Monday - Friday: ${COMPANY_CONFIG.operatingHours.weekdays}
+Saturday: ${COMPANY_CONFIG.operatingHours.saturday}
+
 Website: https://officialverdanusadaya-pixel.github.io/official.verdanusadaya/
-            `;
+
+For more information or to place an order, please contact our sales team.
+
+Generated on: ${new Date().toLocaleDateString("id-ID")}
+        `;
 
         const blob = new Blob([catalogContent], { type: "text/plain" });
         const url = window.URL.createObjectURL(blob);
         const a = document.createElement("a");
         a.href = url;
-        a.download = "verda-nusadaya-catalog.txt";
+        a.download = "verda-nusadaya-product-catalog.txt";
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
