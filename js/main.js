@@ -151,7 +151,7 @@ const products = [
     description:
       "Premium Coffee – designed for modern lifestyle. Savor rich aroma and deep flavor, whether at home, at work, or with friends.",
     image:
-      "https://images.unsplash.com/photo-1589830802010-c2c25d784842?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "https://images.pexels.com/photos/27777798/pexels-photo-27777798.jpeg",
     price: "Rp 150.000/kg",
     rating: 4.8,
     isFeatured: true,
