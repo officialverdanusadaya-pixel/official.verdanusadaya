@@ -150,8 +150,13 @@ const products = [
     category: "kopi",
     description:
       "Premium Coffee – designed for modern lifestyle. Savor rich aroma and deep flavor, whether at home, at work, or with friends.",
-    image:
+    // PERUBAHAN: Menggunakan 'images' array untuk galeri
+    images: [
       "https://images.pexels.com/photos/27777798/pexels-photo-27777798.jpeg",
+      "https://images.pexels.com/photos/4815899/pexels-photo-4815899.jpeg",
+      "https://images.pexels.com/photos/942801/pexels-photo-942801.jpeg",
+      "https://images.pexels.com/photos/10541145/pexels-photo-10541145.jpeg",
+    ],
     price: "Rp 150.000/kg",
     rating: 4.8,
     isFeatured: true,
@@ -172,9 +177,13 @@ const products = [
     category: "karet",
     description:
       "Clove offers finest, hand-selected cloves with a rich, warm aroma. Perfect for enhancing flavor of your culinary creations, beverages, or spice blends, delivering an unforgettable taste experience.",
-
-    image:
-      "https://images.unsplash.com/photo-1626609940583-15b24846eadd?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    // PERUBAHAN: Menggunakan 'images' array
+    images: [
+      "https://i.pinimg.com/736x/9f/dc/9a/9fdc9a733ef8e4a744d86d68e3687e38.jpg",
+      "https://i.pinimg.com/736x/10/d7/a4/10d7a4adb7c38073e3054cf917e2838a.jpg",
+      "https://i.pinimg.com/736x/b0/c0/18/b0c01825cd8ea34fad659de57b89b59f.jpg",
+      "https://i.pinimg.com/736x/9a/c0/43/9ac043ac7fdcc677c844713c2a7036b8.jpg",
+    ],
     price: "Rp 25.000/kg",
     rating: 4.7,
     isFeatured: true,
@@ -194,8 +203,13 @@ const products = [
     category: "kelapa-sawit",
     description:
       "Crush features hand-selected, crunchy cashews with a rich, buttery flavor. Perfect as a snack or a gourmet addition to your favorite recipes, delivering an irresistible crunch in every bite.",
-    image:
-      "https://images.unsplash.com/photo-1726771517475-e7acdd34cd8a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    // PERUBAHAN: Menggunakan 'images' array
+    images: [
+      "https://i.pinimg.com/736x/50/c3/29/50c3293ba78df3eba3a553029a1ce87f.jpg",
+      "https://i.pinimg.com/736x/66/2d/d0/662dd050d8b73512d1f3a7e57c02962f.jpg",
+      "https://i.pinimg.com/1200x/65/c7/56/65c756c93f03c7c0bb8c761e908035ce.jpg",
+      "https://i.pinimg.com/736x/99/ff/4f/99ff4f61ea65edeec9fab6e133f5e3a8.jpg",
+    ],
     price: "Rp 120.000/kg",
     rating: 4.9,
     isFeatured: true,
@@ -216,8 +230,13 @@ const products = [
     category: "kopi",
     description:
       "Experience tropical freshness of Golden Coconut. Its rich aroma and natural sweetness bring a refreshing taste to every dish or drink.",
-    image:
-      "https://images.unsplash.com/photo-1537191072641-5e19cc173c6a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    // PERUBAHAN: Menggunakan 'images' array
+    images: [
+      "https://i.pinimg.com/736x/fd/2c/af/fd2caf4130f4961fdc8cb5ec4f1149eb.jpg",
+      "https://i.pinimg.com/736x/b2/c0/a0/b2c0a004b43acd0f684f569d1473e7ee.jpg",
+      "https://i.pinimg.com/736x/ee/3a/c4/ee3ac4f76d8a45ea69d9dfbed760f840.jpg",
+      "https://i.pinimg.com/1200x/8e/7b/b3/8e7bb3cb265abc4a5f0c31af61b02bb7.jpg",
+    ],
     price: "Rp 120.000/kg",
     rating: 4.6,
     isFeatured: false,
@@ -237,6 +256,13 @@ function getCategoryLabel(category) {
     lainnya: "Lainnya",
   };
   return labels[category] || category;
+}
+
+// FUNGSI BARU: Untuk menghindari pengulangan logika satuan (kg/liter)
+function getOrderUnit(product) {
+  return product.category === "kelapa-sawit" && product.name.includes("Liter")
+    ? "liter"
+    : "kg";
 }
 
 function generateRatingStars(rating) {
@@ -284,10 +310,15 @@ function createProductCard(product) {
   const categoryLabel = getCategoryLabel(product.category);
   const ratingStars = generateRatingStars(product.rating);
   const specsBadges = generateSpecsBadges(product.specs);
+  // Gunakan gambar pertama dari array untuk kartu produk
+  const imageUrl =
+    product.images && product.images.length > 0
+      ? product.images[0]
+      : product.image;
 
   card.innerHTML = `
     <div class="product-image">
-      <img src="${product.image}" alt="${
+      <img src="${imageUrl}" alt="${
     product.name
   }" loading="lazy" onerror="this.src='https://picsum.photos/seed/${
     product.id
@@ -318,18 +349,14 @@ function createProductCard(product) {
       </div>
 
       <div class="product-price">${product.price}</div>
-      <div class="text-xs text-gray-500 mb-4">Min. ${product.minOrder} ${
-    product.category === "kelapa-sawit" && product.name.includes("Liter")
-      ? "liter"
-      : "kg"
-  }</div>
+      <div class="text-xs text-gray-500 mb-4">Min. ${
+        product.minOrder
+      } ${getOrderUnit(product)}</div>
 
       <div class="product-actions">
-        <!-- PERUBAAN: class="product-btn product-btn-outline" diubah menjadi "btn btn-outline" -->
         <a href="product-detail.html?id=${
           product.id
         }" class="btn btn-outline">Detail</a>
-        <!-- PERUBAAN: class="product-btn product-btn-primary" diubah menjadi "btn btn-primary" -->
         <a href="contact.html" class="btn btn-primary" onclick="setProductInterest('${
           product.name
         }')">Beli</a>
@@ -412,7 +439,12 @@ function displayProductDetail(product) {
   // Update product image
   const productImage = document.getElementById("productImage");
   if (productImage) {
-    productImage.src = product.image;
+    // PERUBAHAN: Cek apakah ada array 'images'. Jika ada, gunakan gambar pertamanya.
+    const imageUrl =
+      product.images && product.images.length > 0
+        ? product.images[0]
+        : product.image;
+    productImage.src = imageUrl;
     productImage.alt = product.name;
     productImage.onerror = function () {
       this.src = `https://picsum.photos/seed/${product.id}/600/600.jpg`;
@@ -488,6 +520,7 @@ Untuk informasi lebih lanjut tentang harga, ketersediaan stok, dan proses pemesa
   if (specList) {
     specList.innerHTML = "";
     const categoryLabel = getCategoryLabel(product.category);
+    const unit = getOrderUnit(product); // PERUBAHAN: Gunakan helper function
 
     // Add basic specs
     const basicSpecs = [
@@ -495,11 +528,7 @@ Untuk informasi lebih lanjut tentang harga, ketersediaan stok, dan proses pemesa
       { label: "Harga", value: product.price },
       {
         label: "Minimum Order",
-        value: `${product.minOrder} ${
-          product.category === "kelapa-sawit" && product.name.includes("Liter")
-            ? "liter"
-            : "kg"
-        }`,
+        value: `${product.minOrder} ${unit}`,
       },
       {
         label: "Ketersediaan",
@@ -536,13 +565,19 @@ function createImageThumbnails(product) {
   // Clear existing thumbnails
   imageThumbnails.innerHTML = "";
 
-  // Generate additional image URLs for thumbnails
-  const thumbnailImages = [
-    product.image,
-    `https://picsum.photos/seed/${product.id}-1/300/300.jpg`,
-    `https://picsum.photos/seed/${product.id}-2/300/300.jpg`,
-    `https://picsum.photos/seed/${product.id}-3/300/300.jpg`,
-  ];
+  // PERUBAHAN: Gunakan gambar dari data produk, bukan placeholder
+  let thumbnailImages = [];
+
+  if (product.images && product.images.length > 0) {
+    // Jika ada array 'images', gunakan itu
+    thumbnailImages = product.images;
+  } else if (product.image) {
+    // Jika tidak, buat array dari 'image' tunggal (untuk produk lama)
+    thumbnailImages = [product.image];
+  }
+
+  // Jika tidak ada gambar sama sekali, hentikan fungsi
+  if (thumbnailImages.length === 0) return;
 
   // Create thumbnail elements
   thumbnailImages.forEach((imageUrl, index) => {
@@ -661,10 +696,16 @@ function createRelatedProductCard(product) {
 
   const categoryLabel = getCategoryLabel(product.category);
   const ratingStars = generateRatingStars(product.rating);
+  const unit = getOrderUnit(product); // PERUBAHAN: Gunakan helper function
+  // Gunakan gambar pertama dari array untuk kartu terkait
+  const imageUrl =
+    product.images && product.images.length > 0
+      ? product.images[0]
+      : product.image;
 
   card.innerHTML = `
     <div class="related-product-image">
-      <img src="${product.image}" alt="${
+      <img src="${imageUrl}" alt="${
     product.name
   }" loading="lazy" onerror="this.src='https://picsum.photos/seed/${
     product.id
@@ -683,11 +724,9 @@ function createRelatedProductCard(product) {
       <div class="flex justify-between items-center">
         <div>
           <span class="text-lg font-bold text-green-600">${product.price}</span>
-          <span class="text-xs text-gray-500 block">Min. ${product.minOrder} ${
-    product.category === "kelapa-sawit" && product.name.includes("Liter")
-      ? "liter"
-      : "kg"
-  }</span>
+          <span class="text-xs text-gray-500 block">Min. ${
+            product.minOrder
+          } ${unit}</span>
         </div>
         <a href="product-detail.html?id=${
           product.id
