@@ -12,7 +12,7 @@ const COMPANY_CONFIG = {
     country: "Indonesia",
   },
   contact: {
-    phone: "+62 812-3456-7890",
+    phone: "+62 819-1890-0333",
     email: "info@verdanusadaya.com",
     salesPhone: "+62 812-3456-7890",
     customerServicePhone: "+62 811-2345-6789",
@@ -146,7 +146,7 @@ document.addEventListener("keydown", function (e) {
 const products = [
   {
     id: 1,
-    name: "Premium Coffee",
+    name: "Coffee",
     category: "kopi",
     description:
       "Premium Coffee – designed for modern lifestyle. Savor rich aroma and deep flavor, whether at home, at work, or with friends.",
@@ -168,10 +168,11 @@ const products = [
   },
   {
     id: 2,
-    name: "Cashew Crush",
+    name: "Cloves",
     category: "karet",
     description:
-      "Cashew Crush features hand-selected, crunchy cashews with a rich, buttery flavor. Perfect as a snack or a gourmet addition to your favorite recipes, delivering an irresistible crunch in every bite.",
+      "Clove offers finest, hand-selected cloves with a rich, warm aroma. Perfect for enhancing flavor of your culinary creations, beverages, or spice blends, delivering an unforgettable taste experience.",
+
     image:
       "https://images.unsplash.com/photo-1626609940583-15b24846eadd?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     price: "Rp 25.000/kg",
@@ -189,13 +190,13 @@ const products = [
   },
   {
     id: 3,
-    name: "Golden Clove",
+    name: "Cashew",
     category: "kelapa-sawit",
     description:
-      "Golden Clove offers finest, hand-selected cloves with a rich, warm aroma. Perfect for enhancing flavor of your culinary creations, beverages, or spice blends, delivering an unforgettable taste experience.",
+      "Crush features hand-selected, crunchy cashews with a rich, buttery flavor. Perfect as a snack or a gourmet addition to your favorite recipes, delivering an irresistible crunch in every bite.",
     image:
       "https://images.unsplash.com/photo-1726771517475-e7acdd34cd8a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    price: "Rp 12.000/kg",
+    price: "Rp 120.000/kg",
     rating: 4.9,
     isFeatured: true,
     inStock: true,
@@ -324,10 +325,12 @@ function createProductCard(product) {
   }</div>
 
       <div class="product-actions">
+        <!-- PERUBAAN: class="product-btn product-btn-outline" diubah menjadi "btn btn-outline" -->
         <a href="product-detail.html?id=${
           product.id
-        }" class="product-btn product-btn-outline">Detail</a>
-        <a href="contact.html" class="product-btn product-btn-primary" onclick="setProductInterest('${
+        }" class="btn btn-outline">Detail</a>
+        <!-- PERUBAAN: class="product-btn product-btn-primary" diubah menjadi "btn btn-primary" -->
+        <a href="contact.html" class="btn btn-primary" onclick="setProductInterest('${
           product.name
         }')">Beli</a>
       </div>
